@@ -1,36 +1,68 @@
-AtlasFlow
-SMS PROGRAM
-SMS Consent & Messaging Policy
-Last updated: April 25, 2026 · Maven Group LLC · getatlasflow.io
-AtlasFlow sends automated SMS messages on behalf of licensed real estate agents to their leads and past clients. This page describes how our SMS program works, what recipients can expect, and how to opt out.
-Who Sends These Messages
-SMS messages sent through AtlasFlow are sent on behalf of the individual real estate agent whose name appears in the message. Maven Group LLC operates the technical infrastructure that delivers these messages via Twilio.
-What Messages You May Receive
-If your phone number was entered into AtlasFlow by a real estate agent, you may receive:
-	•	Initial follow-up messages from the agent about a real estate inquiry
-	•	Follow-up messages if you have not yet responded
-	•	Transaction updates and reminders if you are in an active real estate transaction
-	•	Post-close check-in messages and market updates from your agent
-Consent requirement
-AtlasFlow agents are required by our Terms of Service to obtain your prior express written consent before entering your phone number into our platform. If you believe you received a message without having consented, please contact us immediately at privacy@getatlasflow.io.
-Example Message
-SAMPLE FIRST MESSAGE FROM LAURA
-Hi [Name], this is [Agent Name] from [Brokerage]. Thanks for your interest — I'd love to connect about your real estate needs. Is now a good time? Reply STOP to unsubscribe.
-How to Opt Out
-You can opt out of SMS messages at any time by replying STOP to any message. You will receive one final confirmation message and will not receive further messages from that agent through AtlasFlow.
-Other opt-out keywords: STOP, STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT
-To opt back in after opting out, reply START or YES.
-Help
-Reply HELP to any message for assistance, or contact us directly at privacy@getatlasflow.io.
-Message Frequency and Costs
-Message frequency varies depending on your agent's settings and your level of engagement. Standard message and data rates from your wireless carrier may apply. AtlasFlow does not charge recipients for messages.
-Supported Carriers
-AtlasFlow supports all major US carriers. Carrier support may vary for MVNO networks.
-Privacy
-Your phone number and message history are never sold or shared with third parties for marketing purposes. See our full Privacy Policy for details.
-Contact
-Maven Group LLC · AtlasFlow Email: privacy@getatlasflow.io Website: getatlasflow.io
-© 2026 AtlasFlow · Maven Group LLC
-Privacy Policy
-Terms of Service
-SMS Consent
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SMS Consent — AtlasFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0C447C;--blue:#185FA5;--coral:#E85D24;--teal:#0F6E56;--white:#FFFFFF;--off:#F7F8FA;--gray:#8A96A3;--border:#E8ECF0;--dark:#1A1A2E;--text:#2D3748}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:56px;display:flex;align-items:center;padding:0 6vw;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);text-decoration:none}
+.page{max-width:740px;margin:0 auto;padding:100px 5vw 80px}
+.page-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
+h1{font-family:'Playfair Display',serif;font-size:42px;color:var(--navy);margin-bottom:8px}
+.updated{font-size:13px;color:var(--gray);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+h2{font-size:18px;font-weight:600;color:var(--navy);margin:40px 0 12px}
+p{font-size:15px;line-height:1.8;color:#4A5568;margin-bottom:16px}
+ul{margin:0 0 16px 20px}
+li{font-size:15px;line-height:1.8;color:#4A5568;margin-bottom:6px}
+a{color:var(--blue)}
+.highlight{background:var(--off);border-left:3px solid var(--teal);padding:16px 20px;border-radius:0 8px 8px 0;margin:24px 0}
+.highlight p{margin:0;font-weight:500;color:var(--teal)}
+.example-msg{background:var(--navy);border-radius:10px;padding:20px 24px;margin:24px 0}
+.example-msg .label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px}
+.example-msg p{color:rgba(255,255,255,0.85);font-size:14px;line-height:1.7;margin:0}
+footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:32px 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13px}
+footer a{color:rgba(255,255,255,0.45);text-decoration:none}
+.footer-links{display:flex;gap:24px}
+</style>
+</head>
+<body>
+<nav><a href="/" class="nav-logo">AtlasFlow</a></nav>
+<div class="page">
+<div class="page-label">SMS Program</div>
+<h1>SMS Consent &amp; Messaging Policy</h1>
+<p class="updated">Last updated: April 25, 2026 · AtlasFlow LLC · getatlasflow.io</p>
+<p>AtlasFlow sends automated SMS messages on behalf of licensed real estate agents to their leads and past clients.</p>
+<div class="highlight"><p>Agents are required by our Terms of Service to obtain your prior express written consent before entering your phone number into our platform.</p></div>
+<h2>What messages you may receive</h2>
+<ul>
+<li>Initial follow-up messages from the agent about a real estate inquiry</li>
+<li>Follow-up messages if you have not yet responded</li>
+<li>Transaction updates if you are in an active real estate transaction</li>
+<li>Post-close check-in messages and market updates from your agent</li>
+</ul>
+<h2>Example message</h2>
+<div class="example-msg">
+<div class="label">Sample first message</div>
+<p>Hi [Name], this is [Agent Name] from [Brokerage]. Thanks for your interest — I'd love to connect about your real estate needs. Is now a good time? Reply STOP to unsubscribe.</p>
+</div>
+<h2>How to opt out</h2>
+<p>Reply <strong>STOP</strong> to any message at any time. You will receive one final confirmation and will not receive further messages. Other opt-out keywords: STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT.</p>
+<h2>Message frequency and costs</h2>
+<p>Message frequency varies. Standard message and data rates from your wireless carrier may apply. AtlasFlow does not charge recipients for messages.</p>
+<h2>Privacy</h2>
+<p>Your phone number is never sold or shared with third parties for marketing purposes. See our full <a href="/privacy.html">Privacy Policy</a>.</p>
+<h2>Contact</h2>
+<p>AtlasFlow LLC · <a href="mailto:privacy@getatlasflow.io">privacy@getatlasflow.io</a> · <a href="https://getatlasflow.io">getatlasflow.io</a></p>
+</div>
+<footer>
+<span>© 2026 AtlasFlow LLC</span>
+<div class="footer-links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/sms-consent.html">SMS Consent</a><a href="/contact.html">Contact</a></div>
+</footer>
+</body>
+</html>
