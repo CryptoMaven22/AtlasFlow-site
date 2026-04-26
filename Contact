@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — AtlasFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0C447C;--blue:#185FA5;--coral:#E85D24;--teal:#0F6E56;--white:#FFFFFF;--off:#F7F8FA;--gray:#8A96A3;--border:#E8ECF0;--dark:#1A1A2E;--text:#2D3748}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:56px;display:flex;align-items:center;padding:0 6vw;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);text-decoration:none}
+.page{max-width:740px;margin:0 auto;padding:100px 5vw 80px}
+.page-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
+h1{font-family:'Playfair Display',serif;font-size:42px;color:var(--navy);margin-bottom:8px}
+.updated{font-size:13px;color:var(--gray);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+h2{font-size:18px;font-weight:600;color:var(--navy);margin:40px 0 12px}
+p{font-size:15px;line-height:1.8;color:#4A5568;margin-bottom:16px}
+a{color:var(--blue)}
+.form-grid{display:flex;flex-direction:column;gap:20px;max-width:480px}
+.field{display:flex;flex-direction:column;gap:6px}
+label{font-size:12px;font-weight:600;color:var(--navy);letter-spacing:0.08em;text-transform:uppercase}
+input,textarea{padding:12px 16px;border:1.5px solid var(--border);border-radius:8px;font-size:15px;font-family:'Inter',sans-serif;color:var(--dark);outline:none;transition:border-color .15s;background:var(--white)}
+input:focus,textarea:focus{border-color:var(--navy)}
+textarea{min-height:120px;resize:vertical}
+.submit-btn{background:var(--navy);color:var(--white);padding:14px 32px;border:none;border-radius:8px;font-size:15px;font-weight:600;font-family:'Inter',sans-serif;cursor:pointer;transition:background .15s;align-self:flex-start}
+.submit-btn:hover{background:var(--blue)}
+.contact-details{margin-top:48px;padding-top:32px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:16px}
+.contact-item{display:flex;align-items:center;gap:12px}
+.contact-icon{width:36px;height:36px;background:#E6F1FB;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.contact-text{font-size:15px;color:#4A5568}
+footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:32px 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13px;margin-top:80px}
+footer a{color:rgba(255,255,255,0.45);text-decoration:none}
+.footer-links{display:flex;gap:24px}
+</style>
+</head>
+<body>
+<nav><a href="/" class="nav-logo">AtlasFlow</a></nav>
+<div class="page">
+<div class="page-label">Get in touch</div>
+<h1>Contact AtlasFlow</h1>
+<p class="updated">We respond within one business day.</p>
+<form class="form-grid" action="https://formspree.io/f/hello@getatlasflow.io" method="POST">
+<div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" placeholder="Full name" required/></div>
+<div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="your@email.com" required/></div>
+<div class="field"><label for="brokerage">Brokerage or team</label><input id="brokerage" name="brokerage" type="text" placeholder="Optional"/></div>
+<div class="field"><label for="message">Message</label><textarea id="message" name="message" placeholder="How can we help?" required></textarea></div>
+<button class="submit-btn" type="submit">Send message</button>
+</form>
+<div class="contact-details">
+<div class="contact-item"><div class="contact-icon">✉</div><span class="contact-text"><a href="mailto:hello@getatlasflow.io">hello@getatlasflow.io</a></span></div>
+<div class="contact-item"><div class="contact-icon">🌐</div><span class="contact-text"><a href="https://getatlasflow.io">getatlasflow.io</a></span></div>
+<div class="contact-item"><div class="contact-icon">📍</div><span class="contact-text">Westfield, Indiana</span></div>
+</div>
+</div>
+<footer>
+<span>© 2026 AtlasFlow LLC</span>
+<div class="footer-links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/sms-consent.html">SMS Consent</a><a href="/contact.html">Contact</a></div>
+</footer>
+</body>
+</html>
 
