@@ -1,76 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Privacy Policy — AtlasFlow</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#0C447C;--blue:#185FA5;--coral:#E85D24;--teal:#0F6E56;--white:#FFFFFF;--off:#F7F8FA;--gray:#8A96A3;--border:#E8ECF0;--dark:#1A1A2E;--text:#2D3748}
-body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:56px;display:flex;align-items:center;padding:0 6vw;justify-content:space-between}
-.nav-logo{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);text-decoration:none}
-.page{max-width:740px;margin:0 auto;padding:100px 5vw 80px}
-.page-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
-h1{font-family:'Playfair Display',serif;font-size:42px;color:var(--navy);margin-bottom:8px}
-.updated{font-size:13px;color:var(--gray);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--border)}
-h2{font-size:18px;font-weight:600;color:var(--navy);margin:40px 0 12px}
-p{font-size:15px;line-height:1.8;color:#4A5568;margin-bottom:16px}
-ul{margin:0 0 16px 20px}
-li{font-size:15px;line-height:1.8;color:#4A5568;margin-bottom:6px}
-a{color:var(--blue)}
-.highlight{background:var(--off);border-left:3px solid var(--teal);padding:16px 20px;border-radius:0 8px 8px 0;margin:24px 0}
-.highlight p{margin:0;font-weight:500;color:var(--teal)}
-footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:32px 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13px}
-footer a{color:rgba(255,255,255,0.45);text-decoration:none}
-.footer-links{display:flex;gap:24px}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Privacy Policy | AtlasFlow</title>
+  <meta name="description" content="AtlasFlow Privacy Policy. Learn what information AtlasFlow collects, how it is used, how SMS consent is handled, and how to contact us." />
+
+  <style>
+    :root {
+      --navy: #0C447C;
+      --blue: #185FA5;
+      --coral: #E85D24;
+      --teal: #0F6E56;
+      --white: #FFFFFF;
+      --off: #F7F8FA;
+      --gray: #6B7280;
+      --border: #E8ECF0;
+      --dark: #1A1A2E;
+      --text: #2D3748;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--white);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--gray);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+    }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    .eyebrow {
+      color: var(--coral);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      color: var(--navy);
+      font-size: clamp(36px, 6vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .meta {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    .intro {
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom: 40px;
+      padding: 24px;
+      background: var(--off);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    section {
+      margin-top: 44px;
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: 24px;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      color: var(--dark);
+      font-size: 18px;
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin: 12px 0 0 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .important {
+      border-left: 4px solid var(--teal);
+      background: #f2fbf8;
+      padding: 18px 20px;
+      border-radius: 8px;
+      margin-top: 14px;
+      margin-bottom: 18px;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 6vw;
+      color: var(--gray);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--gray);
+      text-decoration: none;
+      margin-left: 18px;
+    }
+
+    footer a:hover {
+      color: var(--navy);
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      main {
+        padding-top: 48px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+
+      footer a {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<nav><a href="/" class="nav-logo">AtlasFlow</a></nav>
-<div class="page">
-<div class="page-label">Legal</div>
-<h1>Privacy Policy</h1>
-<p class="updated">Last updated: April 25, 2026 · AtlasFlow LLC · getatlasflow.io</p>
-<div class="highlight"><p>AtlasFlow does not sell, share, or expose your client data to third parties. Ever.</p></div>
-<h2>1. Who We Are</h2>
-<p>AtlasFlow is a product of AtlasFlow LLC, a real estate automation platform accessible at getatlasflow.io.</p>
-<h2>2. Information We Collect</h2>
-<ul>
-<li>Agent account information: name, email, phone, brokerage, billing</li>
-<li>Lead data: names and phone numbers entered by agents on behalf of their clients</li>
-<li>SMS communication data: message content, delivery status, timestamps, response data</li>
-<li>Usage data: how you interact with the platform</li>
-</ul>
-<h2>3. How We Use Your Information</h2>
-<ul>
-<li>Deliver the AtlasFlow service including automated SMS follow-up</li>
-<li>Send SMS messages on behalf of agents to their leads and clients</li>
-<li>Notify agents of lead replies and platform activity</li>
-<li>Process billing and manage your account</li>
-<li>Improve and maintain the platform</li>
-</ul>
-<h2>4. SMS Messaging</h2>
-<p>By using our platform, agents represent that they have obtained prior express written consent from each lead or client before entering their phone number. Every SMS sequence includes opt-out instructions. Recipients may reply STOP at any time to unsubscribe.</p>
-<h2>5. Data Sharing</h2>
-<p>We do not sell, rent, or share your data with third parties for marketing purposes. We share data only with trusted service providers (Twilio, Supabase, Stripe) who are contractually bound to protect your data.</p>
-<h2>6. Data Retention</h2>
-<p>We retain your data for as long as your account is active. You may request deletion at any time by contacting <a href="mailto:privacy@getatlasflow.io">privacy@getatlasflow.io</a>. We will delete your data within 30 days.</p>
-<h2>7. Your Rights</h2>
-<ul>
-<li>Access the personal data we hold about you</li>
-<li>Correct inaccurate data</li>
-<li>Request deletion of your data</li>
-<li>Opt out of non-essential communications</li>
-</ul>
-<h2>8. Contact</h2>
-<p>AtlasFlow LLC · <a href="mailto:privacy@getatlasflow.io">privacy@getatlasflow.io</a></p>
-</div>
-<footer>
-<span>© 2026 AtlasFlow LLC</span>
-<div class="footer-links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/sms-consent.html">SMS Consent</a><a href="/contact.html">Contact</a></div>
-</footer>
+  <nav>
+    <a href="/" class="logo">AtlasFlow</a>
+    <div class="nav-links">
+      <a href="/terms.html">Terms</a>
+      <a href="/sms-consent.html">SMS Consent</a>
+      <a href="mailto:privacy@getatlasflow.io">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy Policy</h1>
+    <div class="meta">Last updated: April 25, 2026 · AtlasFlow LLC · getatlasflow.io</div>
+
+    <div class="intro">
+      AtlasFlow respects the privacy of agents, leads, clients, and SMS recipients. We use information only to provide and improve the AtlasFlow platform and to support communication between real estate agents and the people who have consented to hear from them.
+    </div>
+
+    <section>
+      <h2>1. Who We Are</h2>
+      <p>
+        AtlasFlow is a product of AtlasFlow LLC, a real estate automation platform accessible at <a href="https://getatlasflow.io">getatlasflow.io</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Information We Collect</h2>
+      <p>
+        We may collect the following categories of information:
+      </p>
+
+      <ul>
+        <li><strong>Agent account information:</strong> name, email address, phone number, brokerage information, account details, and billing-related information.</li>
+        <li><strong>Lead and client information:</strong> names, phone numbers, inquiry details, transaction status, and other information entered by an agent or submitted through an AtlasFlow-supported form.</li>
+        <li><strong>SMS communication data:</strong> message content, delivery status, timestamps, opt-in status, opt-out status, and response data.</li>
+        <li><strong>Usage data:</strong> information about how users interact with the AtlasFlow platform, including log data and platform activity.</li>
+        <li><strong>Payment information:</strong> billing and subscription information processed through our payment providers. AtlasFlow does not store full payment card numbers.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. How We Use Information</h2>
+      <p>
+        We use information to operate, maintain, and improve AtlasFlow. This includes:
+      </p>
+
+      <ul>
+        <li>Delivering the AtlasFlow service, including automated SMS follow-up and communication workflows.</li>
+        <li>Sending SMS messages on behalf of real estate agents to leads, prospects, clients, and past clients who have consented to receive messages.</li>
+        <li>Notifying agents of lead replies, platform activity, and workflow status.</li>
+        <li>Managing accounts, subscriptions, billing, and customer support.</li>
+        <li>Improving platform reliability, security, performance, and user experience.</li>
+        <li>Complying with applicable legal, regulatory, carrier, and messaging compliance requirements.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. SMS Messaging and Consent</h2>
+
+      <p>
+        AtlasFlow may send SMS messages on behalf of licensed real estate agents to individuals who have consented to receive SMS communication related to a real estate inquiry, transaction, appointment, or agent relationship.
+      </p>
+
+      <p>
+        Agents using AtlasFlow are required to obtain prior consent before entering a lead or client phone number into the platform for SMS messaging.
+      </p>
+
+      <p>
+        SMS recipients may receive messages related to real estate inquiries, appointment scheduling, consultation follow-up, transaction updates, post-close check-ins, and related agent communications.
+      </p>
+
+      <p>
+        Message frequency varies. Message and data rates may apply. Recipients may reply STOP at any time to opt out or HELP for help.
+      </p>
+
+      <p>
+        For more information about our SMS program, please review our <a href="/sms-consent.html">SMS Consent & Messaging Policy</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. SMS Privacy Notice</h2>
+
+      <div class="important">
+        <p>
+          AtlasFlow does not sell or share mobile phone numbers, SMS opt-in data, or SMS consent with third parties or affiliates for marketing or promotional purposes.
+        </p>
+
+        <p>
+          Text messaging originator opt-in data and consent will not be shared with any third parties, except as necessary with service providers who support delivery of the SMS messaging service.
+        </p>
+
+        <p>
+          Mobile information is used only to provide the SMS messaging service requested by the recipient and to support communication between the recipient and their real estate agent.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. Data Sharing</h2>
+
+      <p>
+        We do not sell, rent, or share personal information with third parties for their independent marketing or promotional purposes.
+      </p>
+
+      <p>
+        We may share limited information with trusted service providers only as needed to operate AtlasFlow. These providers may include messaging, hosting, database, analytics, billing, customer support, and security providers.
+      </p>
+
+      <p>
+        Examples of service providers may include Twilio for SMS delivery, Supabase for database and platform infrastructure, and Stripe for billing and payment processing.
+      </p>
+
+      <p>
+        These service providers are permitted to use information only to provide services to AtlasFlow and are not authorized to use personal information for their own marketing purposes.
+      </p>
+
+      <p>
+        For clarity, SMS opt-in data and SMS consent are excluded from general data sharing and are not shared with third parties or affiliates for marketing or promotional purposes.
+      </p>
+
+      <p>
+        We may also disclose information if required to do so by law, regulation, legal process, court order, government request, carrier requirement, or to protect the rights, safety, and security of AtlasFlow, our users, or others.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Data Retention</h2>
+
+      <p>
+        We retain information for as long as necessary to provide the AtlasFlow service, maintain business records, comply with legal and messaging compliance requirements, resolve disputes, and enforce our agreements.
+      </p>
+
+      <p>
+        You may request deletion of your personal information by contacting <a href="mailto:privacy@getatlasflow.io">privacy@getatlasflow.io</a>. We will respond to deletion requests within a reasonable period and, where applicable, delete or de-identify personal information within 30 days unless we are required or permitted to retain it.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Your Rights and Choices</h2>
+
+      <p>
+        Depending on your location and relationship with AtlasFlow, you may have the right to:
+      </p>
+
+      <ul>
+        <li>Request access to personal information we hold about you.</li>
+        <li>Request correction of inaccurate or incomplete information.</li>
+        <li>Request deletion of your personal information.</li>
+        <li>Opt out of non-essential communications.</li>
+        <li>Opt out of SMS messages by replying STOP to any SMS message.</li>
+      </ul>
+
+      <p>
+        To make a privacy request, contact us at <a href="mailto:privacy@getatlasflow.io">privacy@getatlasflow.io</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Data Security</h2>
+
+      <p>
+        We use reasonable administrative, technical, and organizational safeguards designed to protect personal information from unauthorized access, disclosure, alteration, or destruction.
+      </p>
+
+      <p>
+        No system can be guaranteed to be completely secure. If you believe your information has been accessed or used improperly, please contact us at <a href="mailto:privacy@getatlasflow.io">privacy@getatlasflow.io</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>10. Children’s Privacy</h2>
+
+      <p>
+        AtlasFlow is not intended for children under 13, and we do not knowingly collect personal information from children under 13.
+      </p>
+    </section>
+
+    <section>
+      <h2>11. Changes to This Policy</h2>
+
+      <p>
+        We may update this Privacy Policy from time to time. When we do, we will update the “Last updated” date above. Your continued use of AtlasFlow after changes are posted means you accept the updated policy.
+      </p>
+    </section>
+
+    <section>
+      <h2>12. Contact</h2>
+
+      <p>
+        AtlasFlow LLC<br />
+        Website: <a href="https://getatlasflow.io">getatlasflow.io</a><br />
+        Email: <a href="mailto:privacy@getatlasflow.io">privacy@getatlasflow.io</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 AtlasFlow LLC</div>
+    <div>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/sms-consent.html">SMS Consent</a>
+      <a href="mailto:privacy@getatlasflow.io">Contact</a>
+    </div>
+  </footer>
 </body>
 </html>
