@@ -1,68 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SMS Consent — AtlasFlow</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#0C447C;--blue:#185FA5;--coral:#E85D24;--teal:#0F6E56;--white:#FFFFFF;--off:#F7F8FA;--gray:#8A96A3;--border:#E8ECF0;--dark:#1A1A2E;--text:#2D3748}
-body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:56px;display:flex;align-items:center;padding:0 6vw;justify-content:space-between}
-.nav-logo{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);text-decoration:none}
-.page{max-width:740px;margin:0 auto;padding:100px 5vw 80px}
-.page-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
-h1{font-family:'Playfair Display',serif;font-size:42px;color:var(--navy);margin-bottom:8px}
-.updated{font-size:13px;color:var(--gray);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--border)}
-h2{font-size:18px;font-weight:600;color:var(--navy);margin:40px 0 12px}
-p{font-size:15px;line-height:1.8;color:#4A5568;margin-bottom:16px}
-ul{margin:0 0 16px 20px}
-li{font-size:15px;line-height:1.8;color:#4A5568;margin-bottom:6px}
-a{color:var(--blue)}
-.highlight{background:var(--off);border-left:3px solid var(--teal);padding:16px 20px;border-radius:0 8px 8px 0;margin:24px 0}
-.highlight p{margin:0;font-weight:500;color:var(--teal)}
-.example-msg{background:var(--navy);border-radius:10px;padding:20px 24px;margin:24px 0}
-.example-msg .label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px}
-.example-msg p{color:rgba(255,255,255,0.85);font-size:14px;line-height:1.7;margin:0}
-footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:32px 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13px}
-footer a{color:rgba(255,255,255,0.45);text-decoration:none}
-.footer-links{display:flex;gap:24px}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SMS Consent & Messaging Policy | AtlasFlow</title>
+  <meta name="description" content="AtlasFlow SMS Consent & Messaging Policy. Learn how AtlasFlow obtains SMS consent, what messages recipients may receive, and how to opt out." />
+
+  <style>
+    :root {
+      --navy: #0C447C;
+      --blue: #185FA5;
+      --coral: #E85D24;
+      --teal: #0F6E56;
+      --white: #FFFFFF;
+      --off: #F7F8FA;
+      --gray: #6B7280;
+      --border: #E8ECF0;
+      --dark: #1A1A2E;
+      --text: #2D3748;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--white);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--gray);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+    }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    .eyebrow {
+      color: var(--coral);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      color: var(--navy);
+      font-size: clamp(36px, 6vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .meta {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    .intro {
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom: 40px;
+      padding: 24px;
+      background: var(--off);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    section {
+      margin-top: 44px;
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: 24px;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      color: var(--dark);
+      font-size: 18px;
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin: 12px 0 0 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .box {
+      background: var(--off);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-top: 16px;
+    }
+
+    .example {
+      border-left: 4px solid var(--coral);
+      background: #fff8f5;
+      padding: 18px 20px;
+      border-radius: 8px;
+      margin-top: 14px;
+      color: var(--dark);
+    }
+
+    .important {
+      border-left: 4px solid var(--teal);
+      background: #f2fbf8;
+      padding: 18px 20px;
+      border-radius: 8px;
+      margin-top: 14px;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 6vw;
+      color: var(--gray);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--gray);
+      text-decoration: none;
+      margin-left: 18px;
+    }
+
+    footer a:hover {
+      color: var(--navy);
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      main {
+        padding-top: 48px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+
+      footer a {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<nav><a href="/" class="nav-logo">AtlasFlow</a></nav>
-<div class="page">
-<div class="page-label">SMS Program</div>
-<h1>SMS Consent &amp; Messaging Policy</h1>
-<p class="updated">Last updated: April 25, 2026 · AtlasFlow LLC · getatlasflow.io</p>
-<p>AtlasFlow sends automated SMS messages on behalf of licensed real estate agents to their leads and past clients.</p>
-<div class="highlight"><p>Agents are required by our Terms of Service to obtain your prior express written consent before entering your phone number into our platform.</p></div>
-<h2>What messages you may receive</h2>
-<ul>
-<li>Initial follow-up messages from the agent about a real estate inquiry</li>
-<li>Follow-up messages if you have not yet responded</li>
-<li>Transaction updates if you are in an active real estate transaction</li>
-<li>Post-close check-in messages and market updates from your agent</li>
-</ul>
-<h2>Example message</h2>
-<div class="example-msg">
-<div class="label">Sample first message</div>
-<p>Hi [Name], this is [Agent Name] from [Brokerage]. Thanks for your interest — I'd love to connect about your real estate needs. Is now a good time? Reply STOP to unsubscribe.</p>
-</div>
-<h2>How to opt out</h2>
-<p>Reply <strong>STOP</strong> to any message at any time. You will receive one final confirmation and will not receive further messages. Other opt-out keywords: STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT.</p>
-<h2>Message frequency and costs</h2>
-<p>Message frequency varies. Standard message and data rates from your wireless carrier may apply. AtlasFlow does not charge recipients for messages.</p>
-<h2>Privacy</h2>
-<p>Your phone number is never sold or shared with third parties for marketing purposes. See our full <a href="/privacy.html">Privacy Policy</a>.</p>
-<h2>Contact</h2>
-<p>AtlasFlow LLC · <a href="mailto:privacy@getatlasflow.io">privacy@getatlasflow.io</a> · <a href="https://getatlasflow.io">getatlasflow.io</a></p>
-</div>
-<footer>
-<span>© 2026 AtlasFlow LLC</span>
-<div class="footer-links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/sms-consent.html">SMS Consent</a><a href="/contact.html">Contact</a></div>
-</footer>
+  <nav>
+    <a href="/" class="logo">AtlasFlow</a>
+    <div class="nav-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:privacy@getatlasflow.io">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="eyebrow">SMS Program</div>
+    <h1>SMS Consent & Messaging Policy</h1>
+    <div class="meta">Last updated: April 25, 2026 · AtlasFlow LLC · getatlasflow.io</div>
+
+    <div class="intro">
+      AtlasFlow sends automated SMS messages on behalf of licensed real estate agents to leads, prospects, active clients, and past clients who have consented to receive SMS communication.
+    </div>
+
+    <section>
+      <h2>How users opt in</h2>
+
+      <p>
+        You may receive SMS messages from AtlasFlow only after you provide your mobile phone number and give consent to receive SMS messages related to your real estate inquiry or relationship with a licensed real estate agent.
+      </p>
+
+      <p>
+        Consent may be collected through a real estate inquiry form, open house sign-in form, consultation request form, paper form, or direct conversation with a licensed real estate agent.
+      </p>
+
+      <p>
+        Where a form is used, the SMS consent checkbox is optional and is not pre-checked.
+      </p>
+
+      <div class="box">
+        <h3>Example SMS consent language</h3>
+        <p>
+          By checking this box, I agree to receive SMS messages from AtlasFlow and/or my real estate agent about my real estate inquiry. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. View our Terms and Privacy Policy.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>What messages you may receive</h2>
+
+      <p>
+        If you opt in to receive SMS messages from AtlasFlow or a real estate agent using AtlasFlow, you may receive messages related to:
+      </p>
+
+      <ul>
+        <li>Initial follow-up from a real estate agent about a buying, selling, listing, showing, or consultation inquiry</li>
+        <li>Follow-up messages if you have not yet responded to a real estate inquiry or appointment request</li>
+        <li>Appointment scheduling and consultation reminders</li>
+        <li>Transaction updates if you are in an active real estate transaction</li>
+        <li>Post-close check-in messages from your real estate agent</li>
+        <li>Market updates or relationship messages from your real estate agent, where permitted and consented to</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Example message</h2>
+
+      <p>
+        Messages may vary depending on the agent, brokerage, and real estate inquiry, but an example message may look like this:
+      </p>
+
+      <div class="example">
+        Hi [Name], this is [Agent Name] from [Brokerage]. Thanks for your interest in buying or selling real estate. Would you like to schedule a quick call? Reply STOP to opt out.
+      </div>
+    </section>
+
+    <section>
+      <h2>Message frequency and costs</h2>
+
+      <p>
+        Message frequency varies depending on your interaction with the real estate agent and the nature of your inquiry or transaction.
+      </p>
+
+      <p>
+        Standard message and data rates from your wireless carrier may apply. AtlasFlow does not charge recipients for SMS messages.
+      </p>
+    </section>
+
+    <section>
+      <h2>How to opt out</h2>
+
+      <p>
+        You can opt out of SMS messages at any time by replying STOP to any message.
+      </p>
+
+      <p>
+        After you reply STOP, you may receive one final confirmation message confirming that you have been unsubscribed. You will not receive further SMS messages unless you opt in again.
+      </p>
+
+      <p>
+        Other supported opt-out keywords may include:
+      </p>
+
+      <ul>
+        <li>STOP</li>
+        <li>STOPALL</li>
+        <li>UNSUBSCRIBE</li>
+        <li>CANCEL</li>
+        <li>END</li>
+        <li>QUIT</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Help</h2>
+
+      <p>
+        You can reply HELP to any message for help.
+      </p>
+
+      <p>
+        You may also contact AtlasFlow at <a href="mailto:privacy@getatlasflow.io">privacy@getatlasflow.io</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Privacy</h2>
+
+      <div class="important">
+        <p>
+          AtlasFlow does not sell or share mobile phone numbers, SMS opt-in data, or SMS consent with third parties or affiliates for marketing or promotional purposes.
+        </p>
+
+        <p>
+          Mobile information is used only to provide the SMS messaging service requested by the recipient and to support communication between the recipient and their real estate agent.
+        </p>
+      </div>
+
+      <p>
+        For more information, please review our full <a href="/privacy.html">Privacy Policy</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Terms</h2>
+
+      <p>
+        By opting in to receive SMS messages, you agree to receive messages from AtlasFlow and/or your real estate agent related to your real estate inquiry or relationship with your agent.
+      </p>
+
+      <p>
+        Consent to receive SMS messages is not a condition of purchase.
+      </p>
+
+      <p>
+        For more information, please review our <a href="/terms.html">Terms and Conditions</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+
+      <p>
+        AtlasFlow LLC<br />
+        Website: <a href="https://getatlasflow.io">getatlasflow.io</a><br />
+        Email: <a href="mailto:privacy@getatlasflow.io">privacy@getatlasflow.io</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 AtlasFlow LLC</div>
+    <div>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/sms-consent.html">SMS Consent</a>
+      <a href="mailto:privacy@getatlasflow.io">Contact</a>
+    </div>
+  </footer>
 </body>
 </html>
