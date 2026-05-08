@@ -1,68 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SMS Consent — AtlasFlow</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#0C447C;--blue:#185FA5;--coral:#E85D24;--teal:#0F6E56;--white:#FFFFFF;--off:#F7F8FA;--gray:#8A96A3;--border:#E8ECF0;--dark:#1A1A2E;--text:#2D3748}
-body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);-webkit-font-smoothing:antialiased}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:56px;display:flex;align-items:center;padding:0 6vw;justify-content:space-between}
-.nav-logo{font-family:'Playfair Display',serif;font-size:19px;color:var(--navy);text-decoration:none}
-.page{max-width:740px;margin:0 auto;padding:100px 5vw 80px}
-.page-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
-h1{font-family:'Playfair Display',serif;font-size:42px;color:var(--navy);margin-bottom:8px}
-.updated{font-size:13px;color:var(--gray);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--border)}
-h2{font-size:18px;font-weight:600;color:var(--navy);margin:40px 0 12px}
-p{font-size:15px;line-height:1.8;color:#4A5568;margin-bottom:16px}
-ul{margin:0 0 16px 20px}
-li{font-size:15px;line-height:1.8;color:#4A5568;margin-bottom:6px}
-a{color:var(--blue)}
-.highlight{background:var(--off);border-left:3px solid var(--teal);padding:16px 20px;border-radius:0 8px 8px 0;margin:24px 0}
-.highlight p{margin:0;font-weight:500;color:var(--teal)}
-.example-msg{background:var(--navy);border-radius:10px;padding:20px 24px;margin:24px 0}
-.example-msg .label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:8px}
-.example-msg p{color:rgba(255,255,255,0.85);font-size:14px;line-height:1.7;margin:0}
-footer{background:var(--dark);color:rgba(255,255,255,0.45);padding:32px 5vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13px}
-footer a{color:rgba(255,255,255,0.45);text-decoration:none}
-.footer-links{display:flex;gap:24px}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Terms of Service | AtlasFlow</title>
+  <meta name="description" content="AtlasFlow Terms of Service. Review the terms for using AtlasFlow, including SMS messaging, consent requirements, A2P compliance, acceptable use, billing, and privacy." />
+
+  <style>
+    :root {
+      --navy: #0C447C;
+      --blue: #185FA5;
+      --coral: #E85D24;
+      --teal: #0F6E56;
+      --white: #FFFFFF;
+      --off: #F7F8FA;
+      --gray: #6B7280;
+      --border: #E8ECF0;
+      --dark: #1A1A2E;
+      --text: #2D3748;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 6vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--white);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--gray);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+    }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    .eyebrow {
+      color: var(--coral);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      color: var(--navy);
+      font-size: clamp(36px, 6vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .meta {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    .intro {
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom: 40px;
+      padding: 24px;
+      background: var(--off);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    section {
+      margin-top: 44px;
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: 24px;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      color: var(--dark);
+      font-size: 18px;
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    ul {
+      margin: 12px 0 0 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .important {
+      border-left: 4px solid var(--teal);
+      background: #f2fbf8;
+      padding: 18px 20px;
+      border-radius: 8px;
+      margin-top: 14px;
+      margin-bottom: 18px;
+    }
+
+    .warning {
+      border-left: 4px solid var(--coral);
+      background: #fff8f5;
+      padding: 18px 20px;
+      border-radius: 8px;
+      margin-top: 14px;
+      margin-bottom: 18px;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 6vw;
+      color: var(--gray);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--gray);
+      text-decoration: none;
+      margin-left: 18px;
+    }
+
+    footer a:hover {
+      color: var(--navy);
+    }
+
+    @media (max-width: 640px) {
+      nav {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      main {
+        padding-top: 48px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+
+      footer a {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<nav><a href="/" class="nav-logo">AtlasFlow</a></nav>
-<div class="page">
-<div class="page-label">SMS Program</div>
-<h1>SMS Consent &amp; Messaging Policy</h1>
-<p class="updated">Last updated: April 25, 2026 · AtlasFlow LLC · getatlasflow.io</p>
-<p>AtlasFlow sends automated SMS messages on behalf of licensed real estate agents to their leads and past clients.</p>
-<div class="highlight"><p>Agents are required by our Terms of Service to obtain your prior express written consent before entering your phone number into our platform.</p></div>
-<h2>What messages you may receive</h2>
-<ul>
-<li>Initial follow-up messages from the agent about a real estate inquiry</li>
-<li>Follow-up messages if you have not yet responded</li>
-<li>Transaction updates if you are in an active real estate transaction</li>
-<li>Post-close check-in messages and market updates from your agent</li>
-</ul>
-<h2>Example message</h2>
-<div class="example-msg">
-<div class="label">Sample first message</div>
-<p>Hi [Name], this is [Agent Name] from [Brokerage]. Thanks for your interest — I'd love to connect about your real estate needs. Is now a good time? Reply STOP to unsubscribe.</p>
-</div>
-<h2>How to opt out</h2>
-<p>Reply <strong>STOP</strong> to any message at any time. You will receive one final confirmation and will not receive further messages. Other opt-out keywords: STOPALL, UNSUBSCRIBE, CANCEL, END, QUIT.</p>
-<h2>Message frequency and costs</h2>
-<p>Message frequency varies. Standard message and data rates from your wireless carrier may apply. AtlasFlow does not charge recipients for messages.</p>
-<h2>Privacy</h2>
-<p>Your phone number is never sold or shared with third parties for marketing purposes. See our full <a href="/privacy.html">Privacy Policy</a>.</p>
-<h2>Contact</h2>
-<p>AtlasFlow LLC · <a href="mailto:privacy@getatlasflow.io">privacy@getatlasflow.io</a> · <a href="https://getatlasflow.io">getatlasflow.io</a></p>
-</div>
-<footer>
-<span>© 2026 AtlasFlow LLC</span>
-<div class="footer-links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/sms-consent.html">SMS Consent</a><a href="/contact.html">Contact</a></div>
-</footer>
+  <nav>
+    <a href="/" class="logo">AtlasFlow</a>
+    <div class="nav-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/sms-consent.html">SMS Consent</a>
+      <a href="mailto:privacy@getatlasflow.io">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="eyebrow">Legal</div>
+    <h1>Terms of Service</h1>
+    <div class="meta">Last updated: April 25, 2026 · AtlasFlow LLC · getatlasflow.io</div>
+
+    <div class="intro">
+      These Terms of Service govern your access to and use of AtlasFlow, a real estate automation platform that helps licensed real estate agents manage follow-up, communication, and workflow automation.
+    </div>
+
+    <section>
+      <h2>1. Agreement to Terms</h2>
+      <p>
+        By accessing or using AtlasFlow, you agree to be bound by these Terms of Service. If you do not agree to these Terms, you may not access or use AtlasFlow.
+      </p>
+      <p>
+        These Terms apply to account holders, agents, website visitors, and any other users of the AtlasFlow platform.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Who We Are</h2>
+      <p>
+        AtlasFlow is a product of AtlasFlow LLC, accessible at <a href="https://getatlasflow.io">getatlasflow.io</a>.
+      </p>
+      <p>
+        AtlasFlow provides automation tools for real estate professionals, including SMS follow-up, lead response workflows, transaction-related communication, and post-close relationship management.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Eligibility</h2>
+      <p>
+        AtlasFlow is intended for use by real estate professionals and authorized business users. By using AtlasFlow, you represent that you are at least 18 years old and have authority to use the platform on behalf of yourself, your brokerage, or your organization.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. User Accounts</h2>
+      <p>
+        You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account.
+      </p>
+      <p>
+        You agree to provide accurate, current, and complete information when creating or maintaining your AtlasFlow account.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Real Estate Agent Responsibilities</h2>
+      <p>
+        Agents and account holders are responsible for the accuracy, legality, and appropriateness of the information they enter into AtlasFlow.
+      </p>
+      <p>
+        You are responsible for ensuring that your use of AtlasFlow complies with all applicable laws, regulations, professional obligations, brokerage policies, MLS rules, carrier requirements, messaging provider requirements, and SMS compliance rules.
+      </p>
+      <p>
+        AtlasFlow does not provide legal, brokerage, financial, lending, tax, or real estate advice. You remain responsible for your client relationships, communications, disclosures, and professional obligations.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. SMS Messaging and Consent</h2>
+      <p>
+        AtlasFlow may send SMS messages on behalf of licensed real estate agents to leads, prospects, active clients, and past clients who have consented to receive SMS communication.
+      </p>
+      <p>
+        By using AtlasFlow to send or trigger SMS messages, you represent and warrant that you have obtained all required consent from each recipient before entering their phone number into AtlasFlow or initiating SMS communication.
+      </p>
+      <p>
+        Consent must be obtained before any SMS message is sent. Consent may be collected through a real estate inquiry form, open house sign-in form, consultation request form, paper form, direct conversation with a licensed real estate agent, or another compliant opt-in method, provided the recipient clearly agrees to receive SMS messages related to their real estate inquiry, transaction, appointment, or agent relationship.
+      </p>
+      <p>
+        Where a form is used to collect consent, the SMS consent checkbox must be optional and must not be pre-checked.
+      </p>
+
+      <div class="important">
+        <h3>Example SMS consent language</h3>
+        <p>
+          “By checking this box, I agree to receive SMS messages from AtlasFlow and/or my real estate agent about my real estate inquiry. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. View our Terms and Privacy Policy.”
+        </p>
+      </div>
+
+      <p>
+        Message frequency varies. Message and data rates may apply. Recipients may reply STOP at any time to opt out or HELP for help.
+      </p>
+      <p>
+        For more information, please review our <a href="/sms-consent.html">SMS Consent & Messaging Policy</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. A2P 10DLC and Carrier Compliance</h2>
+      <p>
+        AtlasFlow messaging may be subject to Application-to-Person 10-Digit Long Code registration, carrier filtering, messaging provider requirements, and other compliance rules.
+      </p>
+      <p>
+        You agree to provide accurate information requested for messaging compliance, including business identity, use case, message content, consent method, opt-in records, opt-out records, and sample messages.
+      </p>
+      <p>
+        You agree not to submit false, misleading, incomplete, or unverifiable information for messaging registration or compliance review.
+      </p>
+      <p>
+        AtlasFlow may suspend, restrict, or terminate messaging access if we believe your use of the platform violates applicable laws, carrier rules, messaging provider requirements, A2P 10DLC requirements, or these Terms.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Opt-Out Requirements</h2>
+      <p>
+        SMS recipients may opt out of messages at any time by replying STOP or another supported opt-out keyword.
+      </p>
+      <p>
+        You agree not to manually re-add, re-message, import, or otherwise contact a recipient through AtlasFlow after they have opted out unless they have validly opted back in.
+      </p>
+      <p>
+        Supported opt-out keywords may include STOP, STOPALL, UNSUBSCRIBE, CANCEL, END, and QUIT.
+      </p>
+      <p>
+        Recipients may reply HELP for help or contact AtlasFlow at <a href="mailto:privacy@getatlasflow.io">privacy@getatlasflow.io</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Consent Records</h2>
+      <p>
+        You are responsible for maintaining accurate records of recipient consent where required, including the method, date, source, and scope of consent.
+      </p>
+      <p>
+        AtlasFlow may request documentation of consent for any recipient, lead source, campaign, or messaging workflow. Failure to provide adequate consent records may result in suspension or termination of messaging access.
+      </p>
+    </section>
+
+    <section>
+      <h2>10. Prohibited Messaging and Platform Uses</h2>
+      <p>
+        You may not use AtlasFlow to send, trigger, or facilitate:
+      </p>
+
+      <ul>
+        <li>Messages to individuals who have not consented to receive SMS communication.</li>
+        <li>Cold outreach, purchased lists, rented lists, scraped leads, harvested phone numbers, or unsolicited promotional messages.</li>
+        <li>Spam, deceptive, fraudulent, misleading, or unlawful messages.</li>
+        <li>Messages that misrepresent your identity, brokerage, relationship to the recipient, or the reason for contacting the recipient.</li>
+        <li>Messages to recipients who have opted out, unless they have validly opted back in.</li>
+        <li>Messages involving hate, harassment, threats, abuse, or discriminatory content.</li>
+        <li>Messages related to illegal goods or services.</li>
+        <li>Age-gated, regulated, or restricted content unless specifically approved in writing by AtlasFlow and permitted by applicable law.</li>
+        <li>Messages related to direct lending, loan arrangement, mortgage offers, credit repair, debt relief, or financial products unless specifically approved in writing by AtlasFlow and permitted by applicable law and messaging provider rules.</li>
+        <li>Content that violates carrier rules, messaging provider policies, CTIA guidelines, A2P 10DLC requirements, or applicable law.</li>
+      </ul>
+
+      <div class="warning">
+        <p>
+          AtlasFlow is designed for permission-based real estate inquiry follow-up, transaction-related communication, and agent relationship management. It may not be used for cold texting, spam, purchased lead lists, or non-consensual outreach.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>11. Message Content</h2>
+      <p>
+        You are responsible for the content of messages sent through AtlasFlow on your behalf.
+      </p>
+      <p>
+        Message content must be truthful, relevant to the recipient’s inquiry or relationship with you, and consistent with the consent the recipient provided.
+      </p>
+      <p>
+        You may not use AtlasFlow to send messages that are deceptive, misleading, unrelated to the recipient’s consent, or likely to create confusion about who is contacting the recipient.
+      </p>
+    </section>
+
+    <section>
+      <h2>12. Privacy and SMS Opt-In Data</h2>
+      <p>
+        Your use of AtlasFlow is also governed by our <a href="/privacy.html">Privacy Policy</a>.
+      </p>
+
+      <div class="important">
+        <p>
+          AtlasFlow does not sell or share mobile phone numbers, SMS opt-in data, or SMS consent with third parties or affiliates for marketing or promotional purposes.
+        </p>
+        <p>
+          Text messaging originator opt-in data and consent will not be shared with any third parties, except as necessary with service providers who support delivery of the SMS messaging service.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>13. Data and Service Providers</h2>
+      <p>
+        AtlasFlow may use trusted service providers to operate the platform, including providers for SMS delivery, hosting, database infrastructure, analytics, billing, customer support, and security.
+      </p>
+      <p>
+        These providers may include Twilio for SMS delivery, Supabase for platform infrastructure, Stripe for billing and payments, and other providers necessary to operate AtlasFlow.
+      </p>
+      <p>
+        These providers are permitted to use information only to provide services to AtlasFlow and are not authorized to use personal information, mobile phone numbers, SMS opt-in data, or SMS consent for their own marketing or promotional purposes.
+      </p>
+    </section>
+
+    <section>
+      <h2>14. Platform Availability</h2>
+      <p>
+        We work to keep AtlasFlow available and reliable, but we do not guarantee uninterrupted or error-free service.
+      </p>
+      <p>
+        AtlasFlow may be unavailable from time to time due to maintenance, updates, outages, third-party provider issues, carrier filtering, messaging provider issues, or circumstances beyond our control.
+      </p>
+    </section>
+
+    <section>
+      <h2>15. Third-Party Services</h2>
+      <p>
+        Your use of AtlasFlow may involve third-party services, including SMS providers, payment processors, hosting providers, and other infrastructure providers.
+      </p>
+      <p>
+        Your use of AtlasFlow may also be subject to the terms, policies, and requirements of those third-party providers.
+      </p>
+    </section>
+
+    <section>
+      <h2>16. Billing and Subscriptions</h2>
+      <p>
+        Some AtlasFlow services may require payment. By subscribing to a paid plan, you authorize AtlasFlow or its payment processor to charge the applicable fees.
+      </p>
+      <p>
+        Unless otherwise stated, subscriptions are billed on a recurring basis and may be canceled according to the cancellation terms presented at signup or in your account settings.
+      </p>
+      <p>
+        Fees are non-refundable except where required by law or expressly stated by AtlasFlow.
+      </p>
+    </section>
+
+    <section>
+      <h2>17. Intellectual Property</h2>
+      <p>
+        AtlasFlow, including its name, branding, design, software, workflows, content, and related materials, is owned by AtlasFlow LLC or its licensors.
+      </p>
+      <p>
+        You may not copy, modify, distribute, sell, reverse engineer, or create derivative works from AtlasFlow without our prior written permission.
+      </p>
+    </section>
+
+    <section>
+      <h2>18. Feedback</h2>
+      <p>
+        If you provide feedback, suggestions, ideas, or recommendations about AtlasFlow, you grant AtlasFlow the right to use that feedback without restriction or compensation.
+      </p>
+    </section>
+
+    <section>
+      <h2>19. Disclaimer of Warranties</h2>
+      <p>
+        AtlasFlow is provided “as is” and “as available.” We disclaim all warranties, express or implied, including warranties of merchantability, fitness for a particular purpose, non-infringement, and uninterrupted availability.
+      </p>
+      <p>
+        We do not guarantee that messages will always be delivered, that carrier filtering will not occur, that A2P registration will be approved, or that use of AtlasFlow will result in any particular business outcome.
+      </p>
+    </section>
+
+    <section>
+      <h2>20. Limitation of Liability</h2>
+      <p>
+        To the maximum extent permitted by law, AtlasFlow LLC will not be liable for indirect, incidental, consequential, special, punitive, or exemplary damages, including lost profits, lost revenue, lost business opportunities, lost data, carrier filtering, message delivery failure, or reputational harm.
+      </p>
+      <p>
+        To the maximum extent permitted by law, AtlasFlow’s total liability for any claim arising out of or relating to the service will not exceed the amount paid by you to AtlasFlow in the three months before the claim arose.
+      </p>
+    </section>
+
+    <section>
+      <h2>21. Indemnification</h2>
+      <p>
+        You agree to indemnify and hold harmless AtlasFlow LLC from any claims, damages, liabilities, losses, costs, and expenses, including reasonable attorneys’ fees, arising from your use of AtlasFlow, your message content, your violation of these Terms, your violation of applicable law, your violation of messaging provider or carrier requirements, or your failure to obtain proper consent before sending SMS messages.
+      </p>
+    </section>
+
+    <section>
+      <h2>22. Suspension and Termination</h2>
+      <p>
+        We may suspend or terminate your access to AtlasFlow if we believe you have violated these Terms, applicable law, messaging compliance requirements, carrier rules, third-party provider policies, or if your use creates risk for AtlasFlow, recipients, carriers, messaging providers, or others.
+      </p>
+      <p>
+        We may also suspend or restrict SMS messaging features while reviewing potential compliance issues.
+      </p>
+    </section>
+
+    <section>
+      <h2>23. Changes to These Terms</h2>
+      <p>
+        We may update these Terms from time to time. When we do, we will update the “Last updated” date above. Your continued use of AtlasFlow after updated Terms are posted means you accept the updated Terms.
+      </p>
+    </section>
+
+    <section>
+      <h2>24. Contact</h2>
+      <p>
+        AtlasFlow LLC<br />
+        Website: <a href="https://getatlasflow.io">getatlasflow.io</a><br />
+        Email: <a href="mailto:privacy@getatlasflow.io">privacy@getatlasflow.io</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 AtlasFlow LLC</div>
+    <div>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/sms-consent.html">SMS Consent</a>
+      <a href="mailto:privacy@getatlasflow.io">Contact</a>
+    </div>
+  </footer>
 </body>
 </html>
