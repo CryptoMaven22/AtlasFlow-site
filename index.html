@@ -679,6 +679,11 @@ var barData=[
 ];
 function buildMetrics(){
   var bg=document.getElementById('metrics-big');
+  if(bg) bg.innerHTML='';
+  var bb=document.getElementById('metrics-bars');
+  if(bb) bb.innerHTML='';
+  var callout=document.getElementById('callout-box');
+  if(callout) callout.style.opacity='0';
   bigMetrics.forEach(function(m,i){
     var card=document.createElement('div');
     card.className='metric-card';
@@ -687,7 +692,6 @@ function buildMetrics(){
     bg.appendChild(card);
     setTimeout(function(c){return function(){c.classList.add('show');};}(card),i*120+200);
   });
-  var bb=document.getElementById('metrics-bars');
   barData.forEach(function(b,i){
     var row=document.createElement('div');
     row.className='bar-row';
