@@ -186,6 +186,9 @@ nav{position:sticky;top:0;z-index:100;background:var(--navy);padding:0 40px;heig
 footer{background:var(--navy);padding:32px 40px;text-align:center;margin-top:40px}
 footer p{color:rgba(168,196,224,0.6);font-size:12px;margin-bottom:4px}
 footer strong{color:#fff;font-size:14px;display:block;margin-bottom:6px}
+footer a{color:rgba(168,196,224,0.75);text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+.footer-links{margin-top:6px}
 
 /* SCROLL REVEAL */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
@@ -396,6 +399,7 @@ footer strong{color:#fff;font-size:14px;display:block;margin-bottom:6px}
 <footer>
   <strong>AtlasFlow — Lead. Close. Refer. Repeat.</strong>
   <p>getatlasflow.io &nbsp;·&nbsp; matt@getatlasflow.io &nbsp;·&nbsp; Confidential</p>
+  <p class="footer-links"><a href="privacy.html">privacy.html</a> &nbsp;·&nbsp; <a href="sms-consent.html">sms-consent.html</a> &nbsp;·&nbsp; <a href="terms.html">terms.html</a></p>
 </footer>
 
 <script>
@@ -679,11 +683,9 @@ var barData=[
 ];
 function buildMetrics(){
   var bg=document.getElementById('metrics-big');
-  if(bg) bg.innerHTML='';
+  if(bg){ bg.innerHTML=''; }
   var bb=document.getElementById('metrics-bars');
-  if(bb) bb.innerHTML='';
-  var callout=document.getElementById('callout-box');
-  if(callout) callout.style.opacity='0';
+  if(bb){ bb.innerHTML=''; }
   bigMetrics.forEach(function(m,i){
     var card=document.createElement('div');
     card.className='metric-card';
@@ -746,7 +748,3 @@ window.addEventListener('load',function(){
 
 
 </body></html>
-
-
-
-</body>
