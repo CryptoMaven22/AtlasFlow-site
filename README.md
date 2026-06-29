@@ -1,15 +1,5 @@
 # AtlasFlow Static Site
 
-Files included:
+Updated package with AtlasFlow header logo and dark-themed project showcase cards using Laura, Cal, and Arc project logos.
 
-- `index.html` — AtlasFlow homepage
-- `privacy.html` — public Privacy Policy page
-- `sms-consent.html` — public SMS Consent Policy page for Twilio review
-- `terms.html` — Terms of Service page added as the third public statement page
-- `styles.css` — shared styling
-- `assets/arc-logo-blue.png` — provided logo asset
-
-Notes:
-
-- The user request listed `sms-consent.html` twice while referring to three public statement pages. This package includes `terms.html` as the third page. Rename or replace it if the intended third page is different.
-- Before publishing for Twilio review, confirm the exact wording required by Twilio and your legal/compliance advisor.
+Upload the contents of this folder to the GitHub Pages repository root. Preserve any existing CNAME file if your repository uses a custom domain.
