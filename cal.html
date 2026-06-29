@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cal OV | AtlasFlow</title>
+  <meta name="description" content="Cal Operational Viewer mock website for AtlasFlow local service request triage and Morning Brief.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ov-body">
+  <header class="site-header ov-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="AtlasFlow home"><img src="atlasflow-logo-full.png" alt="AtlasFlow logo"></a>
+      <nav class="nav-links" aria-label="Cal navigation">
+        <a href="index.html#work">Back to Work</a>
+        <a href="#queue">Request Queue</a>
+        <a href="#brief">Morning Brief</a>
+        <a href="#workflow">Workflow</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="ov-hero cal-theme">
+      <div class="container ov-hero-grid">
+        <div>
+          <div class="kicker blue-text">Cal Operational Viewer</div>
+          <h1>Messy service requests become dispatch-ready actions.</h1>
+          <p>Cal is a mock operating view for local service teams. It turns raw calls, texts, emails, and notes into structured job records with urgency, customer risk, RYG confidence, dispatch notes, and an owner-facing Morning Brief.</p>
+          <div class="ov-pills">
+            <span>Service Request Triage</span><span>RYG Confidence</span><span>Owner Morning Brief</span><span>Dashboard Visibility</span>
+          </div>
+        </div>
+        <aside class="ov-logo-panel">
+          <img src="cal-logo-blue.png" alt="Cal, an AtlasFlow Platform logo">
+          <p>Dispatchers need the request clarified. Owners need the day made visible.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ov-section">
+      <div class="container">
+        <div class="metric-grid">
+          <div class="metric-card"><span>Open requests</span><strong>12</strong><small>3 high priority</small></div>
+          <div class="metric-card"><span>Emergency items</span><strong>1</strong><small>Active water damage</small></div>
+          <div class="metric-card"><span>Owner attention</span><strong>Yes</strong><small>Morning Brief flag</small></div>
+          <div class="metric-card"><span>Queue status</span><strong>triaged</strong><small>AI output ready</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ov-section" id="queue">
+      <div class="container ov-two-col">
+        <article class="ov-panel lead-panel">
+          <div class="panel-head"><div><span class="eyebrow">Service Request</span><h2>Mrs. Thompson</h2></div><span class="priority emergency">Emergency</span></div>
+          <div class="reply-box blue-box">
+            <span>Raw messy request</span>
+            <p>“Water is leaking from the ceiling below the upstairs bathroom. Her husband tried shutting off the toilet but water is still dripping. They have guests coming tomorrow. Address is in Carmel. Please call ASAP.”</p>
+          </div>
+          <div class="lead-details">
+            <div><span>Job Category</span><strong>Leak / Water Damage</strong></div>
+            <div><span>Customer Risk</span><strong>Active water damage</strong></div>
+            <div><span>Confidence</span><strong>Red</strong></div>
+            <div><span>Status</span><strong>triaged</strong></div>
+          </div>
+        </article>
+
+        <article class="ov-panel ai-panel">
+          <div class="panel-head"><div><span class="eyebrow">AI Triage</span><h2>Dispatch Output</h2></div><span class="status status-blue">Owner Attention</span></div>
+          <div class="ai-output">
+            <div><label>Issue Summary</label><p>Active leak from upstairs bathroom with water continuing to drip into the ceiling below after attempted shutoff.</p></div>
+            <div><label>Recommended Action</label><p>Dispatch same-day emergency plumber immediately and call customer to confirm water shutoff status.</p></div>
+            <div><label>Dispatch Notes</label><p>High property-risk situation. Customer has guests arriving tomorrow and needs immediate contact.</p></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="ov-section" id="brief">
+      <div class="container ov-two-col">
+        <article class="ov-panel">
+          <span class="eyebrow">Owner Morning Brief</span>
+          <h2>Today’s Operating Focus</h2>
+          <ul class="checklist blue-checklist">
+            <li>One emergency leak/water damage request requires immediate owner visibility.</li>
+            <li>Three high-priority jobs should be reviewed before routine maintenance items.</li>
+            <li>Several routine requests are clear enough for standard dispatcher handling.</li>
+            <li>Recommended focus: call emergency customer, dispatch same-day support, then review high-priority queue.</li>
+          </ul>
+          <div class="scope-note blue-note">Morning Brief converts the queue into an owner-level operating readout: workload, emergencies, high-priority jobs, routine jobs, insights, and suggested focus.</div>
+        </article>
+        <article class="ov-panel table-panel">
+          <div class="panel-head"><div><span class="eyebrow">Brief Snapshot</span><h2>Daily Summary</h2></div><span class="status status-blue">Brief Ready</span></div>
+          <div class="responsive-table">
+            <table>
+              <thead><tr><th>Brief Field</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Workload Summary</td><td>12 open/triaged requests; 1 emergency; 3 high-priority jobs.</td></tr>
+                <tr><td>Emergencies</td><td>Mrs. Thompson — active water damage in Carmel.</td></tr>
+                <tr><td>AI Insights</td><td>Water-related issues should be reviewed before routine fixture work.</td></tr>
+                <tr><td>Suggested Focus</td><td>Emergency dispatch first, then high-priority customer callbacks.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="ov-section" id="workflow">
+      <div class="container">
+        <div class="section-title light-title"><div><h2>Cal Workflow</h2><div class="rule"></div></div><p>This OV visualizes the Cal pattern: raw service request to structured triage to owner-ready operating brief.</p></div>
+        <div class="flowline">
+          <div class="flow-step done blue-done"><span>1</span><strong>Request Captured</strong><small>Raw note enters queue</small></div>
+          <div class="flow-step done blue-done"><span>2</span><strong>AI Triage</strong><small>Category, urgency, risk</small></div>
+          <div class="flow-step done blue-done"><span>3</span><strong>Record Updated</strong><small>Status = triaged</small></div>
+          <div class="flow-step done blue-done"><span>4</span><strong>Dashboard Visible</strong><small>Dispatcher review</small></div>
+          <div class="flow-step done blue-done"><span>5</span><strong>Morning Brief</strong><small>Owner focus surfaced</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ov-section ov-close">
+      <div class="container">
+        <div class="contact-band dark-band"><div><h2>Final proof</h2><p>Messy request → AI triage → structured job record → dashboard visibility → owner Morning Brief.</p></div><a class="btn btn-primary" href="index.html#work">Back to Studio Showcase</a></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-inner"><div>AtlasFlow LLC · Cal OV Mock</div><div><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="sms-consent.html">SMS Consent</a></div></div></footer>
+</body>
+</html>

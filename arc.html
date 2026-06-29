@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arc OV | AtlasFlow</title>
+  <meta name="description" content="Arc Operational Viewer mock website for clinical scheduling readiness review.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ov-body">
+  <header class="site-header ov-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="AtlasFlow home"><img src="atlasflow-logo-full.png" alt="AtlasFlow logo"></a>
+      <nav class="nav-links" aria-label="Arc navigation">
+        <a href="index.html#work">Back to Work</a>
+        <a href="#request">Review Queue</a>
+        <a href="#readiness">Readiness</a>
+        <a href="#workflow">Workflow</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="ov-hero arc-theme">
+      <div class="container ov-hero-grid">
+        <div>
+          <div class="kicker teal-text">Arc Operational Viewer</div>
+          <h1>Clinical schedule changes become readiness guidance.</h1>
+          <p>Arc is a mock operating view for clinical education scheduling. It structures messy change requests, evaluates readiness risk, and gives coordinators a human-reviewed next action.</p>
+          <div class="ov-pills">
+            <span>Schedule Readiness</span><span>Risk Reason</span><span>Review Queue</span><span>Human Decision</span>
+          </div>
+        </div>
+        <aside class="ov-logo-panel">
+          <img src="arc-logo-teal.png" alt="Arc, an AtlasFlow Platform logo">
+          <p>Arc helps clinical teams see what changed, what is at risk, and what to do next.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ov-section">
+      <div class="container">
+        <div class="metric-grid">
+          <div class="metric-card"><span>Requests today</span><strong>7</strong><small>3 need review</small></div>
+          <div class="metric-card"><span>Readiness status</span><strong>Needs Review</strong><small>Capacity validation required</small></div>
+          <div class="metric-card"><span>Readiness score</span><strong>62</strong><small>Moderate risk</small></div>
+          <div class="metric-card"><span>Coordinator action</span><strong>Investigate</strong><small>Confirm site/preceptor coverage</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ov-section" id="request">
+      <div class="container ov-two-col">
+        <article class="ov-panel lead-panel">
+          <div class="panel-head"><div><span class="eyebrow">Schedule Change Request</span><h2>Student Rotation Move</h2></div><span class="priority review">Needs Review</span></div>
+          <div class="reply-box teal-box">
+            <span>Messy request</span>
+            <p>“Student needs to move next Thursday’s OR day because the assigned preceptor is unavailable. Can we move the day to Friday at the same site? There may already be another student assigned.”</p>
+          </div>
+          <div class="lead-details">
+            <div><span>Student</span><strong>Jordan Miller</strong></div>
+            <div><span>Site</span><strong>North Campus OR</strong></div>
+            <div><span>Rotation</span><strong>OR Clinical Day</strong></div>
+            <div><span>Request Type</span><strong>Move</strong></div>
+          </div>
+        </article>
+
+        <article class="ov-panel ai-panel" id="readiness">
+          <div class="panel-head"><div><span class="eyebrow">Readiness Output</span><h2>Arc Guidance</h2></div><span class="status status-teal">Human Review</span></div>
+          <div class="ai-output">
+            <div><label>AI Summary</label><p>Requested move may resolve preceptor unavailability, but the alternate Friday date may conflict with site capacity and another student assignment.</p></div>
+            <div><label>Risk Reason</label><p>Site capacity and preceptor coverage must be confirmed before the change can be treated as safe.</p></div>
+            <div><label>Recommended Action</label><p>Hold approval, verify Friday site capacity, check student overlap, then approve or propose another date.</p></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="ov-section">
+      <div class="container ov-two-col">
+        <article class="ov-panel table-panel">
+          <div class="panel-head"><div><span class="eyebrow">Review Queue</span><h2>Active Requests</h2></div><span class="status status-teal">Live Concept</span></div>
+          <div class="responsive-table">
+            <table>
+              <thead><tr><th>Request</th><th>Status</th><th>Score</th><th>Next Action</th></tr></thead>
+              <tbody>
+                <tr><td>OR day move — Jordan Miller</td><td>Needs Review</td><td>62</td><td>Confirm site capacity</td></tr>
+                <tr><td>Routine OB swap — Priya Shah</td><td>Ready</td><td>88</td><td>Approve after coordinator review</td></tr>
+                <tr><td>ICU cancellation — Marcus Lee</td><td>Risky</td><td>41</td><td>Escalate coverage gap</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="ov-panel">
+          <span class="eyebrow">Decision Support</span>
+          <h2>Coordinator Actions</h2>
+          <ul class="checklist teal-checklist">
+            <li>Approve only when site, preceptor, and student capacity align.</li>
+            <li>Investigate requests with partial information or capacity uncertainty.</li>
+            <li>Escalate likely conflicts, coverage gaps, or risky assignments.</li>
+            <li>Use Arc output as review guidance, not final authority.</li>
+          </ul>
+          <div class="scope-note teal-note">Demo note: Arc uses synthetic data only and is designed for human review. It does not make final scheduling decisions.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="ov-section" id="workflow">
+      <div class="container">
+        <div class="section-title light-title"><div><h2>Arc Workflow</h2><div class="rule"></div></div><p>This OV visualizes a validated prototype path from messy change request to readiness guidance.</p></div>
+        <div class="flowline">
+          <div class="flow-step done teal-done"><span>1</span><strong>Request Captured</strong><small>Messy schedule change</small></div>
+          <div class="flow-step done teal-done"><span>2</span><strong>Request Structured</strong><small>Student, site, dates</small></div>
+          <div class="flow-step done teal-done"><span>3</span><strong>Readiness Evaluated</strong><small>Ready / Review / Risky</small></div>
+          <div class="flow-step done teal-done"><span>4</span><strong>Risk Explained</strong><small>Reason + score</small></div>
+          <div class="flow-step done teal-done"><span>5</span><strong>Human Reviews</strong><small>Approve, investigate, escalate</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ov-section ov-close">
+      <div class="container">
+        <div class="contact-band dark-band"><div><h2>Final proof</h2><p>Messy clinical scheduling request → structured change → readiness score/status → risk reason → recommended next action for human review.</p></div><a class="btn btn-primary" href="index.html#work">Back to Studio Showcase</a></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-inner"><div>AtlasFlow LLC · Arc OV Mock</div><div><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="sms-consent.html">SMS Consent</a></div></div></footer>
+</body>
+</html>

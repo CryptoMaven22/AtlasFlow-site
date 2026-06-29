@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laura OV | AtlasFlow</title>
+  <meta name="description" content="Laura Operational Viewer mock website for the AtlasFlow Laura Core Demo.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ov-body">
+  <header class="site-header ov-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="AtlasFlow home"><img src="atlasflow-logo-full.png" alt="AtlasFlow logo"></a>
+      <nav class="nav-links" aria-label="Laura navigation">
+        <a href="index.html#work">Back to Work</a>
+        <a href="#lead-queue">Lead Queue</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#handoff">Agent Handoff</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="ov-hero">
+      <div class="container ov-hero-grid">
+        <div>
+          <div class="kicker coral-text">Laura Operational Viewer</div>
+          <h1>Lead replies become clear next actions.</h1>
+          <p>Laura is a mock operational view of the Core Demo: a lead reply comes in, Laura understands intent and urgency, updates the workflow state, alerts the assigned agent, and makes the next action visible.</p>
+          <div class="ov-pills">
+            <span>Core Demo</span><span>AI Assist</span><span>Agent Alert</span><span>Dashboard Visibility</span>
+          </div>
+        </div>
+        <aside class="ov-logo-panel">
+          <img src="laura-logo-coral.png" alt="Laura, an AtlasFlow Platform logo">
+          <p>Execution should not depend on agent discipline. Laura captures the signal and makes the handoff visible.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ov-section">
+      <div class="container">
+        <div class="metric-grid">
+          <div class="metric-card"><span>Workflow status</span><strong>agent_notified</strong><small>Final demo state</small></div>
+          <div class="metric-card"><span>AI priority</span><strong>High</strong><small>Clear intent + availability</small></div>
+          <div class="metric-card"><span>Agent handoff</span><strong>Ready</strong><small>Summary + next action sent</small></div>
+          <div class="metric-card"><span>Source of truth</span><strong>Sanctus DB</strong><small>Google Sheets demo layer</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ov-section" id="lead-queue">
+      <div class="container ov-two-col">
+        <article class="ov-panel lead-panel">
+          <div class="panel-head"><div><span class="eyebrow">Lead Queue</span><h2>Mary Johnson</h2></div><span class="priority high">High Priority</span></div>
+          <div class="reply-box">
+            <span>Latest lead reply</span>
+            <p>“Yes, I’m interested. Can we talk tomorrow morning? We’d like to see the Maple Street property again and may be ready to make an offer.”</p>
+          </div>
+          <div class="lead-details">
+            <div><span>Assigned Agent</span><strong>Laura Demo Agent</strong></div>
+            <div><span>Property</span><strong>418 Maple Street</strong></div>
+            <div><span>Timeline</span><strong>Immediate / This Week</strong></div>
+            <div><span>Price Range</span><strong>$425k–$475k</strong></div>
+          </div>
+        </article>
+
+        <article class="ov-panel ai-panel">
+          <div class="panel-head"><div><span class="eyebrow">AI Assist</span><h2>Interpretation</h2></div><span class="status status-coral">Structured Output</span></div>
+          <div class="ai-output">
+            <div><label>Summary</label><p>Lead is actively interested, requests a conversation tomorrow morning, and signals possible offer intent.</p></div>
+            <div><label>Recommended Action</label><p>Call the lead tomorrow morning, confirm showing interest, and prepare offer-readiness questions.</p></div>
+            <div><label>Reason</label><p>The reply includes availability, direct intent, and a specific property reference.</p></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="ov-section" id="workflow">
+      <div class="container">
+        <div class="section-title light-title"><div><h2>Core Workflow</h2><div class="rule"></div></div><p>This OV visualizes the completed Laura Core Demo path from lead reply to visible next action.</p></div>
+        <div class="flowline">
+          <div class="flow-step done"><span>1</span><strong>Reply Captured</strong><small>Twilio WhatsApp inbound</small></div>
+          <div class="flow-step done"><span>2</span><strong>Lead Matched</strong><small>Sanctus DB row lookup</small></div>
+          <div class="flow-step done"><span>3</span><strong>AI Interprets</strong><small>Summary, priority, reason</small></div>
+          <div class="flow-step done"><span>4</span><strong>Agent Alerted</strong><small>WhatsApp handoff</small></div>
+          <div class="flow-step done"><span>5</span><strong>Dashboard Visible</strong><small>Next action shown</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ov-section" id="handoff">
+      <div class="container ov-two-col">
+        <article class="ov-panel phone-panel">
+          <span class="eyebrow">Agent Alert Preview</span>
+          <div class="phone">
+            <div class="phone-top">WhatsApp Alert</div>
+            <div class="bubble">
+              <strong>New Laura reply from Mary Johnson</strong><br><br>
+              Reply: Yes, I’m interested. Can we talk tomorrow morning?<br><br>
+              AI Priority: High<br>
+              Summary: Lead is actively interested and may be ready to make an offer.<br><br>
+              Recommended Action: Call tomorrow morning and prepare offer-readiness questions.<br><br>
+              Please follow up now.
+            </div>
+          </div>
+        </article>
+        <article class="ov-panel">
+          <span class="eyebrow">Demo Evidence</span>
+          <h2>What this proves</h2>
+          <ul class="checklist">
+            <li>Lead reply is captured without relying on inbox discipline.</li>
+            <li>Laura summarizes intent, urgency, and recommended next action.</li>
+            <li>The database row updates with AI fields and workflow status.</li>
+            <li>The assigned agent receives one enriched handoff alert.</li>
+            <li>The dashboard shows the updated summary and detail view.</li>
+          </ul>
+          <div class="scope-note">Demo note: this OV is a mock website view. The Laura Core Demo used Make, Google Sheets / Sanctus DB, Twilio WhatsApp Sandbox, OpenAI, and AppSheet.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="ov-section">
+      <div class="container">
+        <div class="ov-panel table-panel">
+          <div class="panel-head"><div><span class="eyebrow">State + Data Visibility</span><h2>Laura Lead Dashboard Snapshot</h2></div><span class="status status-coral">agent_notified</span></div>
+          <div class="responsive-table">
+            <table>
+              <thead><tr><th>Field</th><th>Value</th><th>Visible Meaning</th></tr></thead>
+              <tbody>
+                <tr><td>latest_lead_reply</td><td>Can we talk tomorrow morning?</td><td>Lead has responded with buying signal.</td></tr>
+                <tr><td>ai_priority</td><td>High</td><td>Agent should follow up quickly.</td></tr>
+                <tr><td>ai_recommended_action</td><td>Call tomorrow morning</td><td>Next step is explicit.</td></tr>
+                <tr><td>laura_status</td><td>agent_notified</td><td>Workflow handoff is complete.</td></tr>
+                <tr><td>next_action</td><td>Confirm showing and offer readiness</td><td>The work is visible in the dashboard.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ov-section ov-close">
+      <div class="container">
+        <div class="contact-band dark-band"><div><h2>Final proof</h2><p>Lead reply → AI understanding → database update → agent alert → dashboard visibility → no lead goes cold.</p></div><a class="btn btn-primary" href="index.html#work">Back to Studio Showcase</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container footer-inner"><div>AtlasFlow LLC · Laura OV Mock</div><div><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="sms-consent.html">SMS Consent</a></div></div></footer>
+</body>
+</html>

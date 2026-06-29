@@ -1,5 +1,19 @@
-# AtlasFlow Static Site
+# AtlasFlow Static Site with Project OVs
 
-Updated package with AtlasFlow header logo and dark-themed project showcase cards using Laura, Cal, and Arc project logos.
+Upload these files to the root of the GitHub repository. The logo files are intentionally referenced from the repo root, not /assets.
 
-Upload the contents of this folder to the GitHub Pages repository root. Preserve any existing CNAME file if your repository uses a custom domain.
+Pages included:
+- index.html
+- laura.html
+- cal.html
+- arc.html
+- privacy.html
+- sms-consent.html
+- terms.html
+- styles.css
+
+Logo files:
+- atlasflow-logo-full.png
+- laura-logo-coral.png
+- cal-logo-blue.png
+- arc-logo-teal.png
