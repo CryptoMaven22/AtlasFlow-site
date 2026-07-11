@@ -1,332 +1,1615 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Atlas Studios</title>
-<style>
-  :root{
-    --bg:#020202;
-    --text:#f5f5f5;
-    --muted:#bcbcbc;
-    --forge:#7f7f82;
-    --grace:#d500d7;
-    --cal:#00d000;
-    --arc:#12cdea;
-    --nexus:#1454ff;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AtlasForge — Interactive Methodology Overview</title>
+  <meta name="description" content="AtlasForge is the Atlas Studios methodology for turning operational ambiguity into validated, buildable products." />
+  <style>
+    :root{
+      --ink:#172335;
+      --ink-2:#2f3b4b;
+      --muted:#667085;
+      --paper:#f6f4ef;
+      --panel:#ffffff;
+      --line:#d7d2c8;
+      --forge:#e57b25;
+      --forge-dark:#a9480e;
+      --graphite:#26282d;
+      --graphite-2:#383b42;
+      --flow:#1688e8;
+      --grace:#7b2c62;
+      --cal:#2dbe60;
+      --arc:#0f6e56;
+      --shadow:0 18px 45px rgba(31,34,40,.11);
+      --radius:20px;
+      --radius-sm:12px;
+    }
 
-  *{box-sizing:border-box}
-  html,body{
-    margin:0;
-    min-height:100%;
-    background:
-      radial-gradient(circle at 50% 16%, rgba(255,255,255,.025), transparent 26%),
-      #020202;
-    color:var(--text);
-    font-family: "Avenir Next", "Segoe UI", Arial, sans-serif;
-  }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 80% 0%, rgba(229,123,37,.10), transparent 28%),
+        radial-gradient(circle at 5% 35%, rgba(22,136,232,.07), transparent 26%),
+        var(--paper);
+      line-height:1.5;
+    }
 
-  body{
-    display:flex;
-    justify-content:center;
-    padding:28px 38px 38px;
-  }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
 
-  .page{
-    width:min(1540px,100%);
-  }
+    .app{
+      display:grid;
+      grid-template-columns:270px minmax(0,1fr);
+      min-height:100vh;
+    }
 
-  .hero{
-    text-align:center;
-    margin-bottom:44px;
-  }
+    .sidebar{
+      position:sticky;
+      top:0;
+      height:100vh;
+      padding:28px 22px;
+      background:linear-gradient(180deg, var(--graphite), #1d1f23);
+      color:white;
+      border-right:1px solid rgba(255,255,255,.08);
+      overflow:auto;
+      z-index:20;
+    }
 
-  .atlas{
-    font-size:clamp(72px,8vw,150px);
-    line-height:.78;
-    letter-spacing:.09em;
-    font-weight:700;
-    margin:10px 0 0;
-  }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:30px;
+    }
 
-  .atlas span{
-    display:inline-block;
-    transform:scaleX(1.06);
-  }
+    .brand-mark{
+      width:48px;height:48px;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:
+        linear-gradient(145deg, rgba(229,123,37,.18), rgba(229,123,37,.02));
+      position:relative;
+      overflow:hidden;
+    }
 
-  .studios{
-    margin-top:18px;
-    font-size:clamp(24px,2.2vw,40px);
-    font-weight:600;
-    letter-spacing:.58em;
-    padding-left:.58em;
-  }
+    .brand-mark:before,
+    .brand-mark:after{
+      content:"";
+      position:absolute;
+      width:24px;height:7px;
+      background:var(--forge);
+      transform:skewX(-22deg);
+      border-radius:2px;
+    }
+    .brand-mark:before{top:15px}
+    .brand-mark:after{bottom:15px;right:8px;width:18px}
 
-  .tagline{
-    margin-top:14px;
-    font-size:clamp(15px,1.25vw,24px);
-    letter-spacing:.39em;
-    color:#f2f2f2;
-    white-space:nowrap;
-  }
+    .brand-copy strong{
+      display:block;
+      letter-spacing:.04em;
+      font-size:15px;
+    }
 
-  .forge{
-    max-width:760px;
-    margin:0 auto 56px;
-    text-align:center;
-  }
+    .brand-copy span{
+      color:#cfd3da;
+      font-size:12px;
+    }
 
-  .forge-head{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:24px;
-  }
+    .nav-label{
+      margin:24px 10px 8px;
+      font-size:10px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:#949aa5;
+      font-weight:800;
+    }
 
-  .forge-logo,
-  .product-logo{
-    position:relative;
-    flex:0 0 auto;
-  }
+    .nav a{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:10px;
+      color:#d8dce3;
+      font-size:14px;
+      transition:.2s ease;
+    }
 
-  .forge-logo{
-    width:132px;
-    height:100px;
-  }
+    .nav a:hover,
+    .nav a.active{
+      background:rgba(255,255,255,.08);
+      color:white;
+      transform:translateX(2px);
+    }
 
-  .product-logo{
-    width:106px;
-    height:86px;
-  }
+    .nav-dot{
+      width:7px;height:7px;border-radius:50%;
+      background:#777d87;
+      flex:0 0 auto;
+    }
 
-  .node{
-    position:absolute;
-    border-radius:50%;
-    background:currentColor;
-  }
+    .nav a.active .nav-dot{background:var(--forge)}
 
-  .line{
-    position:absolute;
-    height:8px;
-    border-radius:999px;
-    background:currentColor;
-    transform-origin:left center;
-  }
+    .sidebar-note{
+      margin-top:28px;
+      padding:14px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:12px;
+      background:rgba(255,255,255,.04);
+      color:#c8ccd3;
+      font-size:12px;
+    }
 
-  .forge-logo .node:nth-child(1){width:26px;height:26px;left:55px;top:2px}
-  .forge-logo .node:nth-child(2){width:26px;height:26px;left:0;top:50px}
-  .forge-logo .node:nth-child(3){width:26px;height:26px;left:56px;top:48px}
-  .forge-logo .line:nth-child(4){width:62px;left:22px;top:54px;transform:rotate(-43deg)}
-  .forge-logo .line:nth-child(5){width:63px;left:67px;top:24px;transform:rotate(57deg)}
-  .forge-logo .line:nth-child(6){width:55px;left:23px;top:62px;transform:rotate(0deg)}
-  .forge-logo .line:nth-child(7){width:60px;left:57px;top:59px;transform:rotate(42deg)}
-  .forge-logo .line:nth-child(8){width:40px;left:25px;top:82px;transform:rotate(-39deg)}
+    .sidebar-note strong{color:white}
 
-  .forge-logo{color:var(--forge)}
-  .forge-copy{text-align:left}
-  .forge-title{
-    margin:0;
-    font-size:clamp(34px,3.2vw,58px);
-    letter-spacing:.035em;
-    font-weight:700;
-    color:var(--forge);
-  }
-  .forge-sub{
-    margin:2px 0 0;
-    font-size:clamp(14px,1.15vw,22px);
-    letter-spacing:.48em;
-    color:#fff;
-    white-space:nowrap;
-  }
-  .forge-desc{
-    margin:20px auto 0;
-    max-width:690px;
-    color:#e0e0e0;
-    font-size:clamp(18px,1.55vw,28px);
-    line-height:1.35;
-  }
+    .content{
+      min-width:0;
+      padding:24px clamp(20px,4vw,58px) 70px;
+    }
 
-  .section-title{
-    text-align:center;
-    margin:0 0 10px;
-    font-size:clamp(17px,1.25vw,24px);
-    letter-spacing:.44em;
-    color:#f0f0f0;
-  }
-  .section-title .flow{color:#1590ff;font-weight:700}
+    .topbar{
+      max-width:1240px;
+      margin:0 auto 18px;
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+    }
 
-  .cards{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-  }
+    .topbar button{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.8);
+      color:var(--ink);
+      padding:9px 13px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:700;
+      font-size:13px;
+    }
 
-  .card{
-    --accent:#fff;
-    min-height:330px;
-    border:2px solid var(--accent);
-    border-radius:24px;
-    padding:22px 24px 24px;
-    background:linear-gradient(180deg,rgba(255,255,255,.012),rgba(255,255,255,.004));
-    box-shadow:inset 0 0 18px rgba(255,255,255,.01);
-  }
+    .topbar button:hover{
+      border-color:var(--forge);
+      color:var(--forge-dark);
+    }
 
-  .card-head{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    min-height:104px;
-  }
+    section{
+      max-width:1240px;
+      margin:0 auto 28px;
+      scroll-margin-top:22px;
+    }
 
-  .card-title{
-    font-size:clamp(30px,2.4vw,48px);
-    line-height:1;
-    font-weight:700;
-    margin:0 0 10px;
-  }
+    .hero{
+      min-height:560px;
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(330px,.85fr);
+      gap:34px;
+      align-items:stretch;
+      padding:clamp(32px,5vw,70px);
+      border-radius:28px;
+      color:white;
+      background:
+        linear-gradient(125deg, rgba(20,21,24,.98), rgba(44,46,51,.94)),
+        var(--graphite);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
 
-  .card-kicker{
-    color:var(--accent);
-    font-size:clamp(14px,1.05vw,20px);
-    line-height:1.4;
-    letter-spacing:.24em;
-    text-transform:uppercase;
-  }
+    .hero:after{
+      content:"";
+      position:absolute;
+      width:420px;height:420px;
+      border:1px solid rgba(229,123,37,.26);
+      border-radius:50%;
+      right:-120px;top:-120px;
+      box-shadow:0 0 0 55px rgba(229,123,37,.04), 0 0 0 110px rgba(229,123,37,.025);
+    }
 
-  .divider{
-    height:2px;
-    background:var(--accent);
-    margin:12px 0 20px;
-  }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:999px;
+      color:#f3c49d;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      background:rgba(255,255,255,.04);
+    }
 
-  .card p{
-    margin:0;
-    color:#ededed;
-    font-size:clamp(16px,1.25vw,24px);
-    line-height:1.42;
-  }
+    h1{
+      margin:22px 0 14px;
+      font-size:clamp(48px,7vw,86px);
+      line-height:.94;
+      letter-spacing:-.055em;
+    }
 
-  .grace{--accent:var(--grace)}
-  .cal{--accent:var(--cal)}
-  .arc{--accent:var(--arc)}
-  .nexus{--accent:var(--nexus)}
+    h1 .accent{color:var(--forge)}
 
-  .product-logo{color:var(--accent)}
-  .product-logo .node:nth-child(1){width:24px;height:24px;left:46px;top:0}
-  .product-logo .node:nth-child(2){width:24px;height:24px;left:0;top:47px}
-  .product-logo .node:nth-child(3){width:24px;height:24px;left:46px;top:45px}
-  .product-logo .node:nth-child(4){width:24px;height:24px;left:83px;top:58px}
-  .product-logo .line:nth-child(5){width:58px;left:18px;top:50px;transform:rotate(-43deg)}
-  .product-logo .line:nth-child(6){width:56px;left:57px;top:18px;transform:rotate(60deg)}
-  .product-logo .line:nth-child(7){width:44px;left:20px;top:57px;transform:rotate(0deg)}
-  .product-logo .line:nth-child(8){width:44px;left:57px;top:55px;transform:rotate(18deg)}
-  .product-logo .line:nth-child(9){width:34px;left:22px;top:78px;transform:rotate(-40deg)}
+    .live-url{
+      display:inline-flex;
+      align-items:center;
+      margin:-2px 0 22px;
+      color:#f3c49d;
+      font-size:14px;
+      font-weight:800;
+      letter-spacing:.02em;
+      border-bottom:1px solid rgba(243,196,157,.45);
+      transition:.2s ease;
+      position:relative;
+      z-index:3;
+    }
 
-  @media (max-width: 1180px){
-    .cards{grid-template-columns:repeat(2,1fr)}
-    .tagline{white-space:normal}
-  }
+    .live-url:hover{
+      color:white;
+      border-bottom-color:white;
+      transform:translateY(-1px);
+    }
 
-  @media (max-width: 700px){
-    body{padding:20px 14px}
-    .cards{grid-template-columns:1fr}
-    .forge-head{flex-direction:column;gap:6px}
-    .forge-copy{text-align:center}
-    .forge-sub{white-space:normal}
-    .studios{letter-spacing:.35em;padding-left:.35em}
-    .tagline{letter-spacing:.18em;line-height:1.5}
-  }
-</style>
+    .hero h2{
+      margin:0 0 20px;
+      max-width:780px;
+      font-size:clamp(22px,3vw,34px);
+      line-height:1.12;
+      font-weight:650;
+      color:#f6f6f3;
+    }
+
+    .hero p{
+      max-width:760px;
+      font-size:17px;
+      color:#cfd3d9;
+    }
+
+    .hero-actions{
+      display:flex;flex-wrap:wrap;gap:10px;
+      margin-top:28px;
+    }
+
+    .btn{
+      border:0;
+      border-radius:12px;
+      padding:12px 16px;
+      cursor:pointer;
+      font-weight:800;
+      transition:.2s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .btn-primary{background:var(--forge);color:#1d1f23}
+    .btn-primary:hover{transform:translateY(-2px);background:#f08b35}
+    .btn-ghost{background:rgba(255,255,255,.08);color:white;border:1px solid rgba(255,255,255,.14)}
+    .btn-ghost:hover{background:rgba(255,255,255,.13)}
+
+    .hero-panel{
+      align-self:center;
+      position:relative;
+      z-index:2;
+      display:grid;
+      gap:14px;
+    }
+
+    .principle{
+      padding:18px;
+      border-radius:16px;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(8px);
+    }
+
+    .principle strong{
+      display:block;
+      color:white;
+      margin-bottom:4px;
+      font-size:15px;
+    }
+
+    .principle span{
+      color:#c8ccd3;
+      font-size:13px;
+    }
+
+    .section-card{
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(117,112,102,.18);
+      border-radius:var(--radius);
+      box-shadow:0 10px 28px rgba(35,38,43,.07);
+      padding:clamp(22px,3.2vw,38px);
+    }
+
+    .section-heading{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      align-items:flex-end;
+      margin-bottom:24px;
+    }
+
+    .section-heading .kicker{
+      color:var(--forge-dark);
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      font-weight:850;
+      font-size:11px;
+    }
+
+    .section-heading h2{
+      margin:4px 0 0;
+      font-size:clamp(28px,4vw,44px);
+      line-height:1.06;
+      letter-spacing:-.035em;
+    }
+
+    .section-heading p{
+      max-width:520px;
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .architecture{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .architecture article{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px;
+      min-height:160px;
+      background:#fff;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .architecture article:before{
+      content:"";
+      position:absolute;left:0;top:0;bottom:0;width:6px;
+      background:var(--graphite);
+    }
+
+    .architecture article:nth-child(2):before{background:var(--forge)}
+    .architecture article:nth-child(3):before{background:var(--flow)}
+
+    .architecture .num{
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.14em;
+      color:var(--muted);
+      text-transform:uppercase;
+    }
+
+    .architecture h3{font-size:20px;margin:10px 0 8px}
+    .architecture p{color:var(--muted);font-size:14px;margin:0}
+
+    .pathway-wrap{
+      overflow-x:auto;
+      padding:4px 2px 12px;
+    }
+
+    .pathway{
+      min-width:1120px;
+      display:grid;
+      grid-template-columns:repeat(8,minmax(132px,1fr));
+      gap:4px;
+      margin-bottom:22px;
+      align-items:stretch;
+    }
+
+    .stage-tab{
+      border:0;
+      background:#f4f2ed;
+      min-height:96px;
+      padding:14px 22px 14px 28px;
+      cursor:pointer;
+      text-align:left;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:flex-start;
+      clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%);
+      transition:background .2s ease, color .2s ease, box-shadow .2s ease;
+      color:var(--ink-2);
+      outline-offset:3px;
+    }
+
+    .stage-tab:first-child{
+      padding-left:16px;
+      clip-path:polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%);
+    }
+
+    .stage-tab:hover{
+      background:#ebe7df;
+    }
+
+    .stage-tab.active{
+      background:var(--graphite);
+      color:white;
+      box-shadow:inset 0 0 0 2px rgba(255,255,255,.06);
+    }
+
+    .stage-tab .stage-number{
+      display:block;
+      font-size:10px;
+      line-height:1;
+      letter-spacing:.14em;
+      font-weight:900;
+      color:var(--forge-dark);
+      margin-bottom:10px;
+    }
+
+    .stage-tab.active .stage-number{color:#f4a45f}
+
+    .stage-tab strong{
+      display:block;
+      max-width:100%;
+      font-size:13px;
+      line-height:1.2;
+      font-weight:800;
+      white-space:normal;
+      overflow-wrap:normal;
+      word-break:keep-all;
+    }
+
+    .stage-detail{
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);
+      gap:18px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:24px;
+      background:linear-gradient(135deg,#fff,#f5f2ec);
+      min-height:420px;
+    }
+
+    .stage-title{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    .stage-badge{
+      width:48px;height:48px;
+      display:grid;place-items:center;
+      border-radius:14px;
+      background:var(--forge);
+      color:#24262a;
+      font-size:18px;
+      font-weight:900;
+      flex:0 0 auto;
+    }
+
+    .stage-title h3{
+      margin:0;font-size:28px;line-height:1.08;
+    }
+
+    .stage-title p{margin:5px 0 0;color:var(--muted)}
+
+    .detail-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+
+    .detail-box{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:16px;
+    }
+
+    .detail-box h4{
+      margin:0 0 9px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.11em;
+      color:var(--forge-dark);
+    }
+
+    .detail-box ul{margin:0;padding-left:18px}
+    .detail-box li{font-size:13px;margin:6px 0;color:var(--ink-2)}
+
+    .stage-output{
+      background:var(--graphite);
+      color:white;
+      border-radius:16px;
+      padding:22px;
+    }
+
+    .stage-output h4{
+      margin:0 0 14px;
+      color:#f4b27a;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:11px;
+    }
+
+    .output-list{
+      display:grid;gap:9px;
+    }
+
+    .output-item{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.1);
+      font-size:13px;color:#d8dce2;
+    }
+    .output-item:last-child{border-bottom:0}
+    .check{
+      width:18px;height:18px;border-radius:50%;
+      background:rgba(229,123,37,.2);
+      color:#f0a261;
+      display:grid;place-items:center;
+      flex:0 0 auto;
+      font-size:11px;font-weight:900;
+    }
+
+    .gate-strip{
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:12px;
+      background:#fff4e9;
+      border-left:5px solid var(--forge);
+      font-size:13px;
+      color:#5c351a;
+    }
+
+    .principles-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .principle-card{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:18px;
+      background:white;
+      min-height:165px;
+    }
+
+    .principle-card .icon{
+      width:34px;height:34px;
+      border-radius:10px;
+      display:grid;place-items:center;
+      background:#f4e7db;
+      color:var(--forge-dark);
+      margin-bottom:13px;
+      font-weight:900;
+    }
+    .principle-card h3{margin:0 0 7px;font-size:17px}
+    .principle-card p{margin:0;color:var(--muted);font-size:13px}
+
+    .responsibility{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:white;
+    }
+    .responsibility th,
+    .responsibility td{
+      padding:14px;
+      border-right:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      text-align:left;
+      vertical-align:top;
+      font-size:13px;
+    }
+    .responsibility th{
+      background:var(--graphite);
+      color:white;
+      font-size:12px;
+      letter-spacing:.04em;
+    }
+    .responsibility tr:last-child td{border-bottom:0}
+    .responsibility th:last-child,
+    .responsibility td:last-child{border-right:0}
+    .responsibility td:first-child{
+      color:var(--forge-dark);
+      font-weight:850;
+      width:120px;
+    }
+
+    .artifacts-toolbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
+    }
+
+    .filter-btn{
+      border:1px solid var(--line);
+      background:white;
+      color:var(--ink-2);
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:750;
+      font-size:12px;
+      cursor:pointer;
+    }
+
+    .filter-btn.active{
+      background:var(--graphite);
+      color:white;
+      border-color:var(--graphite);
+    }
+
+    .artifact-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .artifact-card{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:17px;
+      transition:.2s ease;
+    }
+
+    .artifact-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 24px rgba(31,34,40,.09);
+      border-color:#c6a98d;
+    }
+
+    .artifact-stage{
+      display:inline-flex;
+      padding:4px 8px;
+      border-radius:999px;
+      font-size:10px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+      background:#f3e8de;
+      color:var(--forge-dark);
+    }
+
+    .artifact-card h3{font-size:16px;margin:12px 0 7px}
+    .artifact-card p{font-size:13px;color:var(--muted);margin:0}
+    .artifact-card.hidden{display:none}
+
+    .gates{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+    }
+
+    .gate{
+      background:white;
+      border:1px solid var(--line);
+      border-radius:15px;
+      padding:18px;
+    }
+
+    .gate .gate-top{
+      display:flex;justify-content:space-between;gap:8px;align-items:center;
+      margin-bottom:12px;
+    }
+
+    .gate h3{margin:0;font-size:16px}
+    .gate .status{
+      padding:4px 8px;border-radius:999px;
+      font-size:10px;font-weight:900;
+      background:#f4eee7;color:var(--forge-dark);
+    }
+
+    .gate p{font-size:13px;color:var(--muted);margin:0}
+    .gate ul{padding-left:18px;margin:12px 0 0}
+    .gate li{font-size:12px;margin:6px 0}
+
+    .product-tabs{
+      display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;
+    }
+
+    .product-tab{
+      border:1px solid var(--line);
+      background:white;
+      border-radius:12px;
+      padding:10px 15px;
+      font-weight:850;
+      cursor:pointer;
+      color:var(--ink);
+    }
+
+    .product-tab[data-product="grace"].active{background:var(--grace);color:white;border-color:var(--grace)}
+    .product-tab[data-product="cal"].active{background:var(--cal);color:#0e2b17;border-color:var(--cal)}
+    .product-tab[data-product="arc"].active{background:var(--arc);color:white;border-color:var(--arc)}
+
+    .product-panel{
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:minmax(250px,.8fr) minmax(0,1.2fr);
+      background:white;
+    }
+
+    .product-identity{
+      padding:28px;
+      color:white;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height:350px;
+      background:var(--grace);
+    }
+
+    .product-identity.cal{background:var(--cal);color:#14351d}
+    .product-identity.arc{background:var(--arc)}
+
+    .product-identity .mini{
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:900;
+      opacity:.8;
+    }
+
+    .product-identity h3{
+      font-size:44px;
+      margin:12px 0 6px;
+      line-height:1;
+    }
+
+    .product-identity p{font-size:15px;max-width:320px;margin:0;opacity:.9}
+
+    .product-content{
+      padding:26px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:14px;
+      align-content:start;
+    }
+
+    .product-content .full{grid-column:1/-1}
+    .product-block{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:15px;
+      background:#faf9f6;
+    }
+
+    .product-block h4{
+      margin:0 0 8px;
+      font-size:11px;
+      color:var(--forge-dark);
+      text-transform:uppercase;
+      letter-spacing:.1em;
+    }
+    .product-block p{margin:0;font-size:13px;color:var(--ink-2)}
+
+    .decision-banner{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:22px;
+      align-items:center;
+      padding:26px;
+      border-radius:18px;
+      background:linear-gradient(125deg,var(--graphite),#42454d);
+      color:white;
+    }
+
+    .decision-banner h2{margin:0 0 7px;font-size:30px}
+    .decision-banner p{margin:0;color:#d3d7dd}
+    .decision-options{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+    .decision-options span{
+      padding:8px 12px;border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.06);
+      border-radius:999px;font-size:12px;font-weight:800;
+    }
+
+    footer{
+      max-width:1240px;
+      margin:30px auto 0;
+      color:var(--muted);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      padding-top:20px;
+      border-top:1px solid var(--line);
+    }
+
+    .mobile-nav{display:none}
+
+    @media (max-width:1050px){
+      .app{grid-template-columns:1fr}
+      .sidebar{display:none}
+      .mobile-nav{
+        display:flex;
+        position:sticky;top:0;z-index:40;
+        background:rgba(31,33,37,.96);
+        backdrop-filter:blur(8px);
+        padding:10px 14px;
+        color:white;
+        align-items:center;
+        justify-content:space-between;
+      }
+      .mobile-nav strong{font-size:14px}
+      .mobile-nav select{
+        background:#32353b;color:white;
+        border:1px solid #4a4d54;border-radius:8px;padding:8px;
+      }
+      .content{padding-top:16px}
+      .hero{grid-template-columns:1fr;min-height:auto}
+      .hero-panel{grid-template-columns:repeat(3,1fr)}
+      .architecture,.principles-grid,.artifact-grid{grid-template-columns:repeat(2,1fr)}
+      .gates{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media (max-width:720px){
+      .content{padding-left:14px;padding-right:14px}
+      .topbar{display:none}
+      .hero{padding:28px 22px;border-radius:20px}
+      .hero-panel{grid-template-columns:1fr}
+      .section-card{padding:20px 16px}
+      .section-heading{display:block}
+      .section-heading p{margin-top:10px}
+      .architecture,.principles-grid,.artifact-grid,.gates{grid-template-columns:1fr}
+      .stage-detail{grid-template-columns:1fr}
+      .detail-grid{grid-template-columns:1fr}
+      .product-panel{grid-template-columns:1fr}
+      .product-identity{min-height:250px}
+      .product-content{grid-template-columns:1fr}
+      .product-content .full{grid-column:auto}
+      .decision-banner{grid-template-columns:1fr}
+      .decision-options{justify-content:flex-start}
+      footer{display:block}
+      footer span{display:block;margin:5px 0}
+      .responsibility{display:block;overflow-x:auto;white-space:normal}
+    }
+
+    @media print{
+      .sidebar,.mobile-nav,.topbar,.hero-actions,.artifacts-toolbar{display:none!important}
+      .app{display:block}
+      .content{padding:0}
+      body{background:white}
+      section{break-inside:avoid;margin-bottom:16px}
+      .hero{min-height:auto;box-shadow:none}
+      .section-card{box-shadow:none}
+    }
+  </style>
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <div class="atlas"><span>ATLAS</span></div>
-      <div class="studios">STUDIOS</div>
-      <div class="tagline">DESIGNING INTELLIGENT OPERATING ENVIRONMENTS</div>
-    </section>
+  <div class="mobile-nav">
+    <strong>AtlasForge OV</strong>
+    <select id="mobileSection" aria-label="Navigate sections">
+      <option value="overview">Overview</option>
+      <option value="pathway">Forge Pathway</option>
+      <option value="principles">Design Principles</option>
+      <option value="artifacts">Artifact System</option>
+      <option value="gates">Evidence Gates</option>
+      <option value="products">Product Proof</option>
+    </select>
+  </div>
 
-    <section class="forge">
-      <div class="forge-head">
-        <div class="forge-logo">
-          <i class="node"></i><i class="node"></i><i class="node"></i>
-          <i class="line"></i><i class="line"></i><i class="line"></i><i class="line"></i><i class="line"></i>
-        </div>
-        <div class="forge-copy">
-          <h2 class="forge-title">ATLAS FORGE</h2>
-          <div class="forge-sub">OUR METHODOLOGY</div>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-copy">
+          <strong>ATLASFORGE</strong>
+          <span>An AtlasFlow methodology</span>
         </div>
       </div>
-      <p class="forge-desc">
-        A repeatable methodology for discovering, validating,<br>
-        building, and evolving intelligent operating environments.
-      </p>
-    </section>
 
-    <h3 class="section-title"><span class="flow">ATLASFLOW</span> OPERATING ENVIRONMENTS</h3>
+      <div class="nav-label">Explore</div>
+      <nav class="nav" aria-label="Primary">
+        <a class="active" href="#overview"><span class="nav-dot"></span>Overview</a>
+        <a href="#architecture"><span class="nav-dot"></span>Where Forge fits</a>
+        <a href="#pathway"><span class="nav-dot"></span>Forge pathway</a>
+        <a href="#principles"><span class="nav-dot"></span>Design principles</a>
+        <a href="#responsibility"><span class="nav-dot"></span>Human + system roles</a>
+        <a href="#artifacts"><span class="nav-dot"></span>Artifact system</a>
+        <a href="#gates"><span class="nav-dot"></span>Evidence gates</a>
+        <a href="#products"><span class="nav-dot"></span>Product proof</a>
+      </nav>
 
-    <section class="cards">
-      <article class="card grace">
-        <div class="card-head">
-          <div class="product-logo">
-            <i class="node"></i><i class="node"></i><i class="node"></i><i class="node"></i>
-            <i class="line"></i><i class="line"></i><i class="line"></i><i class="line"></i><i class="line"></i>
-          </div>
-          <div>
-            <h2 class="card-title">Grace</h2>
-            <div class="card-kicker">Real Estate<br>Operations</div>
+      <div class="sidebar-note">
+        <strong>Forge completion rule</strong><br />
+        The work is complete when the next decision is clear—not when the document set is large.
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="topbar">
+        <button type="button" onclick="window.print()">Print / Save PDF</button>
+        <button type="button" onclick="resetView()">Reset view</button>
+      </div>
+
+      <section id="overview" class="hero">
+        <div>
+          <span class="eyebrow">Interactive methodology overview</span>
+          <h1>ATLAS<span class="accent">FORGE</span></h1>
+          <a class="live-url" href="https://atlasforge-ov.vercel.app" target="_blank" rel="noopener noreferrer">atlasforge-ov.vercel.app ↗</a>
+          <h2>Turning operational ambiguity into validated, buildable products.</h2>
+          <p>
+            AtlasForge is the practical product-development methodology Atlas Studios uses to move from a real operational problem to a decision-ready product and delivery path. It creates evidence before expansion, keeps human judgment visible, and controls scope at every stage.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#pathway">Explore the pathway →</a>
+            <a class="btn btn-ghost" href="#products">See product examples</a>
           </div>
         </div>
-        <div class="divider"></div>
-        <p>AI operating environment for real estate teams to manage leads, transactions, and client experience.</p>
-      </article>
 
-      <article class="card cal">
-        <div class="card-head">
-          <div class="product-logo">
-            <i class="node"></i><i class="node"></i><i class="node"></i><i class="node"></i>
-            <i class="line"></i><i class="line"></i><i class="line"></i><i class="line"></i><i class="line"></i>
+        <div class="hero-panel">
+          <div class="principle">
+            <strong>Start with the work</strong>
+            <span>Observe the real workflow before selecting technology or designing screens.</span>
           </div>
-          <div>
-            <h2 class="card-title">Cal</h2>
-            <div class="card-kicker">Service<br>Operations</div>
+          <div class="principle">
+            <strong>Prove the smallest credible path</strong>
+            <span>Use a steel thread and representative scenarios to control scope.</span>
+          </div>
+          <div class="principle">
+            <strong>Keep authority visible</strong>
+            <span>Separate product assistance from human judgment and final accountability.</span>
           </div>
         </div>
-        <div class="divider"></div>
-        <p>AI operating environment for service teams to triage requests, prioritize work, and coordinate action.</p>
-      </article>
+      </section>
 
-      <article class="card arc">
-        <div class="card-head">
-          <div class="product-logo">
-            <i class="node"></i><i class="node"></i><i class="node"></i><i class="node"></i>
-            <i class="line"></i><i class="line"></i><i class="line"></i><i class="line"></i><i class="line"></i>
-          </div>
+      <section id="architecture" class="section-card">
+        <div class="section-heading">
           <div>
-            <h2 class="card-title">Arc</h2>
-            <div class="card-kicker">Clinical<br>Readiness</div>
+            <div class="kicker">Brand architecture</div>
+            <h2>Where Forge fits</h2>
+          </div>
+          <p>Forge connects the creative environment of Atlas Studios to the common platform and delivery patterns of AtlasFlow.</p>
+        </div>
+
+        <div class="architecture">
+          <article>
+            <span class="num">01 · Environment</span>
+            <h3>Atlas Studios</h3>
+            <p>Where we design and build intelligent operating platforms.</p>
+          </article>
+          <article>
+            <span class="num">02 · Method</span>
+            <h3>AtlasForge</h3>
+            <p>How we frame, validate, design, and operationalize them.</p>
+          </article>
+          <article>
+            <span class="num">03 · Platform</span>
+            <h3>AtlasFlow</h3>
+            <p>The common platform underpinning the products we develop.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="pathway" class="section-card">
+        <div class="section-heading">
+          <div>
+            <div class="kicker">Methodology</div>
+            <h2>The Forge pathway</h2>
+          </div>
+          <p>Eight connected stages move an opportunity from initial qualification to a defensible decision and delivery handoff.</p>
+        </div>
+
+        <div class="pathway-wrap">
+          <div class="pathway" id="stageTabs" role="tablist" aria-label="AtlasForge stages"></div>
+        </div>
+
+        <div id="stageDetail" class="stage-detail" aria-live="polite"></div>
+      </section>
+
+      <section id="principles" class="section-card">
+        <div class="section-heading">
+          <div>
+            <div class="kicker">Operating discipline</div>
+            <h2>Design rules that protect trust</h2>
+          </div>
+          <p>These rules keep every workflow understandable, traceable, and appropriately human-controlled.</p>
+        </div>
+
+        <div class="principles-grid">
+          <article class="principle-card">
+            <div class="icon">01</div>
+            <h3>Owner + source</h3>
+            <p>Every input has an identifiable owner and source. Raw information remains distinguishable from interpretation.</p>
+          </article>
+          <article class="principle-card">
+            <div class="icon">02</div>
+            <h3>Decision relevance</h3>
+            <p>Every AI output maps to a real decision, action, or handoff—not a decorative insight.</p>
+          </article>
+          <article class="principle-card">
+            <div class="icon">03</div>
+            <h3>Named next actor</h3>
+            <p>Every recommendation states who acts next and does not imply unauthorized execution.</p>
+          </article>
+          <article class="principle-card">
+            <div class="icon">04</div>
+            <h3>Visible state</h3>
+            <p>Every status has a defined meaning, transition, owner, and allowed next state.</p>
+          </article>
+          <article class="principle-card">
+            <div class="icon">05</div>
+            <h3>Exceptions surface</h3>
+            <p>Ambiguity, missing information, and conflict become visible rather than being silently resolved.</p>
+          </article>
+          <article class="principle-card">
+            <div class="icon">06</div>
+            <h3>Bounded authority</h3>
+            <p>Every critical judgment is explicitly automated, assisted, or human-only, with the system of record kept clear.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="responsibility" class="section-card">
+        <div class="section-heading">
+          <div>
+            <div class="kicker">Responsibility model</div>
+            <h2>Human judgment stays visible</h2>
+          </div>
+          <p>Forge defines not only what the product does, but also what the human owns and what the system of record preserves.</p>
+        </div>
+
+        <table class="responsibility">
+          <thead>
+            <tr>
+              <th>Responsibility</th>
+              <th>Human</th>
+              <th>Product / AI</th>
+              <th>System of record</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Capture</td>
+              <td>Provides or confirms source information.</td>
+              <td>Structures unstructured input and detects gaps.</td>
+              <td>Stores raw and structured input.</td>
+            </tr>
+            <tr>
+              <td>Interpret</td>
+              <td>Applies context and domain judgment.</td>
+              <td>Summarizes, classifies, and explains detected signals.</td>
+              <td>Stores interpretation and confidence.</td>
+            </tr>
+            <tr>
+              <td>Assess</td>
+              <td>Owns final risk and readiness decision.</td>
+              <td>Applies defined checks and surfaces exceptions.</td>
+              <td>Records status, reason, and approval.</td>
+            </tr>
+            <tr>
+              <td>Act</td>
+              <td>Approves, edits, communicates, or executes.</td>
+              <td>Recommends next action and prepares the handoff.</td>
+              <td>Tracks ownership and completion.</td>
+            </tr>
+            <tr>
+              <td>Audit</td>
+              <td>Reviews history and outcomes.</td>
+              <td>Preserves rationale, timestamps, evidence, and overrides.</td>
+              <td>Maintains the durable record.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="artifacts" class="section-card">
+        <div class="section-heading">
+          <div>
+            <div class="kicker">Artifact system</div>
+            <h2>Evidence, not paperwork</h2>
+          </div>
+          <p>Each artifact exists to resolve a decision, reduce uncertainty, or prepare the next validation or delivery step.</p>
+        </div>
+
+        <div class="artifacts-toolbar" id="artifactFilters"></div>
+        <div class="artifact-grid" id="artifactGrid"></div>
+      </section>
+
+      <section id="gates" class="section-card">
+        <div class="section-heading">
+          <div>
+            <div class="kicker">Decision gates</div>
+            <h2>What must be true before moving forward</h2>
+          </div>
+          <p>Forge uses explicit evidence thresholds to prevent enthusiasm, feature pressure, or architecture ambition from outrunning validation.</p>
+        </div>
+
+        <div class="gates">
+          <article class="gate">
+            <div class="gate-top"><h3>Qualified</h3><span class="status">Engage → Discover</span></div>
+            <p>The problem, access, value, product fit, and commercial path are credible.</p>
+            <ul>
+              <li>Anchor stakeholder named</li>
+              <li>Observed problem stated without solution bias</li>
+              <li>Evidence sources and discovery boundaries identified</li>
+            </ul>
+          </article>
+          <article class="gate">
+            <div class="gate-top"><h3>Defined</h3><span class="status">Model → Define</span></div>
+            <p>The current work, future operating motion, decision roles, data, and boundaries are understood.</p>
+            <ul>
+              <li>Steel thread and thesis are explicit</li>
+              <li>Human authority and system responsibilities are clear</li>
+              <li>P0 capabilities trace to evidence</li>
+            </ul>
+          </article>
+          <article class="gate">
+            <div class="gate-top"><h3>Validated</h3><span class="status">Prototype → Plan</span></div>
+            <p>Representative scenarios produce enough evidence to advance, refine, reframe, or pause.</p>
+            <ul>
+              <li>Ready, ambiguous, blocked, exception, and edge cases covered</li>
+              <li>Workflow fit, trust, output quality, usability, and value scored</li>
+              <li>Recommendation is evidence-supported</li>
+            </ul>
+          </article>
+          <article class="gate">
+            <div class="gate-top"><h3>Delivery-ready</h3><span class="status">Plan → Build</span></div>
+            <p>The architecture and backlog fit the current stage and make responsibilities, controls, failure handling, and migration triggers explicit.</p>
+            <ul>
+              <li>System of record and automation authority defined</li>
+              <li>Acceptance tests and release gates mapped</li>
+              <li>Security, support, observability, and transition assumptions documented</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="products" class="section-card">
+        <div class="section-heading">
+          <div>
+            <div class="kicker">Applied methodology</div>
+            <h2>Product proof</h2>
+          </div>
+          <p>Grace, Cal, and Arc demonstrate the same Forge discipline across different operating environments.</p>
+        </div>
+
+        <div class="product-tabs" role="tablist" aria-label="Product examples">
+          <button class="product-tab active" data-product="grace">Grace</button>
+          <button class="product-tab" data-product="cal">Cal</button>
+          <button class="product-tab" data-product="arc">Arc</button>
+        </div>
+        <div id="productPanel" class="product-panel" aria-live="polite"></div>
+      </section>
+
+      <section>
+        <div class="decision-banner">
+          <div>
+            <h2>Forge ends with a decision.</h2>
+            <p>The final output is not simply a prototype. It is a defensible recommendation and an approved next step.</p>
+          </div>
+          <div class="decision-options">
+            <span>Advance</span>
+            <span>Refine</span>
+            <span>Reframe</span>
+            <span>Pause</span>
           </div>
         </div>
-        <div class="divider"></div>
-        <p>AI operating environment for clinical education teams to manage schedule changes, risk, and readiness.</p>
-      </article>
+      </section>
 
-      <article class="card nexus">
-        <div class="card-head">
-          <div class="product-logo">
-            <i class="node"></i><i class="node"></i><i class="node"></i><i class="node"></i>
-            <i class="line"></i><i class="line"></i><i class="line"></i><i class="line"></i><i class="line"></i>
+      <footer>
+        <span>Atlas Studios · AtlasForge · AtlasFlow</span>
+        <span>Interactive methodology overview · July 2026</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const stages = [
+      {
+        id:"engage",
+        name:"Engage",
+        subtitle:"Qualify the problem, sponsor, access, and value.",
+        purpose:"Separate an interesting idea from a qualified operational or product opportunity before investing in discovery.",
+        questions:[
+          "Is the problem important, recurring, and observable?",
+          "Who has direct operational knowledge and access to users?",
+          "What result could become faster, safer, clearer, or more valuable?",
+          "Is there a credible sponsor, pilot, or commercial path?"
+        ],
+        activities:[
+          "Create an opportunity snapshot",
+          "Score severity, frequency, access, workflow clarity, measurable value, product fit, and commercial readiness",
+          "Identify disqualifiers and first-phase constraints",
+          "Make a proceed, hold, refer, or decline recommendation"
+        ],
+        outputs:[
+          "Qualified opportunity statement",
+          "Named anchor stakeholder and user group",
+          "Initial operational and commercial hypothesis",
+          "Qualification scorecard and decision"
+        ],
+        gate:"Exit when the problem, stakeholder access, evidence sources, discovery boundaries, and recommendation are explicit."
+      },
+      {
+        id:"discover",
+        name:"Discover",
+        subtitle:"Understand the real work, evidence, constraints, and users.",
+        purpose:"Turn stakeholder stories and prototype reactions into grounded evidence about how work actually enters, moves, breaks, and creates value.",
+        questions:[
+          "Who performs, reviews, approves, and depends on the work?",
+          "What inputs, rules, decisions, systems, exceptions, and handoffs shape the workflow?",
+          "What does the user actually do—not just say they prefer?",
+          "What evidence would justify product investment?"
+        ],
+        activities:[
+          "Interview around recent real examples",
+          "Capture quotes, observed behavior, artifacts, scenarios, patterns, contradictions, and assumptions",
+          "Map the current-state workflow",
+          "Write the product thesis and primary validation question"
+        ],
+        outputs:[
+          "Evidence repository",
+          "Current-state workflow",
+          "Representative scenarios",
+          "Validated thesis, question, risks, and unknowns"
+        ],
+        gate:"Exit when the primary user, current workflow, high-value decisions, risks, scenarios, success evidence, and major assumptions are documented."
+      },
+      {
+        id:"model",
+        name:"Model",
+        subtitle:"Map the current state and define the future operating model.",
+        purpose:"Translate discovery into a clear before-and-after operating view focused on actors, information, decisions, controls, handoffs, and outcomes.",
+        questions:[
+          "What happens today, and where does friction or risk appear?",
+          "How should the product assist without erasing necessary judgment?",
+          "Who owns each decision, state change, handoff, and final action?",
+          "What operational benefit should the future state create?"
+        ],
+        activities:[
+          "Map current-state steps, actors, inputs, decisions, systems, pain, and outputs",
+          "Design the future-state flow with structured inputs, product assistance, human review, and state changes",
+          "Assign responsibility across human, product/AI, and system of record",
+          "Create the value bridge from current friction to measurable benefit"
+        ],
+        outputs:[
+          "Current-state map",
+          "Future-state operating model",
+          "Human / product / system responsibility model",
+          "Value bridge and operating-model approval"
+        ],
+        gate:"Exit when real users validate the current state, future judgment is preserved, ownership and handoffs are clear, and the expected improvement is measurable."
+      },
+      {
+        id:"define",
+        name:"Define",
+        subtitle:"Lock the thesis, steel thread, scope, and requirements.",
+        purpose:"Convert validated workflow evidence into a focused, testable product definition while protecting the core hypothesis from uncontrolled feature expansion.",
+        questions:[
+          "What is the smallest end-to-end path worth proving?",
+          "Which capabilities are must-have, later, or explicitly out of scope?",
+          "What fields, states, rules, and AI outputs are required?",
+          "How will each requirement be accepted and traced to evidence?"
+        ],
+        activities:[
+          "Build the capability and requirement maps",
+          "Define the steel thread and scope boundary",
+          "Create the data, state, and AI-output contracts",
+          "Write functional, trust, safety, reliability, privacy, performance, and maintainability requirements"
+        ],
+        outputs:[
+          "Product thesis and steel thread",
+          "Capability map and prioritized requirements",
+          "Scope boundary",
+          "Data, state, AI-output, and acceptance contracts"
+        ],
+        gate:"Exit when every P0 capability supports the hypothesis, each requirement has an acceptance basis, authority is explicit, and out-of-scope boundaries are written."
+      },
+      {
+        id:"prototype",
+        name:"Prototype & Validate",
+        subtitle:"Build and test the smallest credible end-to-end path.",
+        purpose:"Use realistic scenarios and structured evidence to decide whether the concept deserves the next investment.",
+        questions:[
+          "Does the workflow reflect a real, recurring job?",
+          "Are outputs understandable, credible, useful, and appropriately cautious?",
+          "Can users explain when to rely on the product and when to override it?",
+          "What evidence pattern is required to advance?"
+        ],
+        activities:[
+          "Build the operational view and supporting workflow",
+          "Prepare routine, ambiguous, high-risk, exception, and adversarial scenarios",
+          "Run consistent validation sessions before discussing solutions",
+          "Score relevance, workflow fit, output quality, trust, usability, and value"
+        ],
+        outputs:[
+          "Validated prototype",
+          "Balanced scenario pack",
+          "Session script and scorecard",
+          "Findings, exact quotes, contradictions, and recommendation"
+        ],
+        gate:"Exit with an evidence-supported recommendation to advance, refine, reframe, or stop."
+      },
+      {
+        id:"plan",
+        name:"Plan Delivery",
+        subtitle:"Translate validated direction into architecture and a roadmap.",
+        purpose:"Define the safest, smallest, and most reusable path from validated concept to a functioning product at the appropriate level of sophistication.",
+        questions:[
+          "What architecture is sufficient for the current stage?",
+          "Where do raw input, interpretation, decisions, actions, and state live?",
+          "How are approval, retries, failures, observability, and overrides handled?",
+          "What triggers migration to more sophisticated infrastructure?"
+        ],
+        activities:[
+          "Map component responsibilities and data flow",
+          "Define the system of record and bounded automation authority",
+          "Create the backlog, acceptance tests, and release plan",
+          "Document security, support, monitoring, rollback, and migration triggers"
+        ],
+        outputs:[
+          "Stage-appropriate architecture",
+          "Component and data-flow maps",
+          "Prioritized delivery backlog",
+          "Test model and release gates"
+        ],
+        gate:"Exit when architecture, acceptance tests, failure handling, operating ownership, security assumptions, and migration triggers are explicit."
+      },
+      {
+        id:"govern",
+        name:"Govern",
+        subtitle:"Control decisions, risk, assumptions, ownership, and change.",
+        purpose:"Keep the engagement evidence-driven by making uncertainty, ownership, scope changes, and decision rationale visible throughout the work.",
+        questions:[
+          "Which assumptions remain open?",
+          "What changed, why, and who approved it?",
+          "Which risks require mitigation, monitoring, or a stop decision?",
+          "What belongs now, later, or outside the engagement?"
+        ],
+        activities:[
+          "Maintain decision, risk, assumption, and change logs",
+          "Trace requested features to validated needs",
+          "Control scope using evidence and stage gates",
+          "Review ownership, due dates, open questions, and continuation criteria"
+        ],
+        outputs:[
+          "Decision log",
+          "Risk and assumption register",
+          "Change and scope record",
+          "Clear ownership and checkpoint cadence"
+        ],
+        gate:"Governance is continuous. The stage succeeds when decisions remain traceable and new scope enters only through explicit evidence and approval."
+      },
+      {
+        id:"close",
+        name:"Close Out",
+        subtitle:"Make the recommendation and hand off the approved next step.",
+        purpose:"Convert the body of evidence into a concise decision, a transparent record of what remains uncertain, and a practical handoff.",
+        questions:[
+          "What did the engagement validate—and what did it not validate?",
+          "What is the recommended outcome and confidence level?",
+          "What risks or unknowns must travel with the next phase?",
+          "Who owns the next action, timing, budget, and operating transition?"
+        ],
+        activities:[
+          "Synthesize findings against the original thesis and gates",
+          "Separate evidence-supported conclusions from open assumptions",
+          "Make the advance, refine, reframe, or pause recommendation",
+          "Package architecture, backlog, artifacts, and ownership for handoff"
+        ],
+        outputs:[
+          "Decision and recommendations brief",
+          "Validated findings and remaining uncertainties",
+          "Approved next-phase scope",
+          "Delivery or closure handoff"
+        ],
+        gate:"Forge is complete when the next decision and owner are clear—not when the document set is large."
+      }
+    ];
+
+    const artifacts = [
+      ["engage","Opportunity Snapshot","Concise view of the problem, users, trigger, workaround, desired outcome, and commercial path."],
+      ["engage","Qualification Scorecard","Evidence-based rating of severity, frequency, access, clarity, value, product fit, and readiness."],
+      ["discover","Discovery Guide","Structured questions for actors, inputs, decisions, rules, exceptions, systems, handoffs, and measures."],
+      ["discover","Evidence Repository","Quotes, observed behavior, artifacts, scenarios, patterns, contradictions, and assumptions."],
+      ["discover","Product Thesis + Validation Question","The user, problematic workflow, desired outcome, product mechanism, and critical human control."],
+      ["model","Current-State Map","How the work operates today, including actors, artifacts, pain, risk, and outputs."],
+      ["model","Future-State Operating Model","How product assistance, human review, state changes, and outputs should work together."],
+      ["model","Responsibility Model","Explicit ownership across human, product/AI, and system of record."],
+      ["define","Steel Thread","The smallest credible end-to-end path that must run through the product."],
+      ["define","Capability + Requirement Map","Prioritized behaviors with acceptance basis and source evidence."],
+      ["define","Data / State / AI Contracts","Controlled fields, states, outputs, confidence, explainability, and transitions."],
+      ["prototype","Scenario Pack","Routine, ambiguous, blocked, exception, and adversarial cases used for structured testing."],
+      ["prototype","Validation Scorecard","Consistent evidence across relevance, fit, quality, trust, usability, and value."],
+      ["prototype","Findings + Decision Log","Observed behavior, ratings, quotes, contradictions, changes, and recommendation."],
+      ["plan","Architecture Responsibility Map","Current tools, production direction, responsibilities, and migration triggers by layer."],
+      ["plan","Delivery Backlog + Release Gates","Prioritized capabilities, acceptance tests, dependencies, releases, and readiness thresholds."],
+      ["govern","Risk / Assumption / Change Register","Visible uncertainty, ownership, due dates, and controlled scope decisions."],
+      ["close","Decision + Recommendations Brief","What was validated, what remains uncertain, and the approved next action."]
+    ];
+
+    const products = {
+      grace:{
+        name:"Grace",
+        className:"",
+        type:"Relationship and work-intake operating environment",
+        thesis:"Grace turns messy communication and capture notes into structured, prioritized work with clear follow-up.",
+        thread:"Message or note → extract facts → classify priority → summarize → recommend action → write back → human follow-up",
+        forge:"Discovery established the intake patterns; definition separated raw capture from AI interpretation; the prototype proved structured database writeback and action support.",
+        evidence:"A working end-to-end flow exists, and the current phase is consolidating the workflow into Airtable for a cleaner, more reusable operating model."
+      },
+      cal:{
+        name:"Cal",
+        className:"cal",
+        type:"Field-service intake and dispatch triage",
+        thesis:"Cal turns a messy service request into prioritized, dispatcher-ready work.",
+        thread:"Customer request → structured intake → job classification → priority + confidence → summary → recommended next action",
+        forge:"Forge kept the problem narrow, defined explicit Red/Yellow/Green risk logic, and built the steel thread entirely inside Airtable.",
+        evidence:"Cal is functionally complete and ready to package as the cleanest example of a focused operational automation."
+      },
+      arc:{
+        name:"Arc",
+        className:"arc",
+        type:"Clinical education schedule-change decision support",
+        thesis:"Arc turns messy schedule-change requests into structured, reviewable decisions by showing what changed, what is at risk, and what should happen next.",
+        thread:"Capture request → structure request → evaluate constraints → classify readiness + risk → explain reason → recommend next action → human review",
+        forge:"Arc is the strongest example of the full method: thesis, steel thread, operating view, requirements, scenarios, VPOC plan, validators, evidence, and decision gates.",
+        evidence:"The next milestone is stakeholder definition and validation with Ryan and selected reviewers before the portfolio case study is finalized."
+      }
+    };
+
+    let activeStage = 0;
+    let activeProduct = "grace";
+    let activeFilter = "all";
+
+    function renderStages(){
+      const tabs = document.getElementById("stageTabs");
+      tabs.innerHTML = stages.map((s,i)=>`
+        <button class="stage-tab ${i===activeStage?"active":""}" role="tab" aria-selected="${i===activeStage}" onclick="setStage(${i})">
+          <span class="stage-number">${String(i+1).padStart(2,"0")}</span>
+          <strong>${s.name}</strong>
+        </button>
+      `).join("");
+      renderStageDetail();
+    }
+
+    function renderStageDetail(){
+      const s = stages[activeStage];
+      document.getElementById("stageDetail").innerHTML = `
+        <div>
+          <div class="stage-title">
+            <div class="stage-badge">${String(activeStage+1).padStart(2,"0")}</div>
+            <div>
+              <h3>${s.name}</h3>
+              <p>${s.subtitle}</p>
+            </div>
           </div>
+          <div class="detail-grid">
+            <div class="detail-box">
+              <h4>Purpose</h4>
+              <ul><li>${s.purpose}</li></ul>
+            </div>
+            <div class="detail-box">
+              <h4>Key questions</h4>
+              <ul>${s.questions.map(q=>`<li>${q}</li>`).join("")}</ul>
+            </div>
+            <div class="detail-box" style="grid-column:1/-1">
+              <h4>Core activities</h4>
+              <ul>${s.activities.map(a=>`<li>${a}</li>`).join("")}</ul>
+            </div>
+          </div>
+          <div class="gate-strip"><strong>Stage gate:</strong> ${s.gate}</div>
+        </div>
+        <aside class="stage-output">
+          <h4>Primary outputs</h4>
+          <div class="output-list">
+            ${s.outputs.map(o=>`<div class="output-item"><span class="check">✓</span><span>${o}</span></div>`).join("")}
+          </div>
+        </aside>
+      `;
+    }
+
+    function setStage(i){
+      activeStage = i;
+      renderStages();
+      document.querySelectorAll(".stage-tab")[i]?.focus({preventScroll:true});
+    }
+
+    function renderArtifacts(){
+      const stagesForFilter = ["all","engage","discover","model","define","prototype","plan","govern","close"];
+      document.getElementById("artifactFilters").innerHTML = stagesForFilter.map(f=>`
+        <button class="filter-btn ${f===activeFilter?"active":""}" onclick="setArtifactFilter('${f}')">${f==="all"?"All artifacts":stages.find(s=>s.id===f)?.name}</button>
+      `).join("");
+
+      document.getElementById("artifactGrid").innerHTML = artifacts.map(([stage,title,desc])=>`
+        <article class="artifact-card ${activeFilter!=="all" && activeFilter!==stage?"hidden":""}" data-stage="${stage}">
+          <span class="artifact-stage">${stages.find(s=>s.id===stage)?.name}</span>
+          <h3>${title}</h3>
+          <p>${desc}</p>
+        </article>
+      `).join("");
+    }
+
+    function setArtifactFilter(filter){
+      activeFilter = filter;
+      renderArtifacts();
+    }
+
+    function renderProduct(){
+      const p = products[activeProduct];
+      document.querySelectorAll(".product-tab").forEach(btn=>{
+        btn.classList.toggle("active", btn.dataset.product===activeProduct);
+      });
+
+      document.getElementById("productPanel").innerHTML = `
+        <div class="product-identity ${p.className}">
           <div>
-            <h2 class="card-title">Nexus</h2>
-            <div class="card-kicker">Executive<br>Intelligence</div>
+            <div class="mini">Atlas Studios product example</div>
+            <h3>${p.name}</h3>
+            <p>${p.type}</p>
+          </div>
+          <div class="mini">Built using AtlasForge · Powered by AtlasFlow</div>
+        </div>
+        <div class="product-content">
+          <div class="product-block full">
+            <h4>Product thesis</h4>
+            <p>${p.thesis}</p>
+          </div>
+          <div class="product-block full">
+            <h4>Steel thread</h4>
+            <p>${p.thread}</p>
+          </div>
+          <div class="product-block">
+            <h4>Forge contribution</h4>
+            <p>${p.forge}</p>
+          </div>
+          <div class="product-block">
+            <h4>Current evidence</h4>
+            <p>${p.evidence}</p>
           </div>
         </div>
-        <div class="divider"></div>
-        <p>AI operating environment for leaders to see what changed, what matters, and what to do next.</p>
-      </article>
-    </section>
-  </main>
+      `;
+    }
+
+    function resetView(){
+      activeStage = 0;
+      activeFilter = "all";
+      activeProduct = "grace";
+      renderStages();
+      renderArtifacts();
+      renderProduct();
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
+
+    document.querySelectorAll(".product-tab").forEach(btn=>{
+      btn.addEventListener("click",()=>{
+        activeProduct = btn.dataset.product;
+        renderProduct();
+      });
+    });
+
+    document.getElementById("mobileSection").addEventListener("change",e=>{
+      document.getElementById(e.target.value)?.scrollIntoView({behavior:"smooth"});
+    });
+
+    const navLinks = [...document.querySelectorAll(".nav a")];
+    const observed = navLinks.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);
+    const observer = new IntersectionObserver(entries=>{
+      const visible = entries
+        .filter(e=>e.isIntersecting)
+        .sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+      if(!visible) return;
+      navLinks.forEach(a=>a.classList.toggle("active", a.getAttribute("href")==="#"+visible.target.id));
+    },{rootMargin:"-20% 0px -65% 0px",threshold:[.05,.2,.5]});
+    observed.forEach(s=>observer.observe(s));
+
+    renderStages();
+    renderArtifacts();
+    renderProduct();
+  </script>
 </body>
 </html>
