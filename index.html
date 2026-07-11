@@ -1,267 +1,391 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Atlas Studios — Intelligent Operating Environments</title>
-  <meta name="description" content="Atlas Studios designs intelligent operating environments through AtlasForge and AtlasFlow." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atlas Studios — Brand Architecture</title>
   <style>
-    :root{
-      --bg:#030403;
-      --white:#f5f5f2;
-      --muted:#b7b7b1;
-      --forge:#8f8f92;
-      --grace:#b14ad3;
-      --cal:#00c91c;
-      --arc:#20c9e8;
-      --nexus:#1357ff;
+    :root {
+      --bg: #020202;
+      --text: #f4f4f4;
+      --muted: #b8b8b8;
+      --forge: #8f8f93;
+      --grace: #d93ce8;
+      --cal: #18df18;
+      --arc: #14d5ed;
+      --nexus: #175cff;
+      --page-pad: clamp(24px, 4.5vw, 78px);
     }
-    *{box-sizing:border-box}
-    html{background:var(--bg);color-scheme:dark}
-    body{
-      margin:0;
-      min-height:100vh;
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
       background:
-        radial-gradient(circle at 50% -18%, rgba(255,255,255,.045), transparent 30%),
-        linear-gradient(180deg,#020302 0%,#050605 100%);
-      color:var(--white);
-      font-family:Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      letter-spacing:.01em;
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.025), transparent 32%),
+        #000;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
     }
-    .page{
-      width:min(1560px, calc(100% - 64px));
-      margin:0 auto;
-      padding:44px 0 52px;
+
+    body {
+      display: flex;
+      justify-content: center;
+      padding: 0;
     }
-    .hero{text-align:center}
-    .atlas-wordmark{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:22px;
-      margin:0 auto;
-      color:#fff;
-      font-size:clamp(4.9rem,8.7vw,9rem);
-      line-height:.86;
-      font-weight:760;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      text-shadow:0 0 2px rgba(255,255,255,.25);
+
+    .canvas {
+      width: min(100%, 1800px);
+      min-height: 100vh;
+      padding: clamp(34px, 3.8vw, 72px) var(--page-pad) clamp(52px, 5vw, 90px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(36px, 4vw, 66px);
     }
-    .atlas-wordmark .a-glyph{
-      width:.74em;height:.74em;position:relative;display:inline-block;flex:0 0 auto;
+
+    .masthead {
+      text-align: center;
     }
-    .atlas-wordmark .a-glyph:before,
-    .atlas-wordmark .a-glyph:after{
-      content:"";position:absolute;bottom:0;width:19%;height:100%;background:#fff;border-radius:2px;
+
+    .atlas-wordmark {
+      margin: 0;
+      font-size: clamp(74px, 8.4vw, 144px);
+      line-height: .78;
+      font-weight: 750;
+      letter-spacing: .16em;
+      padding-left: .16em;
+      text-transform: uppercase;
+      font-family: "Arial Black", Arial, sans-serif;
+      background: linear-gradient(180deg, #fff 0%, #e8e8e8 50%, #cfcfcf 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 18px rgba(255,255,255,.05);
     }
-    .atlas-wordmark .a-glyph:before{left:24%;transform:skew(-26deg)}
-    .atlas-wordmark .a-glyph:after{right:24%;transform:skew(26deg)}
-    .tagline{
-      margin:24px 0 0;
-      font-size:clamp(.96rem,1.35vw,1.48rem);
-      font-weight:430;
-      letter-spacing:.33em;
-      text-transform:uppercase;
-      color:#f1f1ed;
+
+    .studios {
+      margin-top: clamp(18px, 1.7vw, 28px);
+      font-size: clamp(24px, 2.1vw, 38px);
+      font-weight: 650;
+      letter-spacing: .52em;
+      padding-left: .52em;
+      text-transform: uppercase;
+      color: #f6f6f6;
     }
-    .forge{
-      width:min(760px,100%);
-      margin:48px auto 0;
-      text-align:center;
+
+    .tagline,
+    .section-kicker,
+    .method-label {
+      text-transform: uppercase;
+      letter-spacing: .34em;
+      padding-left: .34em;
     }
-    .forge-lockup{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:22px;
+
+    .tagline {
+      margin: 16px 0 0;
+      font-size: clamp(12px, 1.08vw, 20px);
+      color: #efefef;
+      white-space: nowrap;
     }
-    .network-mark{width:118px;height:92px;flex:0 0 auto}
-    .forge-text{text-align:left}
-    .forge-title{
-      margin:0;
-      display:flex;
-      gap:14px;
-      align-items:baseline;
-      font-size:clamp(2rem,3.5vw,3.35rem);
-      line-height:1;
-      letter-spacing:.045em;
-      text-transform:uppercase;
-      font-weight:780;
+
+    .methodology {
+      text-align: center;
     }
-    .forge-title span:last-child{color:var(--forge)}
-    .forge-sub{
-      margin:9px 0 0;
-      font-size:.98rem;
-      letter-spacing:.5em;
-      text-transform:uppercase;
-      color:#f2f2ef;
+
+    .forge-lockup {
+      display: inline-grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      column-gap: clamp(22px, 2.2vw, 38px);
+      margin-bottom: clamp(20px, 2vw, 34px);
     }
-    .forge-description{
-      margin:28px auto 0;
-      max-width:720px;
-      font-size:clamp(1.05rem,1.55vw,1.45rem);
-      line-height:1.45;
-      color:#d2d2ce;
-      font-weight:360;
+
+    .brand-mark {
+      width: clamp(100px, 8.6vw, 148px);
+      height: auto;
+      display: block;
+      overflow: visible;
+      filter: drop-shadow(0 0 8px rgba(255,255,255,.035));
     }
-    .section-label{
-      margin:52px 0 0;
-      text-align:center;
-      font-size:clamp(.95rem,1.25vw,1.2rem);
-      letter-spacing:.45em;
-      text-transform:uppercase;
-      color:#ededeb;
+
+    .forge-text { text-align: left; }
+
+    .forge-title {
+      margin: 0;
+      font-size: clamp(48px, 4.2vw, 76px);
+      line-height: .95;
+      letter-spacing: .02em;
+      font-weight: 780;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:18px;
-      margin-top:14px;
+
+    .forge-title .light { color: #f4f4f4; }
+    .forge-title .gray {
+      color: transparent;
+      background: linear-gradient(180deg, #9f9fa3, #66666a);
+      -webkit-background-clip: text;
+      background-clip: text;
     }
-    .card{
-      --accent:#888;
-      position:relative;
-      min-height:320px;
-      border:2px solid var(--accent);
-      border-radius:22px;
-      padding:24px 25px 22px;
-      background:linear-gradient(180deg,rgba(255,255,255,.012),rgba(255,255,255,.004));
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,.015);
+
+    .method-label {
+      margin: 14px 0 0;
+      font-size: clamp(13px, 1.15vw, 21px);
+      font-weight: 520;
+      color: #f0f0f0;
     }
-    .card.grace{--accent:var(--grace)}
-    .card.cal{--accent:var(--cal)}
-    .card.arc{--accent:var(--arc)}
-    .card.nexus{--accent:var(--nexus)}
-    .card-top{display:flex;align-items:flex-start;gap:17px}
-    .card-mark{width:102px;height:78px;flex:0 0 auto}
-    .card-head{min-width:0;padding-top:2px}
-    .card h3{
-      margin:0;
-      font-size:clamp(1.95rem,2.45vw,2.65rem);
-      line-height:1;
-      font-weight:760;
-      letter-spacing:.01em;
+
+    .method-description {
+      max-width: 980px;
+      margin: 0 auto;
+      font-size: clamp(19px, 1.5vw, 29px);
+      line-height: 1.45;
+      font-weight: 350;
+      color: #dedede;
     }
-    .card-type{
-      margin:12px 0 0;
-      color:var(--accent);
-      font-size:clamp(.82rem,1vw,1rem);
-      line-height:1.45;
-      font-weight:520;
-      letter-spacing:.22em;
-      text-transform:uppercase;
+
+    .environments {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
-    .rule{height:2px;background:var(--accent);margin:18px 0 22px}
-    .card p{
-      margin:0;
-      font-size:clamp(1rem,1.3vw,1.25rem);
-      line-height:1.56;
-      font-weight:340;
-      color:#e5e5e1;
+
+    .section-kicker {
+      margin: 0;
+      text-align: center;
+      font-size: clamp(13px, 1.15vw, 21px);
+      font-weight: 520;
+      color: #efefef;
     }
-    .network-mark line,.network-mark polygon,.network-mark circle,
-    .card-mark line,.card-mark polygon,.card-mark circle{stroke:currentColor;fill:none;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
-    .network-mark circle,.card-mark circle{fill:currentColor;stroke:none}
-    .forge .network-mark{color:var(--forge)}
-    .card .card-mark{color:var(--accent)}
-    .footer-note{margin-top:26px;text-align:center;color:#696b68;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
-    @media (max-width:1180px){
-      .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .card{min-height:300px}
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(14px, 1.2vw, 24px);
     }
-    @media (max-width:700px){
-      .page{width:min(100% - 28px,1560px);padding-top:26px}
-      .atlas-wordmark{gap:10px;letter-spacing:.08em;font-size:clamp(3.1rem,18vw,5rem)}
-      .tagline{letter-spacing:.18em;line-height:1.5}
-      .forge{margin-top:36px}
-      .forge-lockup{flex-direction:column;gap:10px}
-      .forge-text{text-align:center}
-      .forge-title{justify-content:center;flex-wrap:wrap}
-      .forge-sub{letter-spacing:.32em}
-      .section-label{margin-top:40px;letter-spacing:.25em;line-height:1.5}
-      .cards{grid-template-columns:1fr}
-      .card{min-height:0}
+
+    .card {
+      --accent: #fff;
+      border: 2px solid var(--accent);
+      border-radius: 24px;
+      padding: clamp(22px, 1.7vw, 31px) clamp(20px, 1.55vw, 28px) clamp(24px, 2vw, 36px);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.014), rgba(255,255,255,.002)),
+        #020202;
+      min-height: clamp(318px, 25vw, 410px);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.025), 0 0 18px color-mix(in srgb, var(--accent) 11%, transparent);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .grace { --accent: var(--grace); }
+    .cal { --accent: var(--cal); }
+    .arc { --accent: var(--arc); }
+    .nexus { --accent: var(--nexus); }
+
+    .card-header {
+      display: grid;
+      grid-template-columns: clamp(94px, 7.1vw, 126px) minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(14px, 1.25vw, 22px);
+      min-height: 112px;
+    }
+
+    .card-mark {
+      width: 100%;
+      height: auto;
+      display: block;
+      color: var(--accent);
+      filter: drop-shadow(0 0 7px color-mix(in srgb, var(--accent) 17%, transparent));
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: clamp(33px, 2.35vw, 48px);
+      line-height: 1;
+      letter-spacing: -.025em;
+      font-weight: 760;
+      color: #f7f7f7;
+    }
+
+    .card-subtitle {
+      margin: 14px 0 0;
+      color: var(--accent);
+      font-size: clamp(12px, .92vw, 18px);
+      line-height: 1.5;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      font-weight: 520;
+    }
+
+    .divider {
+      width: 100%;
+      height: 2px;
+      margin: 18px 0 24px;
+      background: var(--accent);
+      opacity: .92;
+      box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 16%, transparent);
+    }
+
+    .card-copy {
+      margin: 0;
+      font-size: clamp(16px, 1.18vw, 23px);
+      line-height: 1.55;
+      font-weight: 330;
+      color: #e1e1e1;
+    }
+
+    @media (max-width: 1150px) {
+      .canvas { justify-content: flex-start; }
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .card { min-height: 340px; }
+      .tagline { white-space: normal; }
+    }
+
+    @media (max-width: 680px) {
+      .canvas { padding-inline: 20px; }
+      .atlas-wordmark { font-size: clamp(58px, 18vw, 92px); letter-spacing: .08em; padding-left: .08em; }
+      .studios { letter-spacing: .34em; padding-left: .34em; }
+      .forge-lockup { grid-template-columns: 82px 1fr; width: 100%; column-gap: 16px; }
+      .forge-title { font-size: clamp(31px, 10vw, 48px); white-space: normal; }
+      .cards { grid-template-columns: 1fr; }
+      .card { min-height: 0; }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <header class="hero" aria-labelledby="site-title">
-      <h1 class="atlas-wordmark" id="site-title" aria-label="Atlas">
-        <span class="a-glyph" aria-hidden="true"></span><span>T</span><span>L</span><span class="a-glyph" aria-hidden="true"></span><span>S</span>
-      </h1>
+  <main class="canvas">
+    <header class="masthead">
+      <h1 class="atlas-wordmark">ATLAS</h1>
+      <div class="studios">Studios</div>
       <p class="tagline">Designing Intelligent Operating Environments</p>
     </header>
 
-    <section class="forge" aria-labelledby="forge-title">
+    <section class="methodology" aria-labelledby="forge-heading">
       <div class="forge-lockup">
-        <svg class="network-mark" viewBox="0 0 140 105" aria-hidden="true">
-          <line x1="34" y1="75" x2="77" y2="35"/>
-          <line x1="77" y1="35" x2="112" y2="86"/>
-          <line x1="34" y1="75" x2="73" y2="75"/>
-          <line x1="73" y1="75" x2="112" y2="86"/>
-          <line x1="62" y1="97" x2="84" y2="75"/>
-          <polygon points="74,16 110,78 94,72"/>
-          <circle cx="29" cy="76" r="14"/><circle cx="78" cy="25" r="14"/><circle cx="76" cy="75" r="14"/>
+        <svg class="brand-mark" viewBox="0 0 160 130" aria-hidden="true">
+          <g fill="none" stroke="#8f8f93" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M39 88 L84 44 L126 103" />
+            <path d="M41 88 H86" />
+            <path d="M87 44 L104 75" />
+            <path d="M55 111 L82 86" />
+          </g>
+          <g fill="#8f8f93" stroke="#050505" stroke-width="4">
+            <circle cx="34" cy="88" r="16" />
+            <circle cx="86" cy="36" r="16" />
+            <circle cx="86" cy="88" r="16" />
+          </g>
         </svg>
         <div class="forge-text">
-          <h2 class="forge-title" id="forge-title"><span>Atlas</span><span>Forge</span></h2>
-          <p class="forge-sub">Our Methodology</p>
+          <h2 id="forge-heading" class="forge-title"><span class="light">Atlas</span> <span class="gray">Forge</span></h2>
+          <p class="method-label">Our Methodology</p>
         </div>
       </div>
-      <p class="forge-description">A repeatable methodology for discovering, validating,<br>building, and evolving intelligent operating environments.</p>
+      <p class="method-description">A repeatable methodology for discovering, validating,<br />building, and evolving intelligent operating environments.</p>
     </section>
 
-    <p class="section-label">AtlasFlow Operating Environments</p>
+    <section class="environments" aria-labelledby="env-heading">
+      <h2 id="env-heading" class="section-kicker">AtlasFlow Operating Environments</h2>
+      <div class="cards">
+        <article class="card grace">
+          <div class="card-header">
+            <svg class="card-mark" viewBox="0 0 160 130" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M39 88 L84 44 L126 103" />
+                <path d="M41 88 H86" />
+                <path d="M87 44 L104 75" />
+                <path d="M55 111 L82 86" />
+              </g>
+              <g fill="currentColor" stroke="#050505" stroke-width="4">
+                <circle cx="34" cy="88" r="16" />
+                <circle cx="86" cy="36" r="16" />
+                <circle cx="86" cy="88" r="16" />
+              </g>
+            </svg>
+            <div>
+              <h3 class="card-title">Grace</h3>
+              <p class="card-subtitle">Real Estate<br />Operations</p>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <p class="card-copy">AI operating environment for real estate teams to manage leads, transactions, and client experience.</p>
+        </article>
 
-    <section class="cards" aria-label="AtlasFlow operating environments">
-      <article class="card grace">
-        <div class="card-top">
-          <svg class="card-mark" viewBox="0 0 140 105" aria-hidden="true">
-            <line x1="34" y1="75" x2="77" y2="35"/><line x1="77" y1="35" x2="112" y2="86"/><line x1="34" y1="75" x2="73" y2="75"/><line x1="73" y1="75" x2="112" y2="86"/><line x1="62" y1="97" x2="84" y2="75"/><polygon points="74,16 110,78 94,72"/><circle cx="29" cy="76" r="14"/><circle cx="78" cy="25" r="14"/><circle cx="76" cy="75" r="14"/>
-          </svg>
-          <div class="card-head"><h3>Grace</h3><p class="card-type">Real Estate<br>Operations</p></div>
-        </div>
-        <div class="rule"></div>
-        <p>AI operating environment for real estate teams to manage leads, transactions, and client experience.</p>
-      </article>
+        <article class="card cal">
+          <div class="card-header">
+            <svg class="card-mark" viewBox="0 0 160 130" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M39 88 L84 44 L126 103" />
+                <path d="M41 88 H86" />
+                <path d="M87 44 L104 75" />
+                <path d="M55 111 L82 86" />
+              </g>
+              <g fill="currentColor" stroke="#050505" stroke-width="4">
+                <circle cx="34" cy="88" r="16" />
+                <circle cx="86" cy="36" r="16" />
+                <circle cx="86" cy="88" r="16" />
+              </g>
+            </svg>
+            <div>
+              <h3 class="card-title">Cal</h3>
+              <p class="card-subtitle">Service<br />Operations</p>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <p class="card-copy">AI operating environment for service teams to triage requests, prioritize work, and coordinate action.</p>
+        </article>
 
-      <article class="card cal">
-        <div class="card-top">
-          <svg class="card-mark" viewBox="0 0 140 105" aria-hidden="true">
-            <line x1="34" y1="75" x2="77" y2="35"/><line x1="77" y1="35" x2="112" y2="86"/><line x1="34" y1="75" x2="73" y2="75"/><line x1="73" y1="75" x2="112" y2="86"/><line x1="62" y1="97" x2="84" y2="75"/><polygon points="74,16 110,78 94,72"/><circle cx="29" cy="76" r="14"/><circle cx="78" cy="25" r="14"/><circle cx="76" cy="75" r="14"/>
-          </svg>
-          <div class="card-head"><h3>Cal</h3><p class="card-type">Service<br>Operations</p></div>
-        </div>
-        <div class="rule"></div>
-        <p>AI operating environment for service teams to triage requests, prioritize work, and coordinate action.</p>
-      </article>
+        <article class="card arc">
+          <div class="card-header">
+            <svg class="card-mark" viewBox="0 0 160 130" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M39 88 L84 44 L126 103" />
+                <path d="M41 88 H86" />
+                <path d="M87 44 L104 75" />
+                <path d="M55 111 L82 86" />
+              </g>
+              <g fill="currentColor" stroke="#050505" stroke-width="4">
+                <circle cx="34" cy="88" r="16" />
+                <circle cx="86" cy="36" r="16" />
+                <circle cx="86" cy="88" r="16" />
+              </g>
+            </svg>
+            <div>
+              <h3 class="card-title">Arc</h3>
+              <p class="card-subtitle">Clinical<br />Readiness</p>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <p class="card-copy">AI operating environment for clinical education teams to manage schedule changes, risk, and readiness.</p>
+        </article>
 
-      <article class="card arc">
-        <div class="card-top">
-          <svg class="card-mark" viewBox="0 0 140 105" aria-hidden="true">
-            <line x1="34" y1="75" x2="77" y2="35"/><line x1="77" y1="35" x2="112" y2="86"/><line x1="34" y1="75" x2="73" y2="75"/><line x1="73" y1="75" x2="112" y2="86"/><line x1="62" y1="97" x2="84" y2="75"/><polygon points="74,16 110,78 94,72"/><circle cx="29" cy="76" r="14"/><circle cx="78" cy="25" r="14"/><circle cx="76" cy="75" r="14"/>
-          </svg>
-          <div class="card-head"><h3>Arc</h3><p class="card-type">Clinical<br>Readiness</p></div>
-        </div>
-        <div class="rule"></div>
-        <p>AI operating environment for clinical education teams to manage schedule changes, risk, and readiness.</p>
-      </article>
-
-      <article class="card nexus">
-        <div class="card-top">
-          <svg class="card-mark" viewBox="0 0 140 105" aria-hidden="true">
-            <line x1="34" y1="75" x2="77" y2="35"/><line x1="77" y1="35" x2="112" y2="86"/><line x1="34" y1="75" x2="73" y2="75"/><line x1="73" y1="75" x2="112" y2="86"/><line x1="62" y1="97" x2="84" y2="75"/><polygon points="74,16 110,78 94,72"/><circle cx="29" cy="76" r="14"/><circle cx="78" cy="25" r="14"/><circle cx="76" cy="75" r="14"/>
-          </svg>
-          <div class="card-head"><h3>Nexus</h3><p class="card-type">Executive<br>Intelligence</p></div>
-        </div>
-        <div class="rule"></div>
-        <p>AI operating environment for leaders to see what changed, what matters, and what to do next.</p>
-      </article>
+        <article class="card nexus">
+          <div class="card-header">
+            <svg class="card-mark" viewBox="0 0 160 130" aria-hidden="true">
+              <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M39 88 L84 44 L126 103" />
+                <path d="M41 88 H86" />
+                <path d="M87 44 L104 75" />
+                <path d="M55 111 L82 86" />
+              </g>
+              <g fill="currentColor" stroke="#050505" stroke-width="4">
+                <circle cx="34" cy="88" r="16" />
+                <circle cx="86" cy="36" r="16" />
+                <circle cx="86" cy="88" r="16" />
+              </g>
+            </svg>
+            <div>
+              <h3 class="card-title">Nexus</h3>
+              <p class="card-subtitle">Executive<br />Intelligence</p>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <p class="card-copy">AI operating environment for leaders to see what changed, what matters, and what to do next.</p>
+        </article>
+      </div>
     </section>
-
-    <p class="footer-note">Atlas Studios · Static visual foundation</p>
   </main>
 </body>
 </html>
