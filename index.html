@@ -1,146 +1,267 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AtlasFlow | Intelligent Operating Environments</title>
-  <meta name="description" content="AtlasFlow designs AI-assisted workflows, working prototypes, and decision-support systems that help teams see what changed, what is at risk, and what to do next.">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas Studios — Intelligent Operating Environments</title>
+  <meta name="description" content="Atlas Studios designs intelligent operating environments through AtlasForge and AtlasFlow." />
+  <style>
+    :root{
+      --bg:#030403;
+      --white:#f5f5f2;
+      --muted:#b7b7b1;
+      --forge:#8f8f92;
+      --grace:#b14ad3;
+      --cal:#00c91c;
+      --arc:#20c9e8;
+      --nexus:#1357ff;
+    }
+    *{box-sizing:border-box}
+    html{background:var(--bg);color-scheme:dark}
+    body{
+      margin:0;
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 50% -18%, rgba(255,255,255,.045), transparent 30%),
+        linear-gradient(180deg,#020302 0%,#050605 100%);
+      color:var(--white);
+      font-family:Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      letter-spacing:.01em;
+    }
+    .page{
+      width:min(1560px, calc(100% - 64px));
+      margin:0 auto;
+      padding:44px 0 52px;
+    }
+    .hero{text-align:center}
+    .atlas-wordmark{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:22px;
+      margin:0 auto;
+      color:#fff;
+      font-size:clamp(4.9rem,8.7vw,9rem);
+      line-height:.86;
+      font-weight:760;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      text-shadow:0 0 2px rgba(255,255,255,.25);
+    }
+    .atlas-wordmark .a-glyph{
+      width:.74em;height:.74em;position:relative;display:inline-block;flex:0 0 auto;
+    }
+    .atlas-wordmark .a-glyph:before,
+    .atlas-wordmark .a-glyph:after{
+      content:"";position:absolute;bottom:0;width:19%;height:100%;background:#fff;border-radius:2px;
+    }
+    .atlas-wordmark .a-glyph:before{left:24%;transform:skew(-26deg)}
+    .atlas-wordmark .a-glyph:after{right:24%;transform:skew(26deg)}
+    .tagline{
+      margin:24px 0 0;
+      font-size:clamp(.96rem,1.35vw,1.48rem);
+      font-weight:430;
+      letter-spacing:.33em;
+      text-transform:uppercase;
+      color:#f1f1ed;
+    }
+    .forge{
+      width:min(760px,100%);
+      margin:48px auto 0;
+      text-align:center;
+    }
+    .forge-lockup{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:22px;
+    }
+    .network-mark{width:118px;height:92px;flex:0 0 auto}
+    .forge-text{text-align:left}
+    .forge-title{
+      margin:0;
+      display:flex;
+      gap:14px;
+      align-items:baseline;
+      font-size:clamp(2rem,3.5vw,3.35rem);
+      line-height:1;
+      letter-spacing:.045em;
+      text-transform:uppercase;
+      font-weight:780;
+    }
+    .forge-title span:last-child{color:var(--forge)}
+    .forge-sub{
+      margin:9px 0 0;
+      font-size:.98rem;
+      letter-spacing:.5em;
+      text-transform:uppercase;
+      color:#f2f2ef;
+    }
+    .forge-description{
+      margin:28px auto 0;
+      max-width:720px;
+      font-size:clamp(1.05rem,1.55vw,1.45rem);
+      line-height:1.45;
+      color:#d2d2ce;
+      font-weight:360;
+    }
+    .section-label{
+      margin:52px 0 0;
+      text-align:center;
+      font-size:clamp(.95rem,1.25vw,1.2rem);
+      letter-spacing:.45em;
+      text-transform:uppercase;
+      color:#ededeb;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+      margin-top:14px;
+    }
+    .card{
+      --accent:#888;
+      position:relative;
+      min-height:320px;
+      border:2px solid var(--accent);
+      border-radius:22px;
+      padding:24px 25px 22px;
+      background:linear-gradient(180deg,rgba(255,255,255,.012),rgba(255,255,255,.004));
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.015);
+    }
+    .card.grace{--accent:var(--grace)}
+    .card.cal{--accent:var(--cal)}
+    .card.arc{--accent:var(--arc)}
+    .card.nexus{--accent:var(--nexus)}
+    .card-top{display:flex;align-items:flex-start;gap:17px}
+    .card-mark{width:102px;height:78px;flex:0 0 auto}
+    .card-head{min-width:0;padding-top:2px}
+    .card h3{
+      margin:0;
+      font-size:clamp(1.95rem,2.45vw,2.65rem);
+      line-height:1;
+      font-weight:760;
+      letter-spacing:.01em;
+    }
+    .card-type{
+      margin:12px 0 0;
+      color:var(--accent);
+      font-size:clamp(.82rem,1vw,1rem);
+      line-height:1.45;
+      font-weight:520;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+    }
+    .rule{height:2px;background:var(--accent);margin:18px 0 22px}
+    .card p{
+      margin:0;
+      font-size:clamp(1rem,1.3vw,1.25rem);
+      line-height:1.56;
+      font-weight:340;
+      color:#e5e5e1;
+    }
+    .network-mark line,.network-mark polygon,.network-mark circle,
+    .card-mark line,.card-mark polygon,.card-mark circle{stroke:currentColor;fill:none;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+    .network-mark circle,.card-mark circle{fill:currentColor;stroke:none}
+    .forge .network-mark{color:var(--forge)}
+    .card .card-mark{color:var(--accent)}
+    .footer-note{margin-top:26px;text-align:center;color:#696b68;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+    @media (max-width:1180px){
+      .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .card{min-height:300px}
+    }
+    @media (max-width:700px){
+      .page{width:min(100% - 28px,1560px);padding-top:26px}
+      .atlas-wordmark{gap:10px;letter-spacing:.08em;font-size:clamp(3.1rem,18vw,5rem)}
+      .tagline{letter-spacing:.18em;line-height:1.5}
+      .forge{margin-top:36px}
+      .forge-lockup{flex-direction:column;gap:10px}
+      .forge-text{text-align:center}
+      .forge-title{justify-content:center;flex-wrap:wrap}
+      .forge-sub{letter-spacing:.32em}
+      .section-label{margin-top:40px;letter-spacing:.25em;line-height:1.5}
+      .cards{grid-template-columns:1fr}
+      .card{min-height:0}
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="index.html" aria-label="AtlasFlow home">
-        <img src="atlasflow-logo-full.png" alt="AtlasFlow logo">
-      </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#studio">Atlas Studio</a>
-        <a href="#work">Work</a>
-        <a href="#outcomes">Why It Matters</a>
-        <a href="privacy.html">Privacy</a>
-        <a class="nav-cta" href="#contact">Start a conversation</a>
-      </nav>
-    </div>
-  </header>
+  <main class="page">
+    <header class="hero" aria-labelledby="site-title">
+      <h1 class="atlas-wordmark" id="site-title" aria-label="Atlas">
+        <span class="a-glyph" aria-hidden="true"></span><span>T</span><span>L</span><span class="a-glyph" aria-hidden="true"></span><span>S</span>
+      </h1>
+      <p class="tagline">Designing Intelligent Operating Environments</p>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="kicker">AtlasFlow Studio</div>
-          <h1>Intelligent operating environments for complex work.</h1>
-          <p>AtlasFlow designs AI-assisted workflows, working prototypes, and decision-support systems that help teams see what changed, what is at risk, and what to do next.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#studio">Explore Atlas Studio</a>
-            <a class="btn btn-secondary" href="#work">View the Work</a>
-          </div>
-        </div>
-        <aside class="hero-card" aria-label="AtlasFlow showcase">
-          <img src="atlasflow-logo-full.png" alt="AtlasFlow logo">
-          <div class="label">Portfolio proof points</div>
-          <h2>Arc, Cal, and Laura show the method in motion.</h2>
-          <p>Each build turns messy operational work into a clearer review path, visible risk signals, and next actions.</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="does">
-      <div class="container">
-        <div class="section-title">
-          <div><h2>What AtlasFlow Does</h2><div class="rule"></div></div>
-          <p>AtlasFlow is not a generic automation agency. It is a working practice for making complex work visible, testable, and easier to improve.</p>
-        </div>
-        <div class="cards">
-          <article class="card"><h3>Clarify Operational Complexity</h3><p>Turn messy inputs, handoffs, exceptions, and decisions into structured workflows.</p></article>
-          <article class="card"><h3>Build AI-Assisted Workflows</h3><p>Use automation and AI to summarize, classify, prioritize, and recommend next actions.</p></article>
-          <article class="card"><h3>Create Operational Viewers</h3><p>Make the work visible through customer-facing views, prototypes, and dashboards.</p></article>
+    <section class="forge" aria-labelledby="forge-title">
+      <div class="forge-lockup">
+        <svg class="network-mark" viewBox="0 0 140 105" aria-hidden="true">
+          <line x1="34" y1="75" x2="77" y2="35"/>
+          <line x1="77" y1="35" x2="112" y2="86"/>
+          <line x1="34" y1="75" x2="73" y2="75"/>
+          <line x1="73" y1="75" x2="112" y2="86"/>
+          <line x1="62" y1="97" x2="84" y2="75"/>
+          <polygon points="74,16 110,78 94,72"/>
+          <circle cx="29" cy="76" r="14"/><circle cx="78" cy="25" r="14"/><circle cx="76" cy="75" r="14"/>
+        </svg>
+        <div class="forge-text">
+          <h2 class="forge-title" id="forge-title"><span>Atlas</span><span>Forge</span></h2>
+          <p class="forge-sub">Our Methodology</p>
         </div>
       </div>
+      <p class="forge-description">A repeatable methodology for discovering, validating,<br>building, and evolving intelligent operating environments.</p>
     </section>
 
-    <section class="section studio" id="studio">
-      <div class="container">
-        <div class="section-title">
-          <div><h2>Atlas Studio</h2><div class="rule"></div></div>
-          <p>The working practice inside AtlasFlow where messy operational ideas become visible, testable, AI-assisted workflows.</p>
+    <p class="section-label">AtlasFlow Operating Environments</p>
+
+    <section class="cards" aria-label="AtlasFlow operating environments">
+      <article class="card grace">
+        <div class="card-top">
+          <svg class="card-mark" viewBox="0 0 140 105" aria-hidden="true">
+            <line x1="34" y1="75" x2="77" y2="35"/><line x1="77" y1="35" x2="112" y2="86"/><line x1="34" y1="75" x2="73" y2="75"/><line x1="73" y1="75" x2="112" y2="86"/><line x1="62" y1="97" x2="84" y2="75"/><polygon points="74,16 110,78 94,72"/><circle cx="29" cy="76" r="14"/><circle cx="78" cy="25" r="14"/><circle cx="76" cy="75" r="14"/>
+          </svg>
+          <div class="card-head"><h3>Grace</h3><p class="card-type">Real Estate<br>Operations</p></div>
         </div>
-        <div class="steps">
-          <div class="step"><div class="step-number">1</div><h3>Discover the operational mess.</h3></div>
-          <div class="step"><div class="step-number">2</div><h3>Map the workflow.</h3></div>
-          <div class="step"><div class="step-number">3</div><h3>Build a lightweight model.</h3></div>
-          <div class="step"><div class="step-number">4</div><h3>Add AI and automation.</h3></div>
-          <div class="step"><div class="step-number">5</div><h3>Create the Operational Viewer.</h3></div>
-          <div class="step"><div class="step-number">6</div><h3>Use feedback to refine toward MVP or pilot.</h3></div>
+        <div class="rule"></div>
+        <p>AI operating environment for real estate teams to manage leads, transactions, and client experience.</p>
+      </article>
+
+      <article class="card cal">
+        <div class="card-top">
+          <svg class="card-mark" viewBox="0 0 140 105" aria-hidden="true">
+            <line x1="34" y1="75" x2="77" y2="35"/><line x1="77" y1="35" x2="112" y2="86"/><line x1="34" y1="75" x2="73" y2="75"/><line x1="73" y1="75" x2="112" y2="86"/><line x1="62" y1="97" x2="84" y2="75"/><polygon points="74,16 110,78 94,72"/><circle cx="29" cy="76" r="14"/><circle cx="78" cy="25" r="14"/><circle cx="76" cy="75" r="14"/>
+          </svg>
+          <div class="card-head"><h3>Cal</h3><p class="card-type">Service<br>Operations</p></div>
         </div>
-        <div class="studio-callout">Atlas Studio turns operational ideas into working prototypes before teams commit to a full build.</div>
-      </div>
+        <div class="rule"></div>
+        <p>AI operating environment for service teams to triage requests, prioritize work, and coordinate action.</p>
+      </article>
+
+      <article class="card arc">
+        <div class="card-top">
+          <svg class="card-mark" viewBox="0 0 140 105" aria-hidden="true">
+            <line x1="34" y1="75" x2="77" y2="35"/><line x1="77" y1="35" x2="112" y2="86"/><line x1="34" y1="75" x2="73" y2="75"/><line x1="73" y1="75" x2="112" y2="86"/><line x1="62" y1="97" x2="84" y2="75"/><polygon points="74,16 110,78 94,72"/><circle cx="29" cy="76" r="14"/><circle cx="78" cy="25" r="14"/><circle cx="76" cy="75" r="14"/>
+          </svg>
+          <div class="card-head"><h3>Arc</h3><p class="card-type">Clinical<br>Readiness</p></div>
+        </div>
+        <div class="rule"></div>
+        <p>AI operating environment for clinical education teams to manage schedule changes, risk, and readiness.</p>
+      </article>
+
+      <article class="card nexus">
+        <div class="card-top">
+          <svg class="card-mark" viewBox="0 0 140 105" aria-hidden="true">
+            <line x1="34" y1="75" x2="77" y2="35"/><line x1="77" y1="35" x2="112" y2="86"/><line x1="34" y1="75" x2="73" y2="75"/><line x1="73" y1="75" x2="112" y2="86"/><line x1="62" y1="97" x2="84" y2="75"/><polygon points="74,16 110,78 94,72"/><circle cx="29" cy="76" r="14"/><circle cx="78" cy="25" r="14"/><circle cx="76" cy="75" r="14"/>
+          </svg>
+          <div class="card-head"><h3>Nexus</h3><p class="card-type">Executive<br>Intelligence</p></div>
+        </div>
+        <div class="rule"></div>
+        <p>AI operating environment for leaders to see what changed, what matters, and what to do next.</p>
+      </article>
     </section>
 
-    <section class="section section-soft" id="work">
-      <div class="container">
-        <div class="section-title">
-          <div><h2>Studio Showcase</h2><div class="rule"></div></div>
-          <p>Arc, Cal, and Laura are studio work examples. They demonstrate how the AtlasFlow method applies to real operational problems.</p>
-        </div>
-        <div class="showcase-grid">
-          <a class="project-card project-link" href="laura.html" aria-label="Open Laura Operational Viewer">
-            <img class="project-logo" src="laura-logo-coral.png" alt="Laura, an AtlasFlow Platform logo">
-            <div class="project-top"><h3>Laura</h3><span class="status status-coral">MVP Proof Point</span></div>
-            <div class="project-body"><dl>
-              <div><dt>Operating Problem</dt><dd>Real estate lead and capture workflow.</dd></div>
-              <div><dt>What It Proves</dt><dd>Inbound message or note becomes an AI summary and agent-ready next action.</dd></div>
-              <div><dt>AI Role</dt><dd>Summarize lead context, identify priority, and recommend follow-up.</dd></div>
-            </dl></div>
-            <span class="open-ov">Open Laura OV →</span>
-          </a>
-          <a class="project-card project-link" href="cal.html" aria-label="Open Cal Operational Viewer">
-            <img class="project-logo" src="cal-logo-blue.png" alt="Cal, an AtlasFlow Platform logo">
-            <div class="project-top"><h3>Cal</h3><span class="status status-blue">Studio Build</span></div>
-            <div class="project-body"><dl>
-              <div><dt>Operating Problem</dt><dd>Local service operations triage.</dd></div>
-              <div><dt>What It Proves</dt><dd>Messy customer request in; priority, classification, and recommended action out.</dd></div>
-              <div><dt>AI Role</dt><dd>Classify the request, prioritize urgency, and make dispatcher review faster.</dd></div>
-            </dl></div>
-            <span class="open-ov">Open Cal OV →</span>
-          </a>
-          <a class="project-card project-link featured" href="arc.html" aria-label="Open Arc Operational Viewer">
-            <img class="project-logo" src="arc-logo-teal.png" alt="Arc, an AtlasFlow Platform logo">
-            <div class="project-top"><h3>Arc</h3><span class="status status-teal">Validated Prototype / Studio Build</span></div>
-            <div class="project-body"><dl>
-              <div><dt>Operating Problem</dt><dd>Clinical schedule-change review.</dd></div>
-              <div><dt>What It Proves</dt><dd>What changed, what is at risk, and what to do next.</dd></div>
-              <div><dt>AI Role</dt><dd>Summarize, flag readiness risk, and recommend a human-reviewed next action.</dd></div>
-            </dl></div>
-            <span class="open-ov">Open Arc OV →</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="outcomes">
-      <div class="container">
-        <div class="section-title">
-          <div><h2>Why It Matters</h2><div class="rule"></div></div>
-          <p>The work is not about software for its own sake. It is about reducing operational noise and making decision pressure visible.</p>
-        </div>
-        <div class="outcomes">
-          <div class="outcome"><strong>Faster review</strong><span>Less time spent reading, interpreting, and re-stating messy requests.</span></div>
-          <div class="outcome"><strong>Clearer decisions</strong><span>Operators see the situation, risk, and recommended next step in one place.</span></div>
-          <div class="outcome"><strong>Fewer missed risks</strong><span>Exceptions, handoffs, and readiness gaps become visible earlier.</span></div>
-          <div class="outcome"><strong>Better handoffs</strong><span>The next person sees context without chasing messages or tribal knowledge.</span></div>
-          <div class="outcome"><strong>Less operational noise</strong><span>Routine clutter becomes structured enough to review quickly.</span></div>
-          <div class="outcome"><strong>More visible work</strong><span>Prototype viewers make invisible workflow pressure easier to discuss and improve.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="contact-band"><div><h2>Work With AtlasFlow</h2><p>Interested in turning an operational workflow into a testable AI-assisted prototype?</p></div><a class="btn btn-primary" href="mailto:hello@getatlasflow.io">Start a conversation</a></div>
-      </div>
-    </section>
+    <p class="footer-note">Atlas Studios · Static visual foundation</p>
   </main>
-
-  <footer class="footer"><div class="container footer-inner"><div>AtlasFlow LLC</div><div><a href="privacy.html">Privacy</a> · <a href="sms-consent.html">SMS Consent</a> · <a href="terms.html">Terms</a></div></div></footer>
 </body>
 </html>
