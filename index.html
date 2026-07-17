@@ -737,7 +737,7 @@ footer .foot span:last-child{text-align:right;}
   padding:34px 28px 26px !important;
   display:flex !important;
   flex-direction:column !important;
-  gap:20px !important;
+  gap:0 !important;
 }
 .oe-octavia-top{
   width:min(1120px,92%);
@@ -772,11 +772,11 @@ footer .foot span:last-child{text-align:right;}
 .oe-octavia-meta{margin:0;font-size:15px;line-height:1.5;color:rgba(180,200,232,.78);}
 .oe-octavia-portrait{width:124px;height:124px;border-radius:50%;padding:4px;background:linear-gradient(180deg, rgba(31,123,255,.95), rgba(31,123,255,.55));box-shadow:0 0 0 1px rgba(255,255,255,.04) inset, 0 0 30px rgba(31,123,255,.24), 0 0 50px rgba(31,123,255,.12);}
 .oe-octavia-portrait img{display:block;width:100%;height:100%;object-fit:cover;border-radius:50%;}
-.oe-connectors{width:min(1120px,92%);margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;padding:0 120px;pointer-events:none;}
-.oe-connector{position:relative;width:1.5px;height:46px;background:linear-gradient(to bottom, rgba(76,144,255,.92), rgba(76,144,255,.35));box-shadow:0 0 10px rgba(31,123,255,.18);}
-.oe-connector::before,.oe-connector::after{content:"";position:absolute;left:50%;transform:translateX(-50%);width:10px;height:10px;border-right:1.5px solid rgba(111,166,255,.9);border-bottom:1.5px solid rgba(111,166,255,.9);} 
-.oe-connector::before{top:-2px;transform:translateX(-50%) rotate(225deg);} 
-.oe-connector::after{bottom:-2px;transform:translateX(-50%) rotate(45deg);} 
+.oe-connectors{width:min(1120px,92%);height:72px;margin:-1px auto;display:flex;justify-content:space-between;align-items:stretch;padding:0 120px;pointer-events:none;}
+.oe-connector{position:relative;width:1px;height:100%;background:rgba(91,154,255,.82);box-shadow:0 0 8px rgba(31,123,255,.28);}
+.oe-connector::before,.oe-connector::after{content:"";position:absolute;left:50%;transform:translateX(-50%);width:8px;height:8px;border-right:1px solid rgba(111,166,255,.96);border-bottom:1px solid rgba(111,166,255,.96);} 
+.oe-connector::before{top:0;transform:translateX(-50%) rotate(225deg);} 
+.oe-connector::after{bottom:0;transform:translateX(-50%) rotate(45deg);} 
 .oe-operator-flow img{display:block;width:100%;height:auto;}
 .oe-operator-flow{width:100%;margin:0 auto;}
 .oe-bottom-note{margin-top:2px !important;}
@@ -790,7 +790,7 @@ footer .foot span:last-child{text-align:right;}
   .oe-octavia-sub{font-size:17px;}
   .oe-octavia-meta{font-size:14px;}
   .oe-connectors{width:96%;padding:0 54px;}
-  .oe-connector{height:38px;}
+  .oe-connector{height:100%;}.oe-connectors{height:54px;}
 }
 </style></head><body><header><div class="wrap"><nav><a class="brand" href="index.html">ATLAS<small>STUDIOS</small></a><button class="menu">☰</button><div class="links"><a href="#pov">Our Point of View</a><a href="#problem">The Problem</a><a href="#forge">AtlasForge</a><a href="#proof">Our Work</a></div></nav></div></header>
 <main>
