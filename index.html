@@ -1444,7 +1444,11 @@ body.arc-matched{margin:0!important;background:var(--af-paper)!important;color:v
   .arc-matched .hero#overview>.wrap{min-height:250px !important;padding:24px 18px !important;}
   .arc-matched .hero#overview .hero-brand-image{width:96% !important;max-height:220px !important;}
 }
-</style></head><body class="arc-matched"><header class="af-top">
+</style>
+<style id="remove-studio-elements">
+.arc-matched .af-chip, .arc-matched .af-studio-banner{display:none !important;}
+</style>
+</head><body class="arc-matched"><header class="af-top">
 <div class="af-top-in">
 <a aria-label="AtlasFlow home" class="af-brand" href="#overview">
 <span aria-hidden="true" class="af-mark"><span></span></span>
@@ -1452,7 +1456,7 @@ body.arc-matched{margin:0!important;background:var(--af-paper)!important;color:v
 </a>
 <span class="af-context"><span class="af-context-label">Current view</span><b id="afCurrentView">Overview</b></span>
 <div class="af-top-actions">
-<span class="af-chip">Portfolio</span>
+
 <a class="af-top-button" href="mailto:matt@getatlasflow.io?subject=AtlasFlow%20working%20session">Begin a working session</a>
 </div>
 </div>
