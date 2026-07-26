@@ -67,21 +67,20 @@
       justify-content: space-between;
       gap: 24px;
     }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: -.03em; }
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: 1px solid var(--ink);
-      display: grid;
-      place-items: center;
-      position: relative;
-      overflow: hidden;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -.03em;
     }
-    .brand-mark::before,
-    .brand-mark::after { content: ""; position: absolute; width: 13px; height: 13px; border: 1px solid var(--ink); transform: rotate(45deg); }
-    .brand-mark::before { left: 5px; }
-    .brand-mark::after { right: 5px; }
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: block;
+      flex: 0 0 44px;
+      object-fit: contain;
+    }
     .nav-links { display: flex; align-items: center; gap: 26px; font-size: 14px; }
     .nav-links a { position: relative; }
     .nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -5px; height: 1px; background: var(--ink); transition: right .2s ease; }
@@ -469,8 +468,8 @@
 <body>
 <header id="siteHeader">
 <div class="shell nav">
-<a aria-label="AtlasFlow home" class="brand" href="#top">
-<span aria-hidden="true" class="brand-mark"></span>
+<a aria-label="AtlasFlow home" class="brand" href="#top" id="homeLink">
+<img alt="" aria-hidden="true" class="brand-mark" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAAzCAYAAAA0CE5FAAAHaklEQVR4nO2ZTWxcVxXH/+fcN57xjN+782Yau24TO2kSJa0SlbSQpgobEkCAKCIskEBCLBArhKBdIJBACFggWKGKUgkJCYHYsEAK6iILUFtFhYLaIj5LaRLFSiKTOJ73nmfG8czcew4Le9qJnTRW+8YGMT9pFnPuPfd86Lx77rsPGDFixIgRI0aM+P+EttP4jh07Jnq9Xp16vYmOagEAFYl6EgQtZk6SJMm20z9gGxJUr9fDXq93gFmnvYcCaAQiS96YFaADkcIYM1cAxMxcJOcajuifzWZzcat9BbY2QcVqdeKYKurO6Wvtdvs8gJU76ATW2l0icj8R9Ywxf9zqqtqSBFlrd6vqURH5a6vVevXtrBHH8S4ReYSIXk/T9M95+7htWGuPWGtPTU1NVdb+73kHy7G19v3W2pM5ube9WGsfCsPwo1irVGvtiWq1+rXN6E5NTVXq9frBOI4PTU9PlwfHwjA8FkXRB4bg8gZ4WAtba/fAY6bZbD4DQAGAiD4JYGltyobHe+fOneNhGD4SRdHXu93u77zIzwD8dHll5Yy19qH+vGaz+SIzr0RRdHRY/vcZSoJmZ2dLzHwsa2VnBsQE0F4iej6O40PVanVmnZppt9v3MXMZQCgiTxrmj6vqd1TkIoDHoyh6d39ymqZniejeSqUyNYwY+gwlQWmaHnfOvYybu1RBFS+KyBVV/SYRpevUJIqi81mWPUtECuBXzskXIThEioYCETM/Za39dr1ev2dN57kgCB4dRgx9ck9QvV4PAVSbzea/BuW1Wq3kfe+MarAPIL5Fu9a5ubkVrD56nlWPEmlRSX+RLWVfFu8/R0RPsPK89/7zcRwfyrIsAbAUx/GuvOPoE+S9YLfbPaSq/1gvN8aUjTHLxugRVbzwFksogJ8o81cB/JqBr8Rx/PMkSX4P4DqAFwCQtdYCgPf+L6r6MIBLeccCDKGCmHm61WpdGJRZa/d0Op2Kc67rnGsT0Znb6QNAlmUXer3eNwA85qTwA1H9LIDSwBTNsiwFgFardZ2IxgGM5RwKgJwraGpqqtLpdHoAOoNyIopEpExEGZFfaDSWzt1KP45jKyInAdwHwAPYbYzrqKrGcbw3SZK/30qPiJJarTbZaDQu5xkPkHMF9Xq9Kt5s42+gqhkz310oFIyqGQPQXT9nIo7fq6pfYuYVETlNROdV9ek0TS8BqAGI38LuoojUcwzlDXKtoF6vVyai5fVyZk5EJHbOlZnZrR+31p4i1enU2u9jdaNma+0nAIRRFK2IIGJGetsggqDlvb/nduPvhLw3aSaiDQlIkqQZRVGBiGLvfXtwLIqiDwGopWn6I6QpoiiqGe+nleh9pDQuJPsBvVQqlS6sX7dPt9t1xpihHFlyTRAROV2911mPEFGXRHaAudEXhmF4gIgOq+qz9Xo97HQ672JgRo05AkVVICsADhDRE/Pz8xsqs8/Y2NiYiPg8Y+mTa4K8960gCGZvNUZEi8p8PxP138QDZv4IPF4nyKzv+HsN8ykl6hBRHQoloklV/XGWZc/fwXRkjGnfYc7bIteybLfbKRGFt7Ljvb+mqpMiMgYAlUrlIACGQR3GPAiDLxCzAFgh4hMgLAH4bpZlT2G1o90WVZ3sdrsLecbSJ+89qAOsnqYXFxebg3aIqEpERWbeD+ClIAg+CPBhAESkJSJaUdWDTDwG6A+dc0+2Wq3rm7DJRGSXl5f/JxIEVZ3rdrsPAPjDgLjf1pvi3E5rbZWIPgzRi2DsI6KAiH6jouMCGS8VS99LkmRTj4y1dkZVlwBsaA55kPvOn2XZq8aYfQDMuqFFAB0Bqsz8KBEdIcMnieiXIvJYo9H4lkIrzHzp6tWrm95PVPWo9/5PuQYxwDBaY4fZn4vj+Ka3bGPMvwGUiChQ1R0gWlCVx5Mkebr/2sDMM0R0drOGwjDcz8yddrt9Ld8Q3mQoZ4dGo/mSqu4tl8vTfVmSJFcBeGKuEtFzpWLx4TRNT69Tba797sjs7GwpCIIThULhtzm6voFh3Sh67/0zxSD4WK1Wi9ZkXVVtqkhdRN4zPz+/8YuGyCuquhmfOE3TTxHR2YWFhVaunq83NKyFm83mojKfcc59ulKpTAKAql7B6sGvAkAGfCgAKHjVy865CazuX/0f4+br2WK1Wv0MM7/WaDQ2XKvkTe5dbJA0TefK5fLpIAhOhGH4ChEJEd0FoFosFveWSiVl5nHn3AQzT6vqcWY+PjExcRgCKOmyiNxQ1XlVXSiVSgLgiKr+LU3Tl4fpe5+t+nDIcRw/ICIHRORBZk5F5BoRXWfmG3BOhXknRHaDeVJEFgzRimG+6IFMRNrOuUtBENyw1i5fvnz5xhb5veWfnslau0dEJgEslkql+W63GxDRLLyfIUB6qk1jTBNASkSh937CGHMlTdO5LfZ11eHtsHlXuXy3G+N96lAXoh6LLPvVWwAyxoyJSNEYE6hqi4jOpWl6BUM6CN7R2e0wOmg/juMIQOScGwcAY0xHRJpLS0tDOx2PGDFixIgRI0aMGDFixIj/bv4Drv86hTQP+3kAAAAASUVORK5CYII="/>
 <span>AtlasFlow</span>
 </a>
 <button aria-expanded="false" aria-label="Open navigation" class="menu-btn" id="menuBtn">
@@ -716,6 +715,14 @@
       menuBtn.setAttribute('aria-expanded', 'false');
     }));
 
+    const homeLink = document.getElementById('homeLink');
+    homeLink.addEventListener('click', event => {
+      event.preventDefault();
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      window.location.assign(window.location.pathname + '#top');
+    });
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -728,4 +735,4 @@
   </script>
 </body>
 </html>
-<script async="" data-cookie-opt-in="true" data-deployment-id="dpl_HNwpQfnTJDSK3Wi95sBTuyqkNZjy" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_5UVK1JkEJezffxtXCNndnryA5fv8" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_Gg9PvwKjRmTcY5d6JUwRaVaAe7t1" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_FdD9ZVVTm387723RJQciKyYf4Xfv" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_3kxs4KqoAiJpZTMvyzsXr9RiBauV" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_E2SuEXyRBfWJZXvm26xQZtxojFZn" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_CwYFR12iQf4PuGEBDdgiLHuKaWi8" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_DNZa9WY46Uv86U6292J6WRZqkZ4f" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_9Au75SkLXz4WqmhFxDBYmeU7i1bP" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_AraqJ1txUXhjnwEdzNi3bVymvd1a" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
+<script async="" data-cookie-opt-in="true" data-deployment-id="dpl_HNwpQfnTJDSK3Wi95sBTuyqkNZjy" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_5UVK1JkEJezffxtXCNndnryA5fv8" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_Gg9PvwKjRmTcY5d6JUwRaVaAe7t1" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_FdD9ZVVTm387723RJQciKyYf4Xfv" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_3kxs4KqoAiJpZTMvyzsXr9RiBauV" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_E2SuEXyRBfWJZXvm26xQZtxojFZn" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_CwYFR12iQf4PuGEBDdgiLHuKaWi8" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_DNZa9WY46Uv86U6292J6WRZqkZ4f" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_9Au75SkLXz4WqmhFxDBYmeU7i1bP" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_AraqJ1txUXhjnwEdzNi3bVymvd1a" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_vED4Z7PTikESwapji4TGm8J94JsS" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
