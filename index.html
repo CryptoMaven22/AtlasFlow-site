@@ -61,7 +61,7 @@
     }
     header.scrolled { border-bottom-color: var(--line); background: rgba(246, 247, 243, .96); }
     .nav {
-      min-height: 78px;
+      min-height: 148px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -76,10 +76,10 @@
       padding: 4px 0;
     }
     .brand-mark {
-      width: 66px;
-      height: 66px;
+      width: 132px;
+      height: 132px;
       display: block;
-      flex: 0 0 66px;
+      flex: 0 0 132px;
       object-fit: contain;
     }
     .nav-links { display: flex; align-items: center; gap: 26px; font-size: 14px; }
@@ -89,9 +89,9 @@
     .nav-cta { border: 1px solid var(--ink); border-radius: 999px; padding: 10px 16px; }
     .menu-btn { display: none; border: 0; background: none; padding: 8px; }
 
-    main { padding-top: 78px; }
+    main { padding-top: 148px; }
     .hero {
-      min-height: calc(100vh - 78px);
+      min-height: calc(100vh - 148px);
       display: grid;
       align-items: center;
       padding: 84px 0 56px;
@@ -228,7 +228,7 @@
       padding: 0;
       background: #030909;
       overflow: hidden;
-      scroll-margin-top: 78px;
+      scroll-margin-top: 148px;
     }
 
     .iom-image-stack {
@@ -437,10 +437,11 @@
     }
     @media (max-width: 760px) {
       .shell { width:min(calc(100% - 30px), var(--max)); }
-      .nav { min-height:68px; }
-      main { padding-top:68px; }
+      .nav { min-height:112px; }
+      main { padding-top:112px; }
+      .brand-mark { width: 96px; height: 96px; flex-basis: 96px; }
       .menu-btn { display:block; }
-      .nav-links { position:fixed; inset:68px 15px auto; padding:18px; border:1px solid var(--line); border-radius:18px; background:rgba(246,247,243,.98); box-shadow:var(--shadow); display:none; flex-direction:column; align-items:flex-start; gap:18px; }
+      .nav-links { position:fixed; inset:112px 15px auto; padding:18px; border:1px solid var(--line); border-radius:18px; background:rgba(246,247,243,.98); box-shadow:var(--shadow); display:none; flex-direction:column; align-items:flex-start; gap:18px; }
       .nav-links.open { display:flex; }
       .nav-cta { width:100%; text-align:center; }
       .hero { padding-top:58px; }
