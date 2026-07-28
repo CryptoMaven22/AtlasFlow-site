@@ -237,6 +237,44 @@
       }
     }
 
+
+    /* Animal Spirit color balance:
+       only the two "Animal Spirit" titles remain gold;
+       all other section text and visual artwork remain purple. */
+    :root{
+      --animal-gold:#D49A39;
+      --animal-purple:#B277FF;
+    }
+
+    .project[style*="--animal"] .project-copy h3,
+    .project[style*="--animal"] .mini-brand strong{
+      color:var(--animal-gold)!important;
+    }
+
+    .project[style*="--animal"] .project-number,
+    .project[style*="--animal"] .fact b,
+    .project[style*="--animal"] .fact span,
+    .project[style*="--animal"] .project-link,
+    .project[style*="--animal"] .visual-title,
+    .project[style*="--animal"] .animal-copy .kicker,
+    .project[style*="--animal"] .animal-copy h4,
+    .project[style*="--animal"] .traits,
+    .project[style*="--animal"] .animal-copy p,
+    .project[style*="--animal"] .guide strong,
+    .project[style*="--animal"] .guide span{
+      color:var(--animal-purple)!important;
+    }
+
+    .project[style*="--animal"] .mini-brand svg,
+    .project[style*="--animal"] .fact svg{
+      color:var(--animal-purple)!important;
+    }
+
+    .project[style*="--animal"] .animal-feature-image,
+    .project[style*="--animal"] .animal-thumb{
+      filter:saturate(1.08) brightness(1.03);
+    }
+
 </style>
 </head>
 <body>
@@ -405,4 +443,4 @@
   </script>
 </body>
 </html>
-<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_Ftwd2ZkDSWbp2XfuTc5wHLcG3ywf" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_DsCuowL2zsSPm75mFUKM2HSwNogR" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_4GNXb2PjJJKRqHguNYZZCcsb1zjR" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
+<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_Ftwd2ZkDSWbp2XfuTc5wHLcG3ywf" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_DsCuowL2zsSPm75mFUKM2HSwNogR" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_4GNXb2PjJJKRqHguNYZZCcsb1zjR" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_92vWrjZgS9vsAGokkoJZioh8BSXZ" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
