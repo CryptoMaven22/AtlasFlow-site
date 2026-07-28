@@ -332,6 +332,95 @@
       }
     }
 
+
+
+    /* Animal Spirit fit correction — match the compact product-card rhythm */
+    .project[style*="--animal"] .visual{
+      align-self:start;
+      height:max-content;
+      min-height:0;
+      justify-content:flex-start;
+      gap:24px;
+      container-type:inline-size;
+      container-name:animalVisual;
+    }
+    .project[style*="--animal"] .visual-top{
+      display:grid;
+      grid-template-columns:max-content minmax(0,1fr);
+      align-items:start;
+      gap:28px;
+    }
+    .project[style*="--animal"] .visual-title{
+      max-width:none;
+    }
+    .project[style*="--animal"] .animal-layout{
+      margin-top:0;
+    }
+
+    @container animalVisual (max-width:900px){
+      .project[style*="--animal"] .animal-layout{
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+      .project[style*="--animal"] .elephant-card{
+        grid-template-columns:minmax(220px,.86fr) minmax(260px,1.14fr);
+        min-height:320px;
+      }
+      .project[style*="--animal"] .elephant-art{
+        min-height:320px;
+        padding:16px 10px;
+      }
+      .project[style*="--animal"] .animal-feature-image{
+        max-width:74%;
+        max-height:78%;
+      }
+      .project[style*="--animal"] .animal-copy{
+        padding:24px 26px 24px 18px;
+      }
+      .project[style*="--animal"] .guide{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        gap:10px;
+      }
+      .project[style*="--animal"] .guide > div{
+        min-height:108px;
+        justify-content:flex-end;
+        padding:10px 12px 12px;
+      }
+      .project[style*="--animal"] .animal-thumb{
+        height:44px;
+        margin-bottom:5px;
+      }
+      .project[style*="--animal"] .guide strong{
+        font-size:.94rem;
+        line-height:1.15;
+      }
+      .project[style*="--animal"] .guide span{
+        font-size:.72rem;
+        line-height:1.35;
+      }
+    }
+
+    @container animalVisual (max-width:650px){
+      .project[style*="--animal"] .visual-top{
+        grid-template-columns:1fr;
+        gap:10px;
+      }
+      .project[style*="--animal"] .elephant-card{
+        grid-template-columns:1fr;
+        min-height:0;
+      }
+      .project[style*="--animal"] .elephant-art{
+        min-height:300px;
+        border-radius:17px 17px 0 0;
+      }
+      .project[style*="--animal"] .animal-copy{
+        padding:22px;
+      }
+      .project[style*="--animal"] .guide{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+
 </style>
 </head>
 <body>
@@ -500,4 +589,4 @@
   </script>
 </body>
 </html>
-<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_Ftwd2ZkDSWbp2XfuTc5wHLcG3ywf" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_DsCuowL2zsSPm75mFUKM2HSwNogR" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_3p7cgXGUKbcYgUsJ75Xb2oNeRsFP" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_9GpMiApwtqxNW8GDtKBLnAoRfPPo" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_Eg7AtzJpCsT69c9cYZQP4Ut7V9Qw" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_8JgGGWNgagR5Kyi25X48Ct9TBPHr" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_6ytsUaQZBj1XpV3rrPoMfWkv6ecE" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_7xTvHana4SanQGg4yci21H2sUFvG" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_DWS9n9wepMiRR86vgsqoJu7TmttA" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
+<script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_Ftwd2ZkDSWbp2XfuTc5wHLcG3ywf" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_DsCuowL2zsSPm75mFUKM2HSwNogR" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_3p7cgXGUKbcYgUsJ75Xb2oNeRsFP" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_9GpMiApwtqxNW8GDtKBLnAoRfPPo" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_Eg7AtzJpCsT69c9cYZQP4Ut7V9Qw" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_8JgGGWNgagR5Kyi25X48Ct9TBPHr" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_6ytsUaQZBj1XpV3rrPoMfWkv6ecE" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_7xTvHana4SanQGg4yci21H2sUFvG" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_DWS9n9wepMiRR86vgsqoJu7TmttA" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_9m9yFU9TUZi5pZ89kk6XSwWLDFq8" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
