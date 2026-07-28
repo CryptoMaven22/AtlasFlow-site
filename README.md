@@ -1,19 +1,17 @@
-# AtlasFlow Static Site with Project OVs
+# Matt McGreal Portfolio
 
-Upload these files to the root of the GitHub repository. The logo files are intentionally referenced from the repo root, not /assets.
+Static portfolio site prepared for GitHub and Vercel.
 
-Pages included:
-- index.html
-- laura.html
-- cal.html
-- arc.html
-- privacy.html
-- sms-consent.html
-- terms.html
-- styles.css
+## Deploy
+1. Copy all files and folders into the root of your Git repository.
+2. Commit and push.
+3. In Vercel, use **Other** as the framework preset and leave the build command blank.
 
-Logo files:
-- atlasflow-logo-full.png
-- laura-logo-coral.png
-- cal-logo-blue.png
-- arc-logo-teal.png
+## Structure
+- `index.html` — site markup
+- `assets/css/styles.css` — presentation
+- `assets/js/main.js` — navigation, reveal effects, and case-study modal
+- `assets/images/` — optimized portfolio graphics
+- `assets/docs/` — résumé PDF
+
+The former single-file HTML embedded every image and the résumé as Base64. This package separates and compresses those assets for faster loads and easier maintenance.
