@@ -478,6 +478,82 @@
   .stage-grid>div:last-child{border-bottom:0}
   .stage-transition{align-items:flex-start;flex-direction:column}
 }
+
+
+/* Product Proof Chain top-card boxes */
+.decision-chain-card{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+.ppc-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:14px;
+}
+.ppc-box{
+  position:relative;
+  min-height:188px;
+  background:#f8fbff;
+  border:1px solid #d8e5fb;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85);
+}
+.ppc-index{
+  position:absolute;
+  top:12px;
+  left:14px;
+  font-size:.8rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  color:#6e87b7;
+}
+.ppc-top{
+  min-height:108px;
+  padding:34px 16px 14px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.ppc-circle{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#edf4ff;
+  border:1px solid #d9e7ff;
+  color:#075cf0;
+  font-size:1.3rem;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.ppc-top h4{
+  margin:0;
+  color:#0b1832;
+  font-size:.98rem;
+  line-height:1.2;
+}
+.ppc-bottom{
+  border-top:1px solid #d8e5fb;
+  padding:14px 16px 16px;
+  color:#3f506d;
+  font-size:.8rem;
+  line-height:1.45;
+  text-align:center;
+  background:#fff;
+}
+@media(max-width:700px){
+  .ppc-grid{
+    grid-template-columns:1fr;
+  }
+  .ppc-box{
+    min-height:0;
+  }
+}
 </style>
 </head>
 <body>
@@ -558,30 +634,47 @@
 </div>
 <div aria-label="The decision chain" class="decision-chain-card">
 <div class="decision-chain-title">The Product Proof Chain</div>
-<div class="decision-chain">
-<div class="chain-step">
-<span class="chain-icon">◇</span>
-<strong>Product Thesis</strong>
-<small>Defines what matters</small>
+<div aria-label="The Product Proof Chain stages" class="ppc-grid">
+<article class="ppc-box">
+<span class="ppc-index">01</span>
+<div class="ppc-top">
+<div class="ppc-circle">◇</div>
+<h4>Product Thesis</h4>
 </div>
-<span class="chain-arrow">→</span>
-<div class="chain-step">
-<span class="chain-icon">⌘</span>
-<strong>Steel Thread</strong>
-<small>Defines what to test</small>
+<div class="ppc-bottom">
+      Define the problem, the user, and the outcome worth pursuing.
+    </div>
+</article>
+<article class="ppc-box">
+<span class="ppc-index">02</span>
+<div class="ppc-top">
+<div class="ppc-circle">⌘</div>
+<h4>Steel Thread</h4>
 </div>
-<span class="chain-arrow">→</span>
-<div class="chain-step">
-<span class="chain-icon">✓</span>
-<strong>VPOC</strong>
-<small>Reveals what is true</small>
+<div class="ppc-bottom">
+      Model the smallest complete path that is worth testing end to end.
+    </div>
+</article>
+<article class="ppc-box">
+<span class="ppc-index">03</span>
+<div class="ppc-top">
+<div class="ppc-circle">✓</div>
+<h4>VPOC</h4>
 </div>
-<span class="chain-arrow">→</span>
-<div class="chain-step">
-<span class="chain-icon">↗</span>
-<strong>MVP</strong>
-<small>Operationalizes evidence</small>
+<div class="ppc-bottom">
+      Validate the workflow with a thin prototype and real operator feedback.
+    </div>
+</article>
+<article class="ppc-box">
+<span class="ppc-index">04</span>
+<div class="ppc-top">
+<div class="ppc-circle">↗</div>
+<h4>MVP</h4>
 </div>
+<div class="ppc-bottom">
+      Build the smallest dependable system the evidence supports.
+    </div>
+</article>
 </div>
 </div>
 </div>
@@ -804,4 +897,4 @@
   </script>
 </body>
 </html>
-<script async="" data-cookie-opt-in="true" data-deployment-id="dpl_HiqbZoHDs4NU7GM7QRnkyV1EAUJx" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_Be923qsKHsg5KScoyr2G4whHxLRf" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
+<script async="" data-cookie-opt-in="true" data-deployment-id="dpl_HiqbZoHDs4NU7GM7QRnkyV1EAUJx" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_Be923qsKHsg5KScoyr2G4whHxLRf" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
