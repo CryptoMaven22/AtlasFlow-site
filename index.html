@@ -1224,6 +1224,36 @@
     grid-column:auto !important;
   }
 }
+
+/* Anchor alignment: place each destination directly beneath the sticky navigation */
+html{
+  scroll-padding-top:76px;
+}
+
+#main-content,
+#top,
+#work,
+#method,
+#about,
+#contact{
+  scroll-margin-top:76px;
+}
+
+@media(max-width:720px){
+  html{
+    scroll-padding-top:68px;
+  }
+
+  #main-content,
+  #top,
+  #work,
+  #method,
+  #about,
+  #contact{
+    scroll-margin-top:68px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1560,7 +1590,65 @@
       if (event.key === 'Escape' && caseStudyLightbox.classList.contains('is-open')) closeCaseStudyLightbox();
     });
 
+
+    /* Precise internal-link alignment beneath the sticky navigation */
+    const internalAnchorLinks = Array.from(
+      document.querySelectorAll('a[href^="#"]:not([href="#"])')
+    );
+
+    const scrollToInternalTarget = (target, hash, behavior = 'smooth') => {
+      const stickyHeader = document.querySelector('header');
+      const headerHeight = stickyHeader
+        ? stickyHeader.getBoundingClientRect().height
+        : 0;
+
+      const targetTop =
+        window.scrollY +
+        target.getBoundingClientRect().top -
+        headerHeight;
+
+      window.scrollTo({
+        top: Math.max(0, Math.round(targetTop)),
+        behavior
+      });
+
+      if (hash && window.location.hash !== hash) {
+        history.pushState(null, '', hash);
+      }
+    };
+
+    internalAnchorLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const hash = link.getAttribute('href');
+        const target = hash ? document.querySelector(hash) : null;
+        if (!target) return;
+
+        event.preventDefault();
+
+        const reducedMotion = window.matchMedia(
+          '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+        scrollToInternalTarget(
+          target,
+          hash,
+          reducedMotion ? 'auto' : 'smooth'
+        );
+      });
+    });
+
+    /* Keep direct hash visits aligned correctly after layout and images settle. */
+    window.addEventListener('load', () => {
+      if (!window.location.hash) return;
+      const target = document.querySelector(window.location.hash);
+      if (!target) return;
+
+      window.requestAnimationFrame(() => {
+        scrollToInternalTarget(target, null, 'auto');
+      });
+    });
+
   </script>
 </body>
 </html>
-<script async="" data-cookie-opt-in="true" data-deployment-id="dpl_HiqbZoHDs4NU7GM7QRnkyV1EAUJx" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_Be923qsKHsg5KScoyr2G4whHxLRf" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_AZGYUouZU7MQqbMxdLxafHdYcL3t" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
+<script async="" data-cookie-opt-in="true" data-deployment-id="dpl_HiqbZoHDs4NU7GM7QRnkyV1EAUJx" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_Be923qsKHsg5KScoyr2G4whHxLRf" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async="" data-cookie-opt-in="true" data-deployment-id="dpl_AZGYUouZU7MQqbMxdLxafHdYcL3t" data-explicit-opt-in="true" src="https://vercel.live/_next-live/feedback/feedback.js"></script><script async data-explicit-opt-in="true" data-cookie-opt-in="true" data-deployment-id="dpl_42y7v4bfTMCsSYCUcGteCHqrdeM8" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
