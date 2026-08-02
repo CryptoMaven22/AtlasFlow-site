@@ -1,0 +1,13 @@
+{
+  "name": "atlasflow-site",
+  "version": "1.0.0",
+  "description": "AtlasFlow - AI Workflow Architecture",
+  "private": true,
+  "scripts": {
+    "build": "echo 'No build step required for static site'",
+    "dev": "npx serve ."
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
