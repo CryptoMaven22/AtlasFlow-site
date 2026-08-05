@@ -19,3 +19,7 @@ Drop the contents of this folder into the root of a Git repository and deploy as
 - Large PNG case-study images were converted to WebP.
 - Duplicate Vercel Live feedback scripts were removed.
 - Vercel Insights remains enabled.
+
+
+## Compatibility fix
+The production CSS and JavaScript are embedded in `index.html` so the page renders correctly when opened locally or deployed through a simple Git/Vercel static setup. Image and PDF assets remain in `/assets`.
