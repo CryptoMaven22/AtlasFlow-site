@@ -23,3 +23,6 @@ Drop the contents of this folder into the root of a Git repository and deploy as
 
 ## Compatibility fix
 The production CSS and JavaScript are embedded in `index.html` so the page renders correctly when opened locally or deployed through a simple Git/Vercel static setup. Image and PDF assets remain in `/assets`.
+
+
+Opening-screen fix: the entry card is embedded in index.html and the underlying page is scroll-locked until entry.
